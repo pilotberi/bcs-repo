@@ -1,0 +1,10 @@
+{
+	"appName": "BCSSteam",
+	"objName": "stm",
+	"serviceName": "getAllSfmWithoutLimit",
+	"url": "sfm/getall",
+	"params": [],
+	"setJson": false,
+	"setMethod": "POST",
+	"contentType": ""
+}

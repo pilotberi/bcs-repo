@@ -1,0 +1,7 @@
+{
+	"appName": "BCSSteam",
+	"objName": "vendor",
+	"serviceName": "deleteVendor",
+	"tableName": "BCSSteam_vendor",
+	"url": "vendor/delete"
+}

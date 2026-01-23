@@ -1,0 +1,54 @@
+{
+	"appName": "BCSSteam",
+	"name": "inputPower",
+	"label": "Input Power",
+	"url": "inputpower.html",
+	"column": [
+	{
+		"name": "id",
+		"validate": false
+	},
+	{
+		"name": "input_power",
+		"label": "Input Power",
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": true
+		}]
+	},
+	{
+		"name": "description",
+		"label": "Description",
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": false
+		}]
+	}],
+	"columnDefs": [
+	{
+		"type": "text",
+		"title": "Id",
+		"width": 1,
+		"align": "left",
+		"wordWrap": false,
+		"readOnly": true
+	},
+	{
+		"type": "text",
+		"title": "Input Power",
+		"width": 300,
+		"align": "left",
+		"wordWrap": true,
+		"readOnly": false
+	},
+	{
+		"type": "text",
+		"title": "Description",
+		"width": 400,
+		"align": "left",
+		"wordWrap": true,
+		"readOnly": false
+	}]
+}

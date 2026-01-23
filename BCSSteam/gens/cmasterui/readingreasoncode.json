@@ -1,0 +1,59 @@
+{
+	"appName": "BCSSteam",
+	"name": "readingReasonCode",
+	"label": "Reason Code",
+	"url": "scripts/cl_readingreasoncode",
+	"services":
+	{
+		"get": "getSfmReadingReasonCode",
+		"save": "saveSfmReadingReasonCode"
+	},
+	"column": [
+	{
+		"name": "id",
+		"validate": false
+	},
+	{
+		"name": "reading_reason_code",
+		"label": "Reason Code",
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": true
+		}]
+	},
+	{
+		"name": "description",
+		"label": "Description",
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": false
+		}]
+	}],
+	"columnDefs": [
+	{
+		"type": "text",
+		"title": "Id",
+		"width": 1,
+		"align": "left",
+		"wordWrap": false,
+		"readOnly": true
+	},
+	{
+		"type": "text",
+		"title": "Reason Code",
+		"width": 400,
+		"align": "left",
+		"wordWrap": true,
+		"readOnly": false
+	},
+	{
+		"type": "text",
+		"title": "Description",
+		"width": 400,
+		"align": "left",
+		"wordWrap": true,
+		"readOnly": false
+	}]
+}
