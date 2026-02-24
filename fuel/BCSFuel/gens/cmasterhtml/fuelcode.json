@@ -1,0 +1,110 @@
+{
+	"appName": "BCSFuel",
+	"name": "code",
+	"label": "Fuel Code",
+	"url": "code.html",
+	"column": [
+	{
+		"name": "id",
+		"validate": false
+	},
+	{
+		"name": "code",
+		"label": "Fuel Code",
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": true
+		}]
+	},
+	{
+		"name": "unit",
+		"label": "Fuel Units",
+		"validate": false,
+		"validateBy": [
+		{
+			"mandatory": false
+		}]
+	},
+	{
+		"name": "description",
+		"label": "Description",
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": false
+		}]
+	},
+	{
+		"name": "gst_applicable",
+		"label": "GST Applicable",
+		"validate": false,
+		"validateBy": [
+		{
+			"mandatory": false
+		}]
+	},
+	{
+		"name": "gst_rate",
+		"label": "GST Rate",
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": false
+		}]
+	}],
+	"columnDefs": [
+		{
+			"type": "text",
+			"title": "Id",
+			"width": 1,
+			"align": "left",
+			"wordWrap": false,
+			"readOnly": true
+		},
+		{
+			"type": "text",
+			"title": "Fuel Code",
+			"width": 200,
+			"align": "left",
+			"wordWrap": true,
+			"readOnly": false
+		},
+		{
+			"type": "dropdown",
+			"title": "Fuel Unit",
+			"width": 200,
+			"align": "left",
+			"wordWrap": true,
+			"readOnly": false,
+			"source": "dataSources.getAllUnit"
+		},
+
+		{
+			"type": "text",
+			"title": "Description",
+			"width": 300,
+			"align": "left",
+			"wordWrap": true,
+			"readOnly": false
+		},
+		{
+			"type": "dropdown",
+			"title": "GST Applicable",
+			"width": 180,
+			"align": "left",
+			"wordWrap": false,
+			"readOnly": false,
+			"source": "dataSources.gstApplicable"
+		},
+		{
+			"type": "dropdown",
+			"title": "Fuel GST Rate",
+			"width": 150,
+			"align": "left",
+			"wordWrap": false,
+			"readOnly": false,
+			"source": "dataSources.gstRate"
+		}
+	]
+}

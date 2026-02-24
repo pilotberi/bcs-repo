@@ -1,0 +1,65 @@
+{
+	"appName": "BCSSteam",
+	"url": "bcsadmin.role",
+	"role":
+	{
+		"name": "bcsadmin",
+		"description": "Administrator with full access to all BCS modules and data",
+		"default": false,
+		"menu":
+		{
+			"id": "bcsadminmenu",
+			"sequence": 4,
+			"tools": [
+			{
+				"id": "bcssteam_vendor",
+				"title": "Manage Vendors",
+				"icon": "images/vendor-menu.svg",
+				"href": "vendor.html",
+				"target": "default"
+			},
+			{
+				"id": "bcssteam_workingPrinciple",
+				"title": "Manage Working Principles",
+				"icon": "images/working-principle-menu.svg",
+				"href": "workingprinciple.html",
+				"target": "default"
+			},
+			{
+				"id": "bcssteam_size",
+				"title": "Manage Sizes",
+				"icon": "images/size-menu.svg",
+				"href": "size.html",
+				"target": "default"
+			},
+			{
+				"id": "bcssteam_inputPower",
+				"title": "Manage Input Powers",
+				"icon": "images/inputpower-menu.svg",
+				"href": "inputpower.html",
+				"target": "default"
+			},
+			{
+				"id": "bcssteam_outputSignal",
+				"title": "Manage Output Signals",
+				"icon": "images/outputsignal-menu.svg",
+				"href": "outputsignal.html",
+				"target": "default"
+			},
+			{
+				"id": "bcssteam_readingReasonCode",
+				"title": "Manage Reason Codes",
+				"icon": "images/readingreasoncode-menu.svg",
+				"href": "readingreasoncode.html",
+				"target": "default"
+			},
+			{
+				"id": "bcssteam_steamFlowMeter",
+				"title": "Track Steam Flow Meter",
+				"icon": "images/sfm-menu.svg",
+				"href": "steamflowmeter.html",
+				"target": "default"
+			}]
+		}
+	}
+}

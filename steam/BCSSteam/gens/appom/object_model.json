@@ -1,0 +1,190 @@
+{
+	"appName": "BCSSteam",
+	"om":
+	{
+		"BCSSteam_combined_master":
+		{
+			"master_name":
+			{
+				"type": "string"
+			},
+			"master_data":
+			{
+				"type": "text"
+			},
+			"edited_by":
+			{
+				"type": "string"
+			},
+			"edited_on":
+			{
+				"type": "bigint"
+			}
+		},
+		"BCSSteam_vendor":
+		{
+			"business_partner_id":
+			{
+				"type": "string"
+			},
+			"business_partner_short_name":
+			{
+				"type": "string"
+			},
+			"isactive":
+			{
+				"type": "bool"
+			},
+				"created_by":
+			{
+				"type": "string"
+			},
+			"created_on":
+			{
+				"type": "bigint"
+			},
+			"modified_by":
+			{
+				"type": "string"
+			},
+			"modified_on":
+			{
+				"type": "bigint"
+			}
+		},
+		"BCSSteam_sfm":
+		{
+			"sfm_code":
+			{
+				"type": "string"
+			},
+			"sfm_description":
+			{
+				"type": "string"
+			},
+			"vendor_id":
+			{
+				"type": "string"
+			},
+			"model_no":
+			{
+				"type": "string"
+			},
+			"serial_no":
+			{
+				"type": "string"
+			},
+			"year_of_manufacturing":
+			{
+				"type": "bigint"
+			},
+			"working_principle_id":
+			{
+				"type": "string"
+			},
+			"size_id":
+			{
+				"type": "string"
+			},
+			"flow_rate_min":
+			{
+				"type": "double"
+			},
+			"flow_rate_max":
+			{
+				"type": "double"
+			},
+			"input_power_id":
+			{
+				"type": "string"
+			},
+			"output_signal_id":
+			{
+				"type": "string"
+			},
+			"connected_tnpcb":
+			{
+				"type": "bool"
+			},
+			"tnpcb_ref":
+			{
+				"type": "string"
+			},
+			"connected_cpcb":
+			{
+				"type": "bool"
+			},
+			"cpcb_ref":
+			{
+				"type": "string"
+			},
+			"isactive":
+			{
+				"type": "bool"
+			},
+			"remarks":
+			{
+				"type": "string"
+			},
+			"created_by":
+			{
+				"type": "string"
+			},
+			"created_on":
+			{
+				"type": "bigint"
+			},
+			"modified_by":
+			{
+				"type": "string"
+			},
+			"modified_on":
+			{
+				"type": "bigint"
+			},
+			"isactive":
+			{
+				"type": "bool"
+			}
+		},
+		"BCSSteam_utility":
+		{
+			"sfm_code_id":
+			{
+				"type": "string"
+			},
+			"record_date":
+			{
+				"type": "bigint"
+			},
+			"value":
+			{
+				"type": "double"
+			},
+			"reason":
+			{
+				"type": "string"
+			},
+			"remarks":
+			{
+				"type": "string"
+			},
+			"created_by":
+			{
+				"type": "string"
+			},
+			"created_on":
+			{
+				"type": "bigint"
+			},
+			"modified_by":
+			{
+				"type": "string"
+			},
+			"modified_on":
+			{
+				"type": "bigint"
+			}
+		}
+	}
+}

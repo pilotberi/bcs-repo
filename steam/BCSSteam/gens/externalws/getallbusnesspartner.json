@@ -1,0 +1,10 @@
+{
+	"appName": "Company",
+	"objName": "businnespartner",
+	"serviceName": "getAllBusinessPartner",
+	"url": "../Company/businnespartner/getall",
+	"params": [],
+	"setJson": true,
+	"setMethod": "POST",
+	"contentType": "application/json"
+}

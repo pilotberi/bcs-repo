@@ -1,0 +1,138 @@
+{
+	"appName": "BCSFuel",
+	"name": "vendorMap",
+	"label": "Fuel Vendors",
+	"url": "scripts/cl_vendor",
+	"tableHeaders": ["Vendor", "Short Name", "Active"],
+	"tableDispHeaders": [
+	{
+		"name": "business_partner_id",
+		"isSort": true
+	},
+	{
+		"name": "business_partner_short_name",
+		"isSort": true
+	},
+	{
+		"name": "isactive",
+		"isSort": true
+	}],
+	"sort": [],
+	"isDuplicateMandatory":
+	{
+		"setDuplicate": false,
+		"setAttr": ""
+	},
+	"deleteConfirmBy":
+	{
+		"setAttr": "business_partner_name"
+	},
+	"isImportMandatory": false,
+	"importUrl": null,
+	"isFilterMandatory": false,
+	"services":
+	{
+		"create": "createVendor",
+		"read": "getAllVendor",
+		"update": "updateVendor",
+		"delete": "deleteVendor"
+	},
+	"loadDataByFilter":
+	{
+		"isFilter": true,
+		"dateFilter":
+		{
+			"set": false,
+			"options": []
+		},
+		"params": ["offset", "limit"],
+		"filters": []
+	},
+	"buttons": [],
+	"formLayout": [
+	{
+		"type": "default",
+		"content": [
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-4 col-md-4",
+			"field": "business_partner_id"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-4 col-md-4",
+			"field": "business_partner_short_name"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-9 col-md-4",
+			"field": "isactive"
+		}]
+	}],
+	"attrs": [
+	{
+		"name": "business_partner_id",
+		"label": "Vendors",
+		"type": "lookup-embedded",
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": true
+		}],
+		"options": [],
+		"dataSrc":
+		{
+			"name": "getAllBusinessPartner",
+			"objName": "businessPartner",
+			"valueAttr": "_sid",
+			"displayAttr": "name",
+			"service": "get",
+			"options":
+			{
+				"setFilter": false,
+				"isMaster": false,
+				"elementId": ""
+			},
+			"decrypt": "name",
+			"allowCreate": false,
+			"objDetails":
+			{
+				"displayFields": [
+				{
+					"name": "",
+					"label": "",
+					"type": "text",
+					"validate": true,
+					"options": []
+				}]
+			}
+		}
+	},
+	{
+		"name": "business_partner_short_name",
+		"label": "Short Name",
+		"type": "text",
+		"options": [],
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": true
+		}]
+	},
+	{
+		"name": "isactive",
+		"label": "Status",
+		"type": "switch",
+		"validate": false,
+		"options": [
+		{
+			"label": "Active"
+		}]
+	}],
+	"encrypt": [],
+	"decrypt": [],
+	"confirmBy": "business_partner_name"
+}

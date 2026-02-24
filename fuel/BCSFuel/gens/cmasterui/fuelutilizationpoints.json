@@ -1,0 +1,96 @@
+{
+	"appName": "BCSFuel",
+	"name": "utilizationPoint",
+	"label": "Utilization Point By Fuel Code",
+	"url": "scripts/cl_utilizationpointbyfuelcode",
+	"services":
+	{
+		"get": "getUtilizationPoint",
+		"save": "saveUtilizationPoint"
+	},
+	"column": [
+	{
+		"name": "id",
+		"validate": false
+	},
+	{
+		"name": "fuel_code_id",
+		"label": "Fuel Code",
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": true
+		}]
+	},
+	{
+		"name": "fuel_unit_id",
+		"label": "Fuel Unit",
+		"validate": false,
+		"validateBy": [
+		{
+			"mandatory": false
+		}]
+	},
+	{
+		"name": "utilization_point",
+		"label": "Fuel Utilization Point",
+		"validate": false,
+		"validateBy": [
+		{
+			"mandatory": false
+		}]
+	},
+	{
+		"name": "description",
+		"label": "Description",
+		"validate": false,
+		"validateBy": [
+		{
+			"mandatory": false
+		}]
+	}],
+	"columnDefs": [
+	{
+		"type": "text",
+		"title": "Id",
+		"width": 1,
+		"align": "left",
+		"wordWrap": false,
+		"readOnly": true
+	},
+	{
+		"type": "dropdown",
+		"title": "Fuel Code",
+		"width": 200,
+		"align": "left",
+		"wordWrap": true,
+		"readOnly": false,
+		"source": "dataSources.codeName"
+	},
+	{
+		"type": "dropdown",
+		"title": "Fuel Unit",
+		"width": 150,
+		"align": "left",
+		"wordWrap": true,
+		"readOnly": false,
+		"source": "dataSources.unitName"
+	},
+	{
+		"type": "dropdown",
+		"title": "Fuel Utilization Point",
+		"width": 300,
+		"align": "left",
+		"wordWrap": true,
+		"readOnly": false,
+		"source": "dataSources.resourceName"
+	},
+	{
+		"type": "text",
+		"title": "Description",
+		"width": 350,
+		"align": "left",
+		"wordWrap": true,
+		"readOnly": false
+	}]
+}

@@ -1,0 +1,7 @@
+{
+	"appName": "BCSFuel",
+	"objName": "vendor",
+	"serviceName": "updateVendor",
+	"tableName": "bcsfuel_vendor",
+	"url": "vendor/update"
+}

@@ -1,0 +1,8 @@
+{
+  "appName": "BCSFuel",
+  "objName": "code",
+  "serviceName": "saveCode",
+  "tableName": "bcsfuel_combined_master",
+  "masterTableName": "code",
+  "url": "master/savecode"
+}

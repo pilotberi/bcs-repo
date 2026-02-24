@@ -1,0 +1,79 @@
+{
+	"appName": "BCSFuel",
+	"name": "Vendor",
+	"label": "Vendors By Fuel Code",
+	"url": "scripts/cl_vendorsbyfuelcode",
+	"services":
+	{
+		"get": "getVendor",
+		"save": "saveVendor"
+	},
+	"column": [
+		{
+			"name": "id",
+			"validate": false
+		},
+		{
+			"name": "fuel_code_id",
+			"label": "Fuel Code",
+			"validate": true,
+			"validateBy": [
+				{
+					"mandatory": true
+				}]
+		},
+		{
+			"name": "fuel_unit_id",
+			"label": "Fuel Unit",
+			"validate": true,
+			"validateBy": [
+				{
+					"mandatory": false
+				}]
+		},
+		{
+			"name": "fuel_vendor_id",
+			"label": "Fuel Vendor",
+			"validate": true,
+			"validateBy": [
+				{
+					"mandatory": false
+				}]
+		}],
+	"columnDefs": [
+		{
+			"type": "text",
+			"title": "Id",
+			"width": 1,
+			"align": "left",
+			"wordWrap": false,
+			"readOnly": true
+		},
+		{
+			"type": "dropdown",
+			"title": "Fuel Code",
+			"width": 200,
+			"align": "left",
+			"wordWrap": true,
+			"readOnly": false,
+			"source": "dataSources.codeName"
+		},
+		{
+			"type": "dropdown",
+			"title": "Fuel Unit",
+			"width": 150,
+			"align": "left",
+			"wordWrap": true,
+			"readOnly": false,
+			"source": "dataSources.unitName"
+		},
+		{
+			"type": "dropdown",
+			"title": "Fuel Vendor",
+			"width": 250,
+			"align": "left",
+			"wordWrap": true,
+			"readOnly": false,
+			"source": "dataSources.vendorName"
+		}]
+}

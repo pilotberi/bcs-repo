@@ -1,0 +1,325 @@
+{
+	"appName": "BCSFuel",
+	"name": "fuelConsumption",
+	"label": "Fuel Consumption Data",
+	"url": "scripts/cl_consumptiondata",
+
+	"tableHeaders": [
+		"Month / Year",
+		"Fuel Code",
+		"Fuel Utilization Point",
+		"Fuel Quantity",
+		"Avg Fuel Consumption Per Day",
+		"Fuel Total Value"
+	],
+
+	"tableDispHeaders": [
+	{
+		"name": "record_date",
+		"isSort": false
+	},
+	{
+		"name": "fuel_code_id",
+		"isSort": false
+	},
+	{
+		"name": "fuel_utilization_point_id",
+		"isSort": false
+	},
+	{
+		"name": "quantity",
+		"isSort": false
+	},
+	{
+		"name": "avg_consumption_per_day",
+		"isSort": false
+	},
+	{
+		"name": "consumed_total_value",
+		"isSort": false
+	}],
+
+	"sort": [],
+
+	"isDuplicateMandatory":
+	{
+		"setDuplicate": false,
+		"setAttr": ""
+	},
+
+	"deleteConfirmBy":
+	{
+		"setAttr": "fuel_code_name"
+	},
+
+	"isImportMandatory": false,
+	"importUrl": null,
+
+	"isFilterMandatory": false,
+
+	"services":
+	{
+		"create": "createConsumptionData",
+		"read": "getConsumptionByFilter",
+		"update": "updateConsumptionData",
+		"delete": "deleteConsumptionData"
+	},
+
+	"loadDataByFilter":
+	{
+		"isFilter": true,
+		"dateFilter":
+		{
+			"set": false,
+			"options": []
+		},
+		"params": [
+
+			"dataSources.startDate",
+			"dataSources.endDate",
+			"fuelCodeFilter.value",
+			"offset",
+			"limit"
+		],
+		"filters": [
+		{
+			"elementId": "fuelCodeFilter",
+			"objName": "fuelCode"
+		}]
+	},
+
+	"buttons": [],
+
+	"formLayout": [
+	{
+		"type": "default",
+		"content": [
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-3 col-md-4",
+			"field": "fuel_code_id"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-3 col-md-4",
+			"field": "fuel_utilization_point_id"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-3 col-md-4",
+			"field": "consumed_qty"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-3 col-md-4",
+			"field": "fuel_unit_id"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-3 col-md-4",
+			"field": "avg_consumption_per_day"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-3 col-md-4",
+			"field": "consumed_value"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-3 col-md-4",
+			"field": "consumed_gst_value"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-3 col-md-4",
+			"field": "consumed_total_value"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-3 col-md-4",
+			"field": "unit_price"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-sm-12 col-md-6",
+			"field": "remarks"
+		}]
+	}],
+
+	"attrs": [
+
+		{
+			"name": "fuel_code_id",
+			"label": "Fuel Code",
+			"type": "lookup-embedded",
+			"options": [],
+			"validate": true,
+			"validateBy": [
+			{
+				"mandatory": true
+			}],
+			"dataSrc":
+			{
+				"name": "getCode",
+				"objName": "code",
+				"valueAttr": "id",
+				"isMaster": true,
+				"options":
+				{
+					"setFilter": true,
+					"elementId": "fuelCodeFilter"
+				},
+				"displayAttr": "code",
+				"service": "get",
+				"decrypt": "code",
+				"allowCreate": false
+			}
+		},
+		{
+			"name": "fuel_utilization_point_id",
+			"label": "Utilization Point",
+			"type": "lookup-embedded",
+			"options": [],
+			"validate": true,
+			"validateBy": [
+			{
+				"mandatory": true
+			}],
+			"dataSrc":
+			{
+				"name": "getUtilizationPoint",
+				"objName": "utilizationPoint",
+				"valueAttr": "id",
+				"isMaster": true,
+				"options":
+				{
+					"setFilter": false,
+					"elementId": ""
+				},
+				"displayAttr": "utilization_point_name",
+				"service": "get",
+				"decrypt": "utilization_point_name",
+				"allowCreate": false
+			}
+		},
+		{
+			"name": "consumed_qty",
+			"label": "Fuel Consumed Qty",
+			"type": "number",
+			"decimal": 3,
+			"options": [],
+			"validate": true,
+			"validateBy": [
+			{
+				"mandatory": true
+			}]
+		},
+		{
+			"name": "fuel_unit_id",
+			"label": "Fuel Unit",
+			"type": "lookup-embedded",
+			"options": [],
+			"validate": false,
+			"validateBy": [
+			{
+				"mandatory": false
+			}],
+			"dataSrc":
+			{
+				"name": "getUnit",
+				"objName": "unit",
+				"valueAttr": "id",
+				"isMaster": true,
+				"options":
+				{
+					"setFilter": false,
+					"elementId": ""
+				},
+				"displayAttr": "unit",
+				"service": "get",
+				"decrypt": "unit",
+				"allowCreate": false
+			}
+		},
+		{
+			"name": "avg_consumption_per_day",
+			"label": "Average Fuel Consumption Per Day",
+			"type": "currency",
+			"decimal": 3,
+			"options": [],
+			"validate": false,
+			"validateBy": [
+			{
+				"mandatory": false
+			}]
+		},
+		{
+			"name": "consumed_value",
+			"label": "Consumed Fuel Value (INR)",
+			"type": "currency",
+			"decimal": 2,
+			"options": [],
+			"validate": true,
+			"validateBy": [
+			{
+				"mandatory": true
+			}]
+		},
+		{
+			"name": "consumed_gst_value",
+			"label": "Consumed Fuel GST Value (INR)",
+			"type": "currency",
+			"decimal": 2,
+			"options": [],
+			"validate": false,
+			"validateBy": [
+			{
+				"mandatory": false
+			}]
+		},
+		{
+			"name": "consumed_total_value",
+			"label": "Consumed Fuel Total Value (INR)",
+			"type": "number",
+			"options": [],
+			"validate": false,
+			"validateBy": [
+			{
+				"mandatory": false
+			}]
+		},
+		{
+			"name": "unit_price",
+			"label": "Unit price of Consumed Fuel(INR)",
+			"type": "currency",
+			"decimal": 2,
+			"options": [],
+			"validate": false,
+			"validateBy": [
+			{
+				"mandatory": false
+			}]
+		},
+		{
+			"name": "remarks",
+			"label": "Remarks",
+			"type": "textarea",
+			"options": [],
+			"validate": false
+		}
+	],
+
+	"encrypt": [],
+	"decrypt": [],
+	"confirmBy": "fuel_code_name"
+}

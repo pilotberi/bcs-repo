@@ -1,0 +1,277 @@
+{
+	"appName": "BCSFuel",
+	"name": "purchase",
+	"label": "Fuel Purchase Data",
+	"url": "purchasedata.html",
+	"tableHeaders": [
+		"Month / Year",
+		"Fuel Code",
+		"Fuel Vendor",
+		"Fuel Qty",
+		"Fuel Unit",
+		"Total Fuel Value (INR)"
+	],
+	"tableDispHeaders": [
+	{
+		"name": "purchase_date",
+		"isSort": false
+	},
+	{
+		"name": "fuel_code_id",
+		"isSort": false
+	},
+	{
+		"name": "fuel_vendor_id",
+		"isSort": false
+	},
+	{
+		"name": "fuel_qty",
+		"isSort": false
+	},
+	{
+		"name": "fuel_unit_id",
+		"isSort": false
+	},
+	{
+		"name": "total_fuel_value",
+		"isSort": false
+	}],
+	"sort": [],
+	"isDuplicateMandatory":
+	{
+		"setDuplicate": false,
+		"setAttr": ""
+	},
+	"deleteConfirmBy":
+	{
+		"setAttr": "fuel_code_name"
+	},
+	"isImportMandatory": false,
+	"importUrl": null,
+	"isFilterMandatory": false,
+	"services":
+	{
+		"create": "createPurchaseData",
+		"read": "getPurchaseByFilter",
+		"update": "updatePurchaseData",
+		"delete": "deletePurchaseData"
+	},
+	"loadDataByFilter":
+	{
+		"isFilter": true,
+		"dateFilter":
+		{
+			"set": false,
+			"options": []
+		},
+		"params": [
+			"dataSources.startDate",
+			"dataSources.endDate",
+			"fuelCodeFilter.value",
+			"offset",
+			"limit"
+		],
+		"filters": [
+		{
+			"elementId": "fuelCodeFilter",
+			"objName": "code"
+		}]
+	},
+	"buttons": [],
+	"formLayout": [
+	{
+		"type": "default",
+		"content": [
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-3 col-md-4",
+			"field": "fuel_code_id"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-3 col-md-4",
+			"field": "fuel_unit_id"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-3 col-md-4",
+			"field": "fuel_vendor_id"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-3 col-md-4",
+			"field": "fuel_qty"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-3 col-md-4",
+			"field": "fuel_value"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-3 col-md-4",
+			"field": "fuel_gst_value"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-3 col-md-4",
+			"field": "total_fuel_value"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-3 col-md-4",
+			"field": "unit_price"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-12 col-md-6",
+			"field": "remarks"
+		}]
+	}],
+	"attrs": [
+		{
+			"name": "fuel_code_id",
+			"label": "Fuel Code",
+			"type": "lookup-embedded",
+			"options": [],
+			"validate": true,
+			"validateBy": [
+			{
+				"mandatory": true
+			}],
+			"dataSrc":
+			{
+				"name": "getCode",
+				"objName": "code",
+				"valueAttr": "id",
+				"isMaster": true,
+				"options":
+				{
+					"setFilter": true,
+					"elementId": "fuelCodeFilter"
+				},
+				"displayAttr": "code",
+				"service": "get",
+				"decrypt": "code",
+				"allowCreate": false
+			}
+		},
+		{
+			"name": "fuel_unit_id",
+			"label": "Fuel Unit",
+			"type": "lookup-embedded",
+			"options": [],
+			"validate": true,
+			"validateBy": [
+			{
+				"mandatory": true
+			}],
+			"dataSrc":
+			{
+				"name": "getUnit",
+				"objName": "unit",
+				"valueAttr": "id",
+				"isMaster": true,
+				"options":
+				{
+					"setFilter": false,
+					"elementId": ""
+				},
+				"displayAttr": "unit",
+				"service": "get",
+				"decrypt": "unit",
+				"allowCreate": false
+			}
+		},
+		{
+			"name": "fuel_vendor_id",
+			"label": "Fuel Vendor",
+			"type": "lookup-embedded",
+			"options": [],
+			"validate": true,
+			"validateBy": [
+			{
+				"mandatory": true
+			}],
+			"dataSrc":
+			{
+				"name": "getVendor",
+				"objName": "Vendor",
+				"valueAttr": "id",
+				"isMaster": true,
+				"options":
+				{
+					"setFilter": false,
+					"elementId": ""
+				},
+				"displayAttr": "fuel_vendor_name",
+				"service": "get",
+				"decrypt": "",
+				"allowCreate": false
+			}
+		},
+		{
+			"name": "fuel_qty",
+			"label": "Fuel Qty",
+			"type": "number",
+			"decimal": 3,
+			"validate": true,
+			"validateBy": [
+			{
+				"mandatory": true
+			}]
+		},
+		{
+			"name": "fuel_value",
+			"label": "Fuel Value (INR)",
+			"type": "currency",
+			"decimal": 2,
+			"validate": true,
+			"validateBy": [
+			{
+				"mandatory": true
+			}]
+		},
+
+		{
+			"name": "fuel_gst_value",
+			"label": "Fuel GST Value (INR)",
+			"type": "currency",
+			"decimal": 2,
+			"validate": false
+		},
+		{
+			"name": "total_fuel_value",
+			"label": "Total Fuel Value (INR)",
+			"type": "currency",
+			"decimal": 2,
+			"validate": false
+		},
+		{
+			"name": "unit_price",
+			"label": "Unit price of Fuel (INR)",
+			"type": "currency",
+			"decimal": 2,
+			"validate": false
+		},
+		{
+			"name": "remarks",
+			"label": "Remarks",
+			"type": "textarea",
+			"options": [],
+			"validate": false
+		}
+	],
+	"encrypt": [],
+	"decrypt": [],
+	"confirmBy": "fuel_code_name"
+}

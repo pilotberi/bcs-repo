@@ -1,0 +1,306 @@
+{
+	"appName": "BCSFuel",
+	"name": "loss",
+	"label": "Fuel Loss Data",
+	"url": "scripts/cl_lossdata",
+
+	"tableHeaders": [
+		"Month / Year",
+		"Fuel Code",
+		"Fuel Yard",
+		"Fuel Loss Qty",
+		"Fuel Loss Value"
+	],
+
+	"tableDispHeaders": [
+	{
+		"name": "record_date",
+		"isSort": false
+	},
+	{
+		"name": "fuel_code_id",
+		"isSort": false
+	},
+	{
+		"name": "fuel_yard_id",
+		"isSort": false
+	},
+	{
+		"name": "fuel_loss_qty",
+		"isSort": false
+	},
+	{
+		"name": "fuel_loss_value",
+		"isSort": false
+	}],
+
+	"sort": [],
+
+	"isDuplicateMandatory":
+	{
+		"setDuplicate": false,
+		"setAttr": ""
+	},
+
+	"deleteConfirmBy":
+	{
+		"setAttr": "fuel_code_name"
+	},
+
+	"isImportMandatory": false,
+	"importUrl": null,
+
+	"isFilterMandatory": false,
+
+	"services":
+	{
+		"create": "createLossData",
+		"read": "getLossByFilter",
+		"update": "updateLossData",
+		"delete": "deleteLossData"
+	},
+
+	"loadDataByFilter":
+	{
+		"isFilter": true,
+		"dateFilter":
+		{
+			"set": false,
+			"options": []
+		},
+		"params": [
+			"dataSources.startDate",
+			"dataSources.endDate",
+			"fuelCodeFilter.value",
+			"offset",
+			"limit"
+		],
+		"filters": [
+		{
+			"elementId": "fuelCodeFilter",
+			"objName": "fuelCode"
+		}]
+	},
+
+	"buttons": [],
+
+	"formLayout": [
+	{
+		"type": "default",
+		"content": [
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-3 col-md-4",
+			"field": "fuel_code_id"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-3 col-md-4",
+			"field": "fuel_unit_id"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-3 col-md-4",
+			"field": "fuel_yard_id"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-3 col-md-4",
+			"field": "fuel_loss_qty"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-3 col-md-4",
+			"field": "fuel_loss_percentage"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-3 col-md-4",
+			"field": "fuel_loss_value"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-3 col-md-4",
+			"field": "fuel_loss_gst_value"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-3 col-md-4",
+			"field": "fuel_loss_total_value"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-3 col-md-4",
+			"field": "unit_price"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-12 col-md-6",
+			"field": "remarks"
+		}]
+	}],
+
+	"attrs": [
+		{
+			"name": "fuel_code_id",
+			"label": "Fuel Code",
+			"type": "lookup-embedded",
+			"options": [],
+			"validate": true,
+			"validateBy": [
+			{
+				"mandatory": true
+			}],
+			"dataSrc":
+			{
+				"name": "getCode",
+				"objName": "code",
+				"valueAttr": "id",
+				"isMaster": true,
+				"options":
+				{
+					"setFilter": true,
+					"elementId": "fuelCodeFilter"
+				},
+				"displayAttr": "code",
+				"service": "get",
+				"decrypt": "code",
+				"allowCreate": false
+			}
+		},
+		{
+			"name": "fuel_unit_id",
+			"label": "Fuel Unit",
+			"type": "lookup-embedded",
+			"options": [],
+			"validate": false,
+			"validateBy": [
+			{
+				"mandatory": false
+			}],
+			"dataSrc":
+			{
+				"name": "getUnit",
+				"objName": "unit",
+				"valueAttr": "id",
+				"isMaster": true,
+				"options":
+				{
+					"setFilter": false,
+					"elementId": ""
+				},
+				"displayAttr": "unit",
+				"service": "get",
+				"decrypt": "unit",
+				"allowCreate": false
+			}
+		},
+		{
+			"name": "fuel_yard_id",
+			"label": "Fuel Yard",
+			"type": "lookup-embedded",
+			"options": [],
+			"validate": true,
+			"validateBy": [
+			{
+				"mandatory": true
+			}],
+			"dataSrc":
+			{
+				"name": "getYard",
+				"objName": "yard",
+				"valueAttr": "id",
+				"isMaster": true,
+				"options":
+				{
+					"setFilter": false,
+					"elementId": ""
+				},
+				"displayAttr": "yard_code",
+				"service": "get",
+				"decrypt": "yard_code",
+				"allowCreate": false
+			}
+		},
+		{
+			"name": "fuel_loss_qty",
+			"label": "Fuel Loss Quantity",
+			"type": "number",
+			"decimal": 3,
+			"options": [],
+			"validate": true,
+			"validateBy": [
+			{
+				"mandatory": true
+			}]
+		},
+		{
+			"name": "fuel_loss_percentage",
+			"label": "Fuel loss (%)",
+			"type": "number",
+			"decimal": 2,
+			"options": [],
+			"validate": true,
+			"validateBy": [
+			{
+				"mandatory": true
+			}]
+		},
+
+		{
+			"name": "fuel_loss_value",
+			"label": "Fuel Loss Value (INR)",
+			"type": "currency",
+			"decimal": 2,
+			"options": [],
+			"validate": true,
+			"validateBy": [
+			{
+				"mandatory": true
+			}]
+		},
+		{
+			"name": "fuel_loss_gst_value",
+			"label": "Fuel Loss GST Value (INR)",
+			"type": "currency",
+			"decimal": 2,
+			"options": [],
+			"validate": false
+		},
+		{
+			"name": "fuel_loss_total_value",
+			"label": "Fuel Loss Total Value (INR)",
+			"type": "currency",
+			"options": [],
+			"validate": false
+		},
+		{
+			"name": "unit_price",
+			"label": "Unit price of Fuel Loss (INR)",
+			"type": "currency",
+			"options": [],
+			"validate": false
+		},
+		{
+			"name": "remarks",
+			"label": "Remarks",
+			"type": "textarea",
+			"options": [],
+			"validate": false
+		}
+	],
+
+	"encrypt": [],
+	"decrypt": [],
+	"confirmBy": "fuel_code_name"
+}
