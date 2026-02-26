@@ -1,0 +1,48 @@
+{
+	"appName": "BCSSteam",
+	"objName": "utility",
+	"serviceName": "getUtilityByFilter",
+	"tableName": "BCSSteam_utility",
+	"url": "utility/getbyfilter",
+	"query":
+	{
+		"cols": [
+			"sfm_code_id",
+			"value",
+			"reason",
+			"record_date",
+			"remarks",
+			"created_by",
+			"created_on",
+			"modified_by",
+			"modified_on"
+		],
+
+		"filters": [
+		{
+			"col": "sfm_code_id",
+			"op": "=",
+			"condition": "params.sfm_code_id && params.sfm_code_id != 'all'",
+			"value": "params.sfm_code_id"
+		},
+		{
+			"col": "record_date",
+			"op": ">=",
+			"condition": "params.start_date",
+			"value": "parseInt(params.start_date)",
+			"paramName": "start_date"
+		},
+		{
+			"col": "record_date",
+			"op": "<=",
+			"condition": "params.end_date",
+			"value": "parseInt(params.end_date)",
+			"paramName": "end_date"
+		}],
+		"limit": null,
+		"groupBy": [],
+		"orderBy": [],
+		"sort": "asc",
+		"offset": 0
+	}
+}

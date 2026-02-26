@@ -1,0 +1,9 @@
+{
+	"appName": "BCSSteam",
+	"objName": "workingprinciple",
+	"serviceName": "getWorkingPrinciple",
+	"url": "master/getworkingprinciple",
+	"tableName": "BCSSteam_combined_master",
+	"masterTableName": "workingPrinciple",
+	"defaultData": []
+}

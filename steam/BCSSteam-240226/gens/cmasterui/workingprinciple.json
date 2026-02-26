@@ -1,0 +1,59 @@
+{
+	"appName": "BCSSteam",
+	"name": "workingPrinciple",
+	"label": "Working Principle",
+	"url": "scripts/cl_workingprinciple",
+	"services":
+	{
+		"get": "getWorkingPrinciple",
+		"save": "saveWorkingPrinciple"
+	},
+	"column": [
+	{
+		"name": "id",
+		"validate": false
+	},
+	{
+		"name": "working_principle",
+		"label": "Working Principle",
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": true
+		}]
+	},
+	{
+		"name": "description",
+		"label": "Description",
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": false
+		}]
+	}],
+	"columnDefs": [
+	{
+		"type": "text",
+		"title": "Id",
+		"width": 1,
+		"align": "left",
+		"wordWrap": false,
+		"readOnly": true
+	},
+	{
+		"type": "text",
+		"title": "Working Principle",
+		"width": 300,
+		"align": "left",
+		"wordWrap": true,
+		"readOnly": false
+	},
+	{
+		"type": "text",
+		"title": "Description",
+		"width": 400,
+		"align": "left",
+		"wordWrap": true,
+		"readOnly": false
+	}]
+}

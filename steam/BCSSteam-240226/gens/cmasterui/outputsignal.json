@@ -1,0 +1,59 @@
+{
+	"appName": "BCSSteam",
+	"name": "outputSignal",
+	"label": "Output Signal",
+	"url": "scripts/cl_outputsignal",
+	"services":
+	{
+		"get": "getOutputSignal",
+		"save": "saveOutputSignal"
+	},
+	"column": [
+	{
+		"name": "id",
+		"validate": false
+	},
+	{
+		"name": "output_signal",
+		"label": "Output Signal",
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": true
+		}]
+	},
+	{
+		"name": "description",
+		"label": "Description",
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": false
+		}]
+	}],
+	"columnDefs": [
+	{
+		"type": "text",
+		"title": "Id",
+		"width": 1,
+		"align": "left",
+		"wordWrap": false,
+		"readOnly": true
+	},
+	{
+		"type": "text",
+		"title": "Output Signal",
+		"width": 300,
+		"align": "left",
+		"wordWrap": true,
+		"readOnly": false
+	},
+	{
+		"type": "text",
+		"title": "Description",
+		"width": 400,
+		"align": "left",
+		"wordWrap": true,
+		"readOnly": false
+	}]
+}

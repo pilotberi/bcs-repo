@@ -1,0 +1,9 @@
+{
+	"appName": "BCSSteam",
+	"objName": "inputPower",
+	"serviceName": "getInputPower",
+	"url": "master/getinputpower",
+	"tableName": "BCSSteam_combined_master",
+	"masterTableName": "inputPower",
+	"defaultData": []
+}

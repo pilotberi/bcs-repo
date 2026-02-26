@@ -1,0 +1,7 @@
+{
+	"appName": "BCSSteam",
+	"objName": "utility",
+	"serviceName": "createUtility",
+	"tableName": "BCSSteam_utility",
+	"url": "utility/create"
+}

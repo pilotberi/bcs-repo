@@ -1,0 +1,8 @@
+{
+	"appName": "BCSSteam",
+	"objName": "inputPower",
+	"serviceName": "saveInputPower",
+	"tableName": "BCSSteam_combined_master",
+	"masterTableName": "inputPower",
+	"url": "master/saveinputpower"
+}

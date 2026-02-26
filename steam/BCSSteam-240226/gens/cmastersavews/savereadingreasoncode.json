@@ -1,0 +1,8 @@
+{
+	"appName": "BCSSteam",
+	"objName": "sfmReadingReasonCode",
+	"serviceName": "saveSfmReadingReasonCode",
+	"tableName": "BCSSteam_combined_master",
+	"masterTableName": "sfmReadingReasonCode",
+	"url": "master/savesfmreadingreasoncode"
+}

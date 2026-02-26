@@ -1,0 +1,8 @@
+{
+	"appName": "BCSSteam",
+	"objName": "outputSignal",
+	"serviceName": "saveOutputSignal",
+	"tableName": "BCSSteam_combined_master",
+	"masterTableName": "outputSignal",
+	"url": "master/saveoutputsignal"
+}

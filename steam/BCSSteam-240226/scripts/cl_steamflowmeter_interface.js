@@ -69,15 +69,6 @@ var SteamFlowMeterInterface = {
 		for (var venIdx = 0; venIdx < vendors.length; venIdx++) {
 			var vendor = vendors[venIdx];
 
-			if(!vendor.business_partner_short_name && partners){
-
-			var partnerObj = partners.find(p => p._sid === vendor.business_partner_id);
-
-				if (partnerObj) {
-					vendor.business_partner_short_name = partnerObj.name;
-				}
-			}
-
 			if (vendor.isactive === false) {
 				vendor.business_partner_short_name += " - Inactive";
 			}
@@ -95,6 +86,8 @@ var SteamFlowMeterInterface = {
 	onBeforeData: function(params, dataSources) {
 
 		//Custom code goes here
+
+
 
 		if (TenantSteamFlowMeterInterface && TenantSteamFlowMeterInterface.onBeforeData)
 			return TenantSteamFlowMeterInterface.onBeforeData(params, dataSources);
@@ -115,13 +108,6 @@ var SteamFlowMeterInterface = {
 		//custom code goes here
 		var rVal;
 		switch(meta.col){
-			case 0:
-				rVal = Strings.NA_STRING;
-				if(value){
-					rVal = value;
-					break;
-				}
-
 			case 1 :
 				rVal = this._getVendorName(value);
 				break;

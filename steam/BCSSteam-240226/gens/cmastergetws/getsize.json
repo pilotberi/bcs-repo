@@ -1,0 +1,9 @@
+{
+	"appName": "BCSSteam",
+	"objName": "size",
+	"serviceName": "getSize",
+	"url": "master/getsize",
+	"tableName": "BCSSteam_combined_master",
+	"masterTableName": "size",
+	"defaultData": []
+}

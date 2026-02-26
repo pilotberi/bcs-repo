@@ -1,0 +1,23 @@
+{
+	"appName": "BCSSteam",
+	"url": "bcsuser.role",
+	"role":
+	{
+		"name": "bcsuser",
+		"description": "User role with access limited to Utility Data UI only.",
+		"default": true,
+		"menu":
+		{
+			"id": "bcsusermenu",
+			"sequence": 1,
+			"tools": [
+			{
+				"id": "bcssteam_utility",
+				"title": "Track Utility",
+				"icon": "images/utility-menu.svg",
+				"href": "utilitydata.html",
+				"target": "default"
+			}]
+		}
+	}
+}

@@ -1,0 +1,10 @@
+{
+	"appName": "BCSSteam",
+	"objName": "vendor",
+	"serviceName": "getAllVendorsWithoutLimit",
+	"url": "vendor/getall",
+	"params": [],
+	"setJson": false,
+	"setMethod": "POST",
+	"contentType": ""
+}

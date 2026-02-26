@@ -1,0 +1,7 @@
+{
+	"appName": "BCSSteam",
+	"objName": "vendor",
+	"serviceName": "getVendor",
+	"tableName": "BCSSteam_vendor",
+	"url": "vendor/get"
+}

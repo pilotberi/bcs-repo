@@ -1,0 +1,471 @@
+{
+	"appName": "BCSSteam",
+	"name": "steamFlowMeter",
+	"label": "Steam Flow Meter",
+	"url": "scripts/cl_steamflowmeter",
+	"tableHeaders": ["SFM Code", "Vendor", "TNPBC", "CPCB", "Active"],
+	"tableDispHeaders": [
+	{
+		"name": "sfm_code",
+		"isSort": false
+	},
+	{
+		"name": "vendor_id",
+		"isSort": false
+	},
+	{
+		"name": "connected_tnpcb",
+		"isSort": false
+	},
+	{
+		"name": "connected_cpcb",
+		"isSort": false
+	},
+	{
+		"name": "isactive",
+		"isSort": false
+	}],
+	"sort": [],
+	"isDuplicateMandatory":
+	{
+		"setDuplicate": false,
+		"setAttr": ""
+	},
+	"deleteConfirmBy":
+	{
+		"setAttr": "sfm_code"
+	},
+	"isImportMandatory": false,
+	"importUrl": null,
+	"isFilterMandatory": false,
+	"services":
+	{
+		"create": "createSfm",
+		"read": "getAllSfm",
+		"update": "updateSfm",
+		"delete": "deleteSfm",
+		"additional": [
+		{
+			"dataSrc":
+			{
+				"name": "getAllBusinessPartner"
+			}
+		}]
+	},
+	"loadDataByFilter":
+	{
+		"isFilter": true,
+		"dateFilter":
+		{
+			"set": false,
+			"options": []
+		},
+		"params": ["offset", "limit"],
+		"filters": []
+
+	},
+	"buttons": [],
+	"formLayout": [
+	{
+		"type": "default",
+		"content": [
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-sm-12 col-md-4",
+			"field": "sfm_code"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-sm-12 col-md-4",
+			"field": "sfm_description"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-sm-12 col-md-4",
+			"field": "vendor_id"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-sm-12 col-md-4",
+			"field": "model_no"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-sm-12 col-md-4",
+			"field": "serial_no"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-sm-12 col-md-4",
+			"field": "year_of_manufacturing"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-sm-12 col-md-4",
+			"field": "working_principle_id"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-sm-12 col-md-4",
+			"field": "size_id"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-sm-12 col-md-4",
+			"field": "flow_rate_min"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-sm-12 col-md-4",
+			"field": "flow_rate_max"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-sm-12 col-md-4",
+			"field": "input_power_id"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-sm-12 col-md-4",
+			"field": "output_signal_id"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-sm-12 col-md-4",
+			"field": "connected_tnpcb"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-sm-12 col-md-4",
+			"field": "tnpcb_ref"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-sm-12 col-md-4",
+			"field": "connected_cpcb"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-sm-12 col-md-4",
+			"field": "cpcb_ref"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-sm-12 col-md-4",
+			"field": "isactive"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-sm-12 col-md-4",
+			"field": "remarks"
+		}]
+	}],
+	"attrs": [
+	{
+		"name": "sfm_code",
+		"label": "SFM Code",
+		"type": "text",
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": true
+		}],
+		"options": []
+	},
+	{
+		"name": "sfm_description",
+		"label": "Description",
+		"type": "textarea",
+		"options": [],
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": true
+		}]
+	},
+	{
+		"name": "vendor_id",
+		"label": "Vendor",
+		"type": "lookup-embedded",
+		"options": [],
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": true
+		}],
+		"dataSrc":
+		{
+			"name": "getAllVendorsWithoutLimit",
+			"objName": "vendor",
+			"valueAttr": "_sid",
+			"isMaster": false,
+
+			"options":
+			{
+				"setFilter": false,
+				"elementId": ""
+			},
+			"displayAttr": "business_partner_short_name",
+			"service": "get",
+			"decrypt": "business_partner_short_name",
+			"allowCreate": false
+		}
+	},
+	{
+		"name": "model_no",
+		"label": "Model No",
+		"type": "text",
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": true
+		}],
+		"options": []
+	},
+	{
+		"name": "serial_no",
+		"label": "Serial No",
+		"type": "text",
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": true
+		}],
+		"options": []
+	},
+	{
+		"name": "year_of_manufacturing",
+		"label": "Year Of Manufacturing",
+		"type": "number",
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": true
+		}],
+		"options": []
+	},
+	{
+		"name": "working_principle_id",
+		"label": "Working Principle",
+		"type": "lookup-embedded",
+		"options": [],
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": true
+		}],
+		"dataSrc":
+		{
+			"name": "getWorkingPrinciple",
+			"objName": "workingPrinciple",
+			"valueAttr": "id",
+			"isMaster": true,
+
+			"options":
+			{
+				"setFilter": false,
+				"elementId": ""
+			},
+			"displayAttr": "working_principle",
+			"service": "get",
+			"decrypt": "working_principle",
+			"allowCreate": false
+		}
+	},
+	{
+		"name": "size_id",
+		"label": "Size (inch)",
+		"type": "lookup-embedded",
+		"options": [],
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": true
+		}],
+		"dataSrc":
+		{
+			"name": "getSize",
+			"objName": "size",
+			"valueAttr": "id",
+			"isMaster": true,
+
+			"options":
+			{
+				"setFilter": false,
+				"elementId": ""
+			},
+			"displayAttr": "size",
+			"service": "get",
+			"decrypt": "size",
+			"allowCreate": false
+		}
+	},
+	{
+		"name": "flow_rate_min",
+		"label": "Flow Rate(min) kg/hr",
+		"type": "number",
+		"decimal": 3,
+		"validate": false,
+		"validateBy": [
+		{
+			"mandatory": false
+		}],
+		"options": []
+	},
+	{
+		"name": "flow_rate_max",
+		"label": "Flow Rate(max) kg/hr",
+		"type": "number",
+		"decimal": 3,
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": true
+		}],
+		"options": []
+	},
+	{
+		"name": "input_power_id",
+		"label": "Input Power",
+		"type": "lookup-embedded",
+		"options": [],
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": true
+		}],
+		"dataSrc":
+		{
+			"name": "getInputPower",
+			"objName": "inputPower",
+			"valueAttr": "id",
+			"isMaster": true,
+
+			"options":
+			{
+				"setFilter": false,
+				"elementId": ""
+			},
+			"displayAttr": "input_power",
+			"service": "get",
+			"decrypt": "input_power",
+			"allowCreate": false
+		}
+	},
+	{
+		"name": "output_signal_id",
+		"label": "Output Signal",
+		"type": "lookup-embedded",
+		"options": [],
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": true
+		}],
+		"dataSrc":
+		{
+			"name": "getOutputSignal",
+			"objName": "outputSignal",
+			"valueAttr": "id",
+			"isMaster": true,
+
+			"options":
+			{
+				"setFilter": false,
+				"elementId": ""
+			},
+			"displayAttr": "output_signal",
+			"service": "get",
+			"decrypt": "output_signal",
+			"allowCreate": false
+		}
+	},
+	{
+		"name": "connected_tnpcb",
+		"label": "Connected To TNPCB",
+		"type": "switch",
+		"options": [
+		{
+			"label": "Yes"
+		}],
+		"validate": false,
+		"validateBy": [
+		{
+			"mandatory": true
+		}]
+	},
+	{
+		"name": "tnpcb_ref",
+		"label": "TNPCB Reference Id",
+		"type": "text",
+		"options": [],
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": false
+		}]
+	},
+	{
+		"name": "connected_cpcb",
+		"label": "Connected To CPCB",
+		"type": "switch",
+		"options": [
+		{
+			"label": "Yes"
+		}],
+		"validate": false,
+		"validateBy": [
+		{
+			"mandatory": true
+		}]
+	},
+	{
+		"name": "cpcb_ref",
+		"label": "CPCB Reference Id",
+		"type": "text",
+		"options": [],
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": false
+		}]
+	},
+	{
+		"name": "isactive",
+		"label": "Status",
+		"type": "switch",
+		"validate": false,
+		"options": [
+		{
+			"label": "Active"
+		}]
+	},
+	{
+		"name": "remarks",
+		"label": "Remarks",
+		"type": "textarea",
+		"options": [],
+		"validate": false
+	}],
+	"encrypt": [],
+	"decrypt": [],
+	"confirmBy": "sfm_code"
+}

@@ -1,0 +1,8 @@
+{
+	"appName": "BCSSteam",
+	"objName": "size",
+	"serviceName": "saveSize",
+	"tableName": "BCSSteam_combined_master",
+	"masterTableName": "size",
+	"url": "master/savesize"
+}

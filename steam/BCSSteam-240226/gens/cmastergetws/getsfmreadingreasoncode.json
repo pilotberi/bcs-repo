@@ -1,0 +1,9 @@
+{
+	"appName": "BCSSteam",
+	"objName": "sfmReadingReasonCode",
+	"serviceName": "getSfmReadingReasonCode",
+	"url": "master/getsfmreadingreasoncode",
+	"tableName": "BCSSteam_combined_master",
+	"masterTableName": "sfmReadingReasonCode",
+	"defaultData": []
+}
