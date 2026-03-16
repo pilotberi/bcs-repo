@@ -35,7 +35,7 @@
 			{
 				"type": "bool"
 			},
-				"created_by":
+			"created_by":
 			{
 				"type": "string"
 			},
@@ -102,22 +102,6 @@
 			{
 				"type": "string"
 			},
-			"connected_tnpcb":
-			{
-				"type": "bool"
-			},
-			"tnpcb_ref":
-			{
-				"type": "string"
-			},
-			"connected_cpcb":
-			{
-				"type": "bool"
-			},
-			"cpcb_ref":
-			{
-				"type": "string"
-			},
 			"isactive":
 			{
 				"type": "bool"
@@ -149,7 +133,7 @@
 		},
 		"BCSSteam_utility":
 		{
-			"sfm_code_id":
+			"sfmp_code_id":
 			{
 				"type": "string"
 			},
@@ -185,6 +169,207 @@
 			{
 				"type": "bigint"
 			}
+		},
+		"BCSSteam_sfmp":
+		{
+			"sfmp_code":
+			{
+				"type": "string"
+			},
+			"sfmp_description":
+			{
+				"type": "string"
+			},
+			"sfmp_active":
+			{
+				"type": "bool"
+			},
+			"created_by":
+			{
+				"type": "string"
+			},
+			"created_on":
+			{
+				"type": "bigint"
+			},
+			"modified_by":
+			{
+				"type": "string"
+			},
+			"modified_on":
+			{
+				"type": "bigint"
+			}
+		},
+		"BCSSteam_connectivity_option":
+		{
+			"sfm_connectivity_option":
+			{
+				"type": "string"
+			},
+			"sfm_connectivity_description":
+			{
+				"type": "string"
+			},
+			"sfm_connectivity_active":
+			{
+				"type": "bool"
+			},
+			"created_by":
+			{
+				"type": "string"
+			},
+			"created_on":
+			{
+				"type": "bigint"
+			},
+			"modified_by":
+			{
+				"type": "string"
+			},
+			"modified_on":
+			{
+				"type": "bigint"
+			}
+		},
+		"BCSSteam_connectivity_status":
+		{
+			"sfmp_code_id":
+			{
+				"type": "string"
+			},
+			"sfmp_description":
+			{
+				"type": "string"
+			},
+			"sfm_connectivity_option_id":
+			{
+				"type": "string"
+			},
+			"sfmc_ref":
+			{
+				"type": "string"
+			},
+			"sfmc_start_date":
+			{
+				"type": "bigint"
+			},
+			"sfmc_end_date":
+			{
+				"type": "bigint"
+			},
+			"sfmc_active":
+			{
+				"type": "bool"
+			},
+			"remarks":
+			{
+				"type": "string"
+			},
+			"created_by":
+			{
+				"type": "string"
+			},
+			"created_on":
+			{
+				"type": "bigint"
+			},
+			"modified_by":
+			{
+				"type": "string"
+			},
+			"modified_on":
+			{
+				"type": "bigint"
+			}
+		},
+		"BCSSteam_sfm_status":
+		{
+			"sfm_code_id":
+			{
+				"type": "string"
+			},
+			"sfm_description":
+			{
+				"type": "string"
+			},
+			"sfm_status_code_id":
+			{
+				"type": "string"
+			},
+			"sfms_start_date":
+			{
+				"type": "bigint"
+			},
+			"sfms_end_date":
+			{
+				"type": "bigint"
+			},
+			"remarks":
+			{
+				"type": "string"
+			},
+			"created_by":
+			{
+				"type": "string"
+			},
+			"created_on":
+			{
+				"type": "bigint"
+			},
+			"modified_by":
+			{
+				"type": "string"
+			},
+			"modified_on":
+			{
+				"type": "bigint"
+			}
+		},
+		"BCSSteam_sfm_link":
+		{
+			"sfmp_code_id":
+			{
+				"type": "string"
+			},
+			"sfmp_description":
+			{
+				"type": "string"
+			},
+			"sfm_code_id":
+			{
+				"type": "string"
+			},
+			"sfmc_start_date":
+			{
+				"type": "bigint"
+			},
+			"sfmc_end_date":
+			{
+				"type": "bigint"
+			},
+			"remarks":
+			{
+				"type": "string"
+			},
+			"created_by":
+			{
+				"type": "string"
+			},
+			"created_on":
+			{
+				"type": "bigint"
+			},
+			"modified_by":
+			{
+				"type": "string"
+			},
+			"modified_on":
+			{
+				"type": "bigint"
+			}
 		}
+
+
 	}
 }

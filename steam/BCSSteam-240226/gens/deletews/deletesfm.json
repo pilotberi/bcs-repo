@@ -1,7 +1,0 @@
-{
-	"appName": "BCSSteam",
-	"objName": "sfm",
-	"serviceName": "deleteSfm",
-	"tableName": "BCSSteam_sfm",
-	"url": "sfm/delete"
-}

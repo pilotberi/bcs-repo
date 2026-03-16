@@ -1,7 +1,0 @@
-{
-	"appName": "BCSSteam",
-	"objName": "utility",
-	"serviceName": "updateUtility",
-	"tableName": "BCSSteam_utility",
-	"url": "utility/update"
-}

@@ -37,10 +37,10 @@ function fireXHR(method, url, isJson, body, onResponsecallBack)
 	if (method == "GET")
 	{ //check for GET or POST method
 		clCommon.getSvc(true, url, function(respObj)
-						{
+		{
 			onResponsecallBack.call(this, respObj);
 		}, function(errText)
-						{
+		{
 
 			let resultObj = {
 				"code": 500,
@@ -53,10 +53,10 @@ function fireXHR(method, url, isJson, body, onResponsecallBack)
 	else
 	{
 		clCommon.postSvc(true, url, body, function(respObj)
-						 {
+		{
 			onResponsecallBack.call(this, respObj);
 		}, function(errText)
-						 {
+		{
 
 			let resultObj = {
 				"code": 500,
@@ -78,7 +78,7 @@ var RemoteService = {
 	"getWorkingPrinciple": function(onResponseCallback)
 	{
 		fireXHR("GET", "master/getworkingprinciple", false, null, function(respObj)
-				{ //Fire XHR
+		{ //Fire XHR
 			onResponseCallback.call(this, respObj); //pass back the response to Service call
 		});
 	},
@@ -91,7 +91,7 @@ var RemoteService = {
 	{
 		var body = JSON.stringify(workingprincipleObj); //converting the object to string
 		fireXHR("POST", "master/saveworkingprinciple", true, body, function(resultObj)
-				{ //Fire XHR
+		{ //Fire XHR
 			onResponseCallback.call(this, resultObj); //pass back the response to Service call
 		});
 	},
@@ -103,7 +103,7 @@ var RemoteService = {
 	"getSize": function(onResponseCallback)
 	{
 		fireXHR("GET", "master/getsize", false, null, function(respObj)
-				{ //Fire XHR
+		{ //Fire XHR
 			onResponseCallback.call(this, respObj); //pass back the response to Service call
 		});
 	},
@@ -116,7 +116,7 @@ var RemoteService = {
 	{
 		var body = JSON.stringify(sizeObj); //converting the object to string
 		fireXHR("POST", "master/savesize", true, body, function(resultObj)
-				{ //Fire XHR
+		{ //Fire XHR
 			onResponseCallback.call(this, resultObj); //pass back the response to Service call
 		});
 	},
@@ -128,7 +128,7 @@ var RemoteService = {
 	"getInputPower": function(onResponseCallback)
 	{
 		fireXHR("GET", "master/getinputpower", false, null, function(respObj)
-				{ //Fire XHR
+		{ //Fire XHR
 			onResponseCallback.call(this, respObj); //pass back the response to Service call
 		});
 	},
@@ -141,7 +141,7 @@ var RemoteService = {
 	{
 		var body = JSON.stringify(inputPowerObj); //converting the object to string
 		fireXHR("POST", "master/saveinputpower", true, body, function(resultObj)
-				{ //Fire XHR
+		{ //Fire XHR
 			onResponseCallback.call(this, resultObj); //pass back the response to Service call
 		});
 	},
@@ -153,7 +153,7 @@ var RemoteService = {
 	"getOutputSignal": function(onResponseCallback)
 	{
 		fireXHR("GET", "master/getoutputsignal", false, null, function(respObj)
-				{ //Fire XHR
+		{ //Fire XHR
 			onResponseCallback.call(this, respObj); //pass back the response to Service call
 		});
 	},
@@ -166,7 +166,7 @@ var RemoteService = {
 	{
 		var body = JSON.stringify(outputSignalObj); //converting the object to string
 		fireXHR("POST", "master/saveoutputsignal", true, body, function(resultObj)
-				{ //Fire XHR
+		{ //Fire XHR
 			onResponseCallback.call(this, resultObj); //pass back the response to Service call
 		});
 	},
@@ -178,7 +178,7 @@ var RemoteService = {
 	"getSfmReadingReasonCode": function(onResponseCallback)
 	{
 		fireXHR("GET", "master/getsfmreadingreasoncode", false, null, function(respObj)
-				{ //Fire XHR
+		{ //Fire XHR
 			onResponseCallback.call(this, respObj); //pass back the response to Service call
 		});
 	},
@@ -191,7 +191,7 @@ var RemoteService = {
 	{
 		var body = JSON.stringify(sfmReadingReasonCodeObj); //converting the object to string
 		fireXHR("POST", "master/savesfmreadingreasoncode", true, body, function(resultObj)
-				{ //Fire XHR
+		{ //Fire XHR
 			onResponseCallback.call(this, resultObj); //pass back the response to Service call
 		});
 	},
@@ -204,7 +204,7 @@ var RemoteService = {
 	{
 		var body = "offset=" + (offset ? encodeURIComponent(offset) : "") + "&limit=" + (limit ? encodeURIComponent(limit) : "");
 		fireXHR("POST", "vendor/getall", false, body, function(respObj)
-				{ //Fire XHR
+		{ //Fire XHR
 			onResponseCallback.call(this, respObj); //pass back the response to Service call
 		});
 	},
@@ -217,7 +217,7 @@ var RemoteService = {
 	{
 		var body = "id=" + encodeURIComponent(vendor_id); //converting the object to string
 		fireXHR("POST", "vendor/get", false, body, function(resultObj)
-				{ //Fire XHR
+		{ //Fire XHR
 			onResponseCallback.call(this, resultObj); //pass back the response to Service call
 		});
 	},
@@ -230,7 +230,7 @@ var RemoteService = {
 	{
 		var body = JSON.stringify(vendorObj); //converting the object to string
 		fireXHR("POST", "vendor/create", true, body, function(resultObj)
-				{ //Fire XHR
+		{ //Fire XHR
 			onResponseCallback.call(this, resultObj); //pass back the response to Service call
 		});
 	},
@@ -243,7 +243,7 @@ var RemoteService = {
 	{
 		var body = JSON.stringify(vendorObj); //converting the object to string
 		fireXHR("POST", "vendor/update", true, body, function(resultObj)
-				{ //Fire XHR
+		{ //Fire XHR
 			onResponseCallback.call(this, resultObj); //pass back the response to Service call
 		});
 	},
@@ -256,7 +256,7 @@ var RemoteService = {
 	{
 		var body = "id=" + encodeURIComponent(vendor_id);
 		fireXHR("POST", "vendor/delete", false, body, function(resultObj)
-				{ //Fire XHR
+		{ //Fire XHR
 			onResponseCallback.call(this, resultObj); //pass back the response to Service call
 		});
 	},
@@ -269,7 +269,7 @@ var RemoteService = {
 	{
 		var body = "offset=" + (offset ? encodeURIComponent(offset) : "") + "&limit=" + (limit ? encodeURIComponent(limit) : "");
 		fireXHR("POST", "sfm/getall", false, body, function(respObj)
-				{ //Fire XHR
+		{ //Fire XHR
 			onResponseCallback.call(this, respObj); //pass back the response to Service call
 		});
 	},
@@ -282,7 +282,7 @@ var RemoteService = {
 	{
 		var body = "id=" + encodeURIComponent(sfm_id); //converting the object to string
 		fireXHR("POST", "sfm/get", false, body, function(resultObj)
-				{ //Fire XHR
+		{ //Fire XHR
 			onResponseCallback.call(this, resultObj); //pass back the response to Service call
 		});
 	},
@@ -295,7 +295,7 @@ var RemoteService = {
 	{
 		var body = JSON.stringify(sfmObj); //converting the object to string
 		fireXHR("POST", "sfm/create", true, body, function(resultObj)
-				{ //Fire XHR
+		{ //Fire XHR
 			onResponseCallback.call(this, resultObj); //pass back the response to Service call
 		});
 	},
@@ -308,7 +308,7 @@ var RemoteService = {
 	{
 		var body = JSON.stringify(sfmObj); //converting the object to string
 		fireXHR("POST", "sfm/update", true, body, function(resultObj)
-				{ //Fire XHR
+		{ //Fire XHR
 			onResponseCallback.call(this, resultObj); //pass back the response to Service call
 		});
 	},
@@ -321,7 +321,7 @@ var RemoteService = {
 	{
 		var body = "id=" + encodeURIComponent(sfm_id);
 		fireXHR("POST", "sfm/delete", false, body, function(resultObj)
-				{ //Fire XHR
+		{ //Fire XHR
 			onResponseCallback.call(this, resultObj); //pass back the response to Service call
 		});
 	},
@@ -332,10 +332,10 @@ var RemoteService = {
 	// Function to handle Sfm with parameters.
 	"getSfmByFilter": function(start_date, end_date, offset, limit, onResponseCallback)
 	{
-		var body = "start_date=" + (start_date ? encodeURIComponent(start_date) : "") + "&end_date=" + (end_date ? encodeURIComponent(end_date) : "") + "&offset=" + (offset ? encodeURIComponent(offset) : "") + "&limit=" + (limit ? encodeURIComponent(limit) : "");
+		var body = "start_date=" + encodeURIComponent(start_date) + "&end_date=" + encodeURIComponent(end_date) + "&offset=" + encodeURIComponent(offset) + "&limit=" + encodeURIComponent(limit);
 
 		fireXHR("POST", "sfm/getbyfilter", false, body, function(resultObj)
-				{ // Fire XHR
+		{ // Fire XHR
 			onResponseCallback.call(this, resultObj); // Pass back the response to Service call
 		});
 	},
@@ -348,7 +348,7 @@ var RemoteService = {
 	{
 		var body = "id=" + encodeURIComponent(utility_id); //converting the object to string
 		fireXHR("POST", "utility/get", false, body, function(resultObj)
-				{ //Fire XHR
+		{ //Fire XHR
 			onResponseCallback.call(this, resultObj); //pass back the response to Service call
 		});
 	},
@@ -361,7 +361,7 @@ var RemoteService = {
 	{
 		var body = "offset=" + (offset ? encodeURIComponent(offset) : "") + "&limit=" + (limit ? encodeURIComponent(limit) : "");
 		fireXHR("POST", "utility/getall", false, body, function(respObj)
-				{ //Fire XHR
+		{ //Fire XHR
 			onResponseCallback.call(this, respObj); //pass back the response to Service call
 		});
 	},
@@ -374,7 +374,7 @@ var RemoteService = {
 	{
 		var body = JSON.stringify(utilityObj); //converting the object to string
 		fireXHR("POST", "utility/create", true, body, function(resultObj)
-				{ //Fire XHR
+		{ //Fire XHR
 			onResponseCallback.call(this, resultObj); //pass back the response to Service call
 		});
 	},
@@ -387,7 +387,7 @@ var RemoteService = {
 	{
 		var body = JSON.stringify(utilityObj); //converting the object to string
 		fireXHR("POST", "utility/update", true, body, function(resultObj)
-				{ //Fire XHR
+		{ //Fire XHR
 			onResponseCallback.call(this, resultObj); //pass back the response to Service call
 		});
 	},
@@ -400,7 +400,7 @@ var RemoteService = {
 	{
 		var body = "id=" + encodeURIComponent(utility_id);
 		fireXHR("POST", "utility/delete", false, body, function(resultObj)
-				{ //Fire XHR
+		{ //Fire XHR
 			onResponseCallback.call(this, resultObj); //pass back the response to Service call
 		});
 	},
@@ -414,14 +414,17 @@ var RemoteService = {
 		var body = null;
 		var url;
 
-		if(window.location.href.indexOf("try") != -1){
+		if (window.location.href.indexOf("try") != -1)
+		{
 			url = "../Company/businnespartner/getall";
-		}else{
+		}
+		else
+		{
 			url = "../hq/Company/businnespartner/getall";
 		}
 
 		fireXHR("POST", url, true, body, function(resultObj)
-				{ // Fire XHR
+		{ // Fire XHR
 			onResponseCallback.call(this, resultObj); // Pass back the response to Service call
 		});
 	},
@@ -435,7 +438,7 @@ var RemoteService = {
 		var body = null;
 
 		fireXHR("POST", "vendor/getall", false, body, function(resultObj)
-				{ // Fire XHR
+		{ // Fire XHR
 			onResponseCallback.call(this, resultObj); // Pass back the response to Service call
 		});
 	},
@@ -451,7 +454,7 @@ var RemoteService = {
 		var body = null;
 
 		fireXHR("POST", "sfm/getall", false, body, function(resultObj)
-				{ // Fire XHR
+		{ // Fire XHR
 			onResponseCallback.call(this, resultObj); // Pass back the response to Service call
 		});
 	},
@@ -460,16 +463,394 @@ var RemoteService = {
 
 	/*Generated By - cl_remoteservice.js - queryws - getutilitybyfilter.json*/
 	// Function to handle Utility with parameters.
-	"getUtilityByFilter": function(sfm_code_id, start_date, end_date, offset, limit, onResponseCallback)
+	"getUtilityByFilter": function(sfmp_code_id, start_date, end_date, offset, limit, onResponseCallback)
 	{
-		var body = "sfm_code_id=" + (sfm_code_id ? encodeURIComponent(sfm_code_id) : "") + "&start_date=" + (start_date ? encodeURIComponent(start_date) : "") + "&end_date=" + (end_date ? encodeURIComponent(end_date) : "") + "&offset=" + (offset ? encodeURIComponent(offset) : "") + "&limit=" + (limit ? encodeURIComponent(limit) : "");
+		var body = "sfmp_code_id=" + encodeURIComponent(sfmp_code_id) + "&start_date=" + encodeURIComponent(start_date) + "&end_date=" + encodeURIComponent(end_date) + "&offset=" + encodeURIComponent(offset) + "&limit=" + encodeURIComponent(limit);
 
 		fireXHR("POST", "utility/getbyfilter", false, body, function(resultObj)
-				{ // Fire XHR
+		{ // Fire XHR
 			onResponseCallback.call(this, resultObj); // Pass back the response to Service call
 		});
 	},
 	/*Generated By - cl_remoteservice.js - queryws - getutilitybyfilter.json*/
+
+
+	/*Generated By - cl_remoteservice.js - cmastergetws - getstatuscode.json*/
+	//Function to get all StatusCode
+	"getStatusCode": function(onResponseCallback)
+	{
+		fireXHR("GET", "master/getstatuscode", false, null, function(respObj)
+		{ //Fire XHR
+			onResponseCallback.call(this, respObj); //pass back the response to Service call
+		});
+	},
+	/*Generated By - cl_remoteservice.js - cmastergetws - getstatuscode.json*/
+
+
+	/*Generated By - cl_remoteservice.js - cmastersavews - statuscode.json*/
+	//Function to save StatusCode.
+	"saveStatusCode": function(statuscodeObj, onResponseCallback)
+	{
+		var body = JSON.stringify(statuscodeObj); //converting the object to string
+		fireXHR("POST", "master/savestatuscode", true, body, function(resultObj)
+		{ //Fire XHR
+			onResponseCallback.call(this, resultObj); //pass back the response to Service call
+		});
+	},
+	/*Generated By - cl_remoteservice.js - cmastersavews - statuscode.json*/
+
+
+	/*Generated By - cl_remoteservice.js - createws - createsfmp.json*/
+	//Function to create Sfmp.
+	"createSfmp": function(sfmpObj, onResponseCallback)
+	{
+		var body = JSON.stringify(sfmpObj); //converting the object to string
+		fireXHR("POST", "sfmp/create", true, body, function(resultObj)
+		{ //Fire XHR
+			onResponseCallback.call(this, resultObj); //pass back the response to Service call
+		});
+	},
+	/*Generated By - cl_remoteservice.js - createws - createsfmp.json*/
+
+
+	/*Generated By - cl_remoteservice.js - deletews - deletesfmp.json*/
+	//Function to delete sfmp.
+	"deleteSfmp": function(sfmp_id, onResponseCallback)
+	{
+		var body = "id=" + encodeURIComponent(sfmp_id);
+		fireXHR("POST", "sfmp/delete", false, body, function(resultObj)
+		{ //Fire XHR
+			onResponseCallback.call(this, resultObj); //pass back the response to Service call
+		});
+	},
+	/*Generated By - cl_remoteservice.js - deletews - deletesfmp.json*/
+
+
+	/*Generated By - cl_remoteservice.js - readws - getsfmp.json*/
+	//Function to get GetSfmp.
+	"getSfmp": function(sfmp_id, onResponseCallback)
+	{
+		var body = "id=" + encodeURIComponent(sfmp_id); //converting the object to string
+		fireXHR("POST", "sfmp/get", false, body, function(resultObj)
+		{ //Fire XHR
+			onResponseCallback.call(this, resultObj); //pass back the response to Service call
+		});
+	},
+	/*Generated By - cl_remoteservice.js - readws - getsfmp.json*/
+
+
+	/*Generated By - cl_remoteservice.js - readallws - getallsfmp.json*/
+	//Function to get all GetAllSfmp
+	"getAllSfmp": function(offset, limit, onResponseCallback)
+	{
+		var body = "offset=" + (offset ? encodeURIComponent(offset) : "") + "&limit=" + (limit ? encodeURIComponent(limit) : "");
+		fireXHR("POST", "sfmp/getall", false, body, function(respObj)
+		{ //Fire XHR
+			onResponseCallback.call(this, respObj); //pass back the response to Service call
+		});
+	},
+	/*Generated By - cl_remoteservice.js - readallws - getallsfmp.json*/
+
+
+	/*Generated By - cl_remoteservice.js - updatews - updatesfmp.json*/
+	//Function to update UpdateSfmp.
+	"updateSfmp": function(sfmpObj, onResponseCallback)
+	{
+		var body = JSON.stringify(sfmpObj); //converting the object to string
+		fireXHR("POST", "sfmp/update", true, body, function(resultObj)
+		{ //Fire XHR
+			onResponseCallback.call(this, resultObj); //pass back the response to Service call
+		});
+	},
+	/*Generated By - cl_remoteservice.js - updatews - updatesfmp.json*/
+
+
+	/*Generated By - cl_remoteservice.js - createws - createconnectoption.json*/
+	//Function to create ConnectivityOption.
+	"createConnectOption": function(connectivityOptionObj, onResponseCallback)
+	{
+		var body = JSON.stringify(connectivityOptionObj); //converting the object to string
+		fireXHR("POST", "connectivityoption/create", true, body, function(resultObj)
+		{ //Fire XHR
+			onResponseCallback.call(this, resultObj); //pass back the response to Service call
+		});
+	},
+	/*Generated By - cl_remoteservice.js - createws - createconnectoption.json*/
+
+
+	/*Generated By - cl_remoteservice.js - deletews - deleteconnectoption.json*/
+	//Function to delete connectivityOption.
+	"deleteConnectOption": function(connectivityOption_id, onResponseCallback)
+	{
+		var body = "id=" + encodeURIComponent(connectivityOption_id);
+		fireXHR("POST", "connectivityoption/delete", false, body, function(resultObj)
+		{ //Fire XHR
+			onResponseCallback.call(this, resultObj); //pass back the response to Service call
+		});
+	},
+	/*Generated By - cl_remoteservice.js - deletews - deleteconnectoption.json*/
+
+
+	/*Generated By - cl_remoteservice.js - readws - getconnectoption.json*/
+	//Function to get GetConnectOption.
+	"getConnectOption": function(connectivityOption_id, onResponseCallback)
+	{
+		var body = "id=" + encodeURIComponent(connectivityOption_id); //converting the object to string
+		fireXHR("POST", "connectivityoption/get", false, body, function(resultObj)
+		{ //Fire XHR
+			onResponseCallback.call(this, resultObj); //pass back the response to Service call
+		});
+	},
+	/*Generated By - cl_remoteservice.js - readws - getconnectoption.json*/
+
+
+	/*Generated By - cl_remoteservice.js - readallws - getallconnectoption.json*/
+	//Function to get all GetAllConnectOption
+	"getAllConnectOption": function(offset, limit, onResponseCallback)
+	{
+		var body = "offset=" + (offset ? encodeURIComponent(offset) : "") + "&limit=" + (limit ? encodeURIComponent(limit) : "");
+		fireXHR("POST", "connectivityoption/getall", false, body, function(respObj)
+		{ //Fire XHR
+			onResponseCallback.call(this, respObj); //pass back the response to Service call
+		});
+	},
+	/*Generated By - cl_remoteservice.js - readallws - getallconnectoption.json*/
+
+
+	/*Generated By - cl_remoteservice.js - updatews - updateconnectoption.json*/
+	//Function to update UpdateConnectOption.
+	"updateConnectOption": function(connectivityOptionObj, onResponseCallback)
+	{
+		var body = JSON.stringify(connectivityOptionObj); //converting the object to string
+		fireXHR("POST", "connectivityoption/update", true, body, function(resultObj)
+		{ //Fire XHR
+			onResponseCallback.call(this, resultObj); //pass back the response to Service call
+		});
+	},
+	/*Generated By - cl_remoteservice.js - updatews - updateconnectoption.json*/
+
+
+	/*Generated By - cl_remoteservice.js - createws - createconnectstatus.json*/
+	//Function to create ConnectivityStatus.
+	"createConnectivityStatus": function(connectivityStatusObj, onResponseCallback)
+	{
+		var body = JSON.stringify(connectivityStatusObj); //converting the object to string
+		fireXHR("POST", "connectivitystatus/create", true, body, function(resultObj)
+		{ //Fire XHR
+			onResponseCallback.call(this, resultObj); //pass back the response to Service call
+		});
+	},
+	/*Generated By - cl_remoteservice.js - createws - createconnectstatus.json*/
+
+
+	/*Generated By - cl_remoteservice.js - deletews - deleteconnectstatus.json*/
+	//Function to delete connectivityStatus.
+	"deleteConnectivityStatus": function(connectivityStatus_id, onResponseCallback)
+	{
+		var body = "id=" + encodeURIComponent(connectivityStatus_id);
+		fireXHR("POST", "connectivitystatus/delete", false, body, function(resultObj)
+		{ //Fire XHR
+			onResponseCallback.call(this, resultObj); //pass back the response to Service call
+		});
+	},
+	/*Generated By - cl_remoteservice.js - deletews - deleteconnectstatus.json*/
+
+
+	/*Generated By - cl_remoteservice.js - externalws - getallsfmpwithoutlimit.json*/
+	// Function to handle Sfmp without any parameters.
+	"getAllSfmpWithoutLimit": function(onResponseCallback)
+	{
+		var body = null;
+
+		fireXHR("POST", "sfmp/getall", false, body, function(resultObj)
+		{ // Fire XHR
+			onResponseCallback.call(this, resultObj); // Pass back the response to Service call
+		});
+	},
+	/*Generated By - cl_remoteservice.js - externalws - getallsfmpwithoutlimit.json*/
+
+
+	/*Generated By - cl_remoteservice.js - externalws - getallsfmconnectoptionwithoutlimit.json*/
+	// Function to handle SfmConnectOption without any parameters.
+	"getAllSfmConnectOptionWithoutLimit": function(onResponseCallback)
+	{
+		var body = null;
+
+		fireXHR("POST", "connectivityoption/getall", false, body, function(resultObj)
+		{ // Fire XHR
+			onResponseCallback.call(this, resultObj); // Pass back the response to Service call
+		});
+	},
+	/*Generated By - cl_remoteservice.js - externalws - getallsfmconnectoptionwithoutlimit.json*/
+
+
+	/*Generated By - cl_remoteservice.js - readws - getconnectstatus.json*/
+	//Function to get GetConnectivityStatus.
+	"getConnectivityStatus": function(connectivityStatus_id, onResponseCallback)
+	{
+		var body = "id=" + encodeURIComponent(connectivityStatus_id); //converting the object to string
+		fireXHR("POST", "connectivitystatus/get", false, body, function(resultObj)
+		{ //Fire XHR
+			onResponseCallback.call(this, resultObj); //pass back the response to Service call
+		});
+	},
+	/*Generated By - cl_remoteservice.js - readws - getconnectstatus.json*/
+
+
+	/*Generated By - cl_remoteservice.js - readallws - getallconnectstatus.json*/
+	//Function to get all GetAllConnectivityStatus
+	"getAllConnectivityStatus": function(offset, limit, onResponseCallback)
+	{
+		var body = "offset=" + (offset ? encodeURIComponent(offset) : "") + "&limit=" + (limit ? encodeURIComponent(limit) : "");
+		fireXHR("POST", "connectivitystatus/getall", false, body, function(respObj)
+		{ //Fire XHR
+			onResponseCallback.call(this, respObj); //pass back the response to Service call
+		});
+	},
+	/*Generated By - cl_remoteservice.js - readallws - getallconnectstatus.json*/
+
+
+	/*Generated By - cl_remoteservice.js - updatews - updateconnectstatus.json*/
+	//Function to update UpdateConnectivityStatus.
+	"updateConnectivityStatus": function(connectivityStatusObj, onResponseCallback)
+	{
+		var body = JSON.stringify(connectivityStatusObj); //converting the object to string
+		fireXHR("POST", "connectivitystatus/update", true, body, function(resultObj)
+		{ //Fire XHR
+			onResponseCallback.call(this, resultObj); //pass back the response to Service call
+		});
+	},
+	/*Generated By - cl_remoteservice.js - updatews - updateconnectstatus.json*/
+
+
+	/*Generated By - cl_remoteservice.js - createws - createsfmstatus.json*/
+	//Function to create SfmStatus.
+	"createSfmStatus": function(sfmStatusObj, onResponseCallback)
+	{
+		var body = JSON.stringify(sfmStatusObj); //converting the object to string
+		fireXHR("POST", "sfmstatus/create", true, body, function(resultObj)
+		{ //Fire XHR
+			onResponseCallback.call(this, resultObj); //pass back the response to Service call
+		});
+	},
+	/*Generated By - cl_remoteservice.js - createws - createsfmstatus.json*/
+
+
+	/*Generated By - cl_remoteservice.js - deletews - deletesfmstatus.json*/
+	//Function to delete sfmStatus.
+	"deleteSfmStatus": function(sfmStatus_id, onResponseCallback)
+	{
+		var body = "id=" + encodeURIComponent(sfmStatus_id);
+		fireXHR("POST", "sfmstatus/delete", false, body, function(resultObj)
+		{ //Fire XHR
+			onResponseCallback.call(this, resultObj); //pass back the response to Service call
+		});
+	},
+	/*Generated By - cl_remoteservice.js - deletews - deletesfmstatus.json*/
+
+
+	/*Generated By - cl_remoteservice.js - readws - getsfmstatus.json*/
+	//Function to get GetSfmStatus.
+	"getSfmStatus": function(sfmStatus_id, onResponseCallback)
+	{
+		var body = "id=" + encodeURIComponent(sfmStatus_id); //converting the object to string
+		fireXHR("POST", "sfmstatus/get", false, body, function(resultObj)
+		{ //Fire XHR
+			onResponseCallback.call(this, resultObj); //pass back the response to Service call
+		});
+	},
+	/*Generated By - cl_remoteservice.js - readws - getsfmstatus.json*/
+
+
+	/*Generated By - cl_remoteservice.js - readallws - getallsfmstatus.json*/
+	//Function to get all GetAllSfmStatus
+	"getAllSfmStatus": function(offset, limit, onResponseCallback)
+	{
+		var body = "offset=" + (offset ? encodeURIComponent(offset) : "") + "&limit=" + (limit ? encodeURIComponent(limit) : "");
+		fireXHR("POST", "sfmstatus/getall", false, body, function(respObj)
+		{ //Fire XHR
+			onResponseCallback.call(this, respObj); //pass back the response to Service call
+		});
+	},
+	/*Generated By - cl_remoteservice.js - readallws - getallsfmstatus.json*/
+
+
+	/*Generated By - cl_remoteservice.js - updatews - updatesfmstatus.json*/
+	//Function to update UpdateSfmStatus.
+	"updateSfmStatus": function(sfmStatusObj, onResponseCallback)
+	{
+		var body = JSON.stringify(sfmStatusObj); //converting the object to string
+		fireXHR("POST", "sfmstatus/update", true, body, function(resultObj)
+		{ //Fire XHR
+			onResponseCallback.call(this, resultObj); //pass back the response to Service call
+		});
+	},
+	/*Generated By - cl_remoteservice.js - updatews - updatesfmstatus.json*/
+
+
+	/*Generated By - cl_remoteservice.js - createws - createsfmlink.json*/
+	//Function to create SfmLink.
+	"createSfmLink": function(sfmLinkObj, onResponseCallback)
+	{
+		var body = JSON.stringify(sfmLinkObj); //converting the object to string
+		fireXHR("POST", "sfmlink/create", true, body, function(resultObj)
+		{ //Fire XHR
+			onResponseCallback.call(this, resultObj); //pass back the response to Service call
+		});
+	},
+	/*Generated By - cl_remoteservice.js - createws - createsfmlink.json*/
+
+
+	/*Generated By - cl_remoteservice.js - deletews - deletesfmlink.json*/
+	//Function to delete sfmLink.
+	"deleteSfmLink": function(sfmLink_id, onResponseCallback)
+	{
+		var body = "id=" + encodeURIComponent(sfmLink_id);
+		fireXHR("POST", "sfmlink/delete", false, body, function(resultObj)
+		{ //Fire XHR
+			onResponseCallback.call(this, resultObj); //pass back the response to Service call
+		});
+	},
+	/*Generated By - cl_remoteservice.js - deletews - deletesfmlink.json*/
+
+
+	/*Generated By - cl_remoteservice.js - readws - getsfmlink.json*/
+	//Function to get GetSfmLink.
+	"getSfmLink": function(sfmLink_id, onResponseCallback)
+	{
+		var body = "id=" + encodeURIComponent(sfmLink_id); //converting the object to string
+		fireXHR("POST", "sfmlink/get", false, body, function(resultObj)
+		{ //Fire XHR
+			onResponseCallback.call(this, resultObj); //pass back the response to Service call
+		});
+	},
+	/*Generated By - cl_remoteservice.js - readws - getsfmlink.json*/
+
+
+	/*Generated By - cl_remoteservice.js - readallws - getallsfmlink.json*/
+	//Function to get all GetAllSfmLink
+	"getAllSfmLink": function(offset, limit, onResponseCallback)
+	{
+		var body = "offset=" + (offset ? encodeURIComponent(offset) : "") + "&limit=" + (limit ? encodeURIComponent(limit) : "");
+		fireXHR("POST", "sfmlink/getall", false, body, function(respObj)
+		{ //Fire XHR
+			onResponseCallback.call(this, respObj); //pass back the response to Service call
+		});
+	},
+	/*Generated By - cl_remoteservice.js - readallws - getallsfmlink.json*/
+
+
+	/*Generated By - cl_remoteservice.js - updatews - updatesfmlink.json*/
+	//Function to update UpdateSfmLink.
+	"updateSfmLink": function(sfmLinkObj, onResponseCallback)
+	{
+		var body = JSON.stringify(sfmLinkObj); //converting the object to string
+		fireXHR("POST", "sfmlink/update", true, body, function(resultObj)
+		{ //Fire XHR
+			onResponseCallback.call(this, resultObj); //pass back the response to Service call
+		});
+	},
+	/*Generated By - cl_remoteservice.js - updatews - updatesfmlink.json*/
 
 
 	/*##APPEND MARKER - DO NOT REMOVE##*/

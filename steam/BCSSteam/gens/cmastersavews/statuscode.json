@@ -1,0 +1,10 @@
+{
+	"appName": "BCSSteam",
+	"objName": "statuscode",
+	"serviceName": "saveStatusCode",
+	"tableName": "BCSSteam_combined_master",
+	"masterTableName": "statusCode",
+	"url": "master/savestatuscode"
+}
+
+

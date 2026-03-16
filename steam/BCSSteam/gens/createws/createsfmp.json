@@ -1,0 +1,7 @@
+{
+	"appName": "BCSSteam",
+	"objName": "sfmp",
+	"serviceName": "createSfmp",
+	"tableName": "BCSSteam_sfmp",
+	"url": "sfmp/create"
+}

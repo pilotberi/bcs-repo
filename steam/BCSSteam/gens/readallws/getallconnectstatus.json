@@ -1,0 +1,7 @@
+{
+	"appName": "BCSSteam",
+	"objName": "connectivityStatus",
+	"serviceName": "getAllConnectivityStatus",
+	"tableName": "BCSSteam_connectivity_status",
+	"url": "connectivitystatus/getall"
+}

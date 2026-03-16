@@ -3,6 +3,9 @@
 	"name": "outputSignal",
 	"label": "Output Signal",
 	"url": "outputsignal.html",
+	"include_library":
+	{},
+	"custom_library": [],
 	"column": [
 	{
 		"name": "id",

@@ -1,0 +1,10 @@
+{
+	"appName": "BCSSteam",
+	"objName": "statuscode",
+	"serviceName": "getStatusCode",
+	"url": "master/getstatuscode",
+	"tableName": "BCSSteam_combined_master",
+	"masterTableName": "statusCode",
+	"defaultData": []
+}
+

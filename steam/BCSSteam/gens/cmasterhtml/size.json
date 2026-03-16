@@ -3,6 +3,9 @@
 	"name": "size",
 	"label": "Size (inch)",
 	"url": "size.html",
+	"include_library":
+	{},
+	"custom_library": [],
 	"column": [
 	{
 		"name": "id",

@@ -1,0 +1,111 @@
+{
+	"appName": "BCSSteam",
+	"name": "steamFlowMeterPoint",
+	"label": "Steam Flow Monitoring Point",
+	"url": "steamflowmeterpoint.html",
+	"tableHeaders": ["SFMP Code", "SFMP Description", "SFMP Active"],
+	"tableDispHeaders": [
+	{
+		"name": "sfmp_code",
+		"isSort": true
+	},
+	{
+		"name": "sfmp_description",
+		"isSort": true
+	},
+	{
+		"name": "sfmp_active",
+		"isSort": true
+	}],
+	"sort": [],
+	"isDuplicateMandatory":
+	{
+		"setDuplicate": false,
+		"setAttr": ""
+	},
+	"deleteConfirmBy":
+	{
+		"setAttr": "sfmp_code"
+	},
+	"isImportMandatory": false,
+	"importUrl": null,
+	"isFilterMandatory": false,
+	"services":
+	{
+		"create": "createSfmp",
+		"read": "getAllSfmp",
+		"update": "updateSfmp",
+		"delete": "deleteSfmp"
+	},
+	"loadDataByFilter":
+	{
+		"isFilter": true,
+		"dateFilter":
+		{
+			"set": false,
+			"options": []
+		},
+		"params": ["offset", "limit"],
+		"filters": []
+	},
+	"buttons": [],
+	"formLayout": [
+	{
+		"type": "default",
+		"content": [
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-4 col-md-4",
+			"field": "sfmp_code"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-12 col-md-4",
+			"field": "sfmp_description"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-9 col-md-4",
+			"field": "sfmp_active"
+		}]
+	}],
+	"attrs": [
+	{
+		"name": "sfmp_code",
+		"label": "SFMP Code",
+		"type": "text",
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": true
+		}],
+		"options": []
+	},
+	{
+		"name": "sfmp_description",
+		"label": "SFMP Description",
+		"type": "textarea",
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": true
+		}],
+		"options": []
+	},
+	{
+		"name": "sfmp_active",
+		"label": "SFMP Active",
+		"type": "switch",
+		"validate": false,
+		"options": [
+		{
+			"label": "Active"
+		}]
+	}],
+	"encrypt": [],
+	"decrypt": [],
+	"confirmBy": "sfmp_code"
+}

@@ -129,7 +129,7 @@ var InputPowerInterface = {
 
 	onAfterSave: function(isSuccessful, dataObj) {
 		//Custom code here
-		if(dataObj.err_code === 422){
+		if(dataObj && dataObj.err_code && dataObj.err_code === 422){
 			if(dataObj.refFlag === true){
 				let alertText = '<p>' + Strings.FOREIGN_REFERENCE_EXIST_ON_IP + '</p>';
 				alertText += '<ol class="ip_prompt_error">';

@@ -64,7 +64,13 @@ var ReadingReasonCodeInterface = {
 
 			const sheetData = editorSheet.getData();
 			let invalidDescRows = [];
-			let invalidRcRows = [];
+			let invalidRcRows =[];
+
+			// Arrays to track Alphanumeric errors
+			let notAlphaNumRcRows = [];
+			let notAlphaNumDescRows =[];
+			var alphanumericRegex = /^[a-zA-Z0-9 ]+$/;
+
 			for (let row = 0; row < sheetData.length; row++) {
 
 				const reasonCode = sheetData[row][1];		
@@ -78,12 +84,22 @@ var ReadingReasonCodeInterface = {
 					editorSheet.setValueFromCoords(2, row, "");
 				}
 
-				if (description && description.length > 100) {
-					invalidDescRows.push(row + 1); 
+				// Check Description (Length & Alphanumeric)
+				if (description) {
+					if (description.length > 100) {
+						invalidDescRows.push(row + 1); 
+					} else if (!alphanumericRegex.test(description)) {
+						notAlphaNumDescRows.push(row + 1);
+					}
 				}
 
-				if (reasonCode && reasonCode.length > 30) {
-					invalidRcRows.push(row + 1);
+				// Check Reason Code (Length & Alphanumeric)
+				if (reasonCode) {
+					if (reasonCode.length > 30) {
+						invalidRcRows.push(row + 1);
+					} else if (!alphanumericRegex.test(reasonCode)) {
+						notAlphaNumRcRows.push(row + 1);
+					}
 				}
 			}
 
@@ -91,34 +107,36 @@ var ReadingReasonCodeInterface = {
 			duplicates = duplicates.duplicates;
 
 			if (duplicates.size > 0) {
-
 				let alertText = '<p>' + Strings.DUPLICATE_REASON_CODE_ERROR_1 + '</p>';
 				alertText += '<ol class="rc_prompt_error">';
-
 				duplicates.forEach((rows, rc) => {
-					alertText += '<li>' + 	"'"+rc+"'" + ' ' + Strings.DUPLICATE_REASON_CODE_ERROR_2 + ' ' + rows.join(", ") + '</li>';
+					alertText += '<li>' + "'"+rc+"'" + ' ' + Strings.DUPLICATE_REASON_CODE_ERROR_2 + ' ' + rows.join(", ") + '</li>';
 				});
-
 				alertText += '</ol>';
-
 				s_info( Strings.VALIDATION_ERROR_TITLE, alertText, dlgOptions );
 				return false;
 			}
 
+			// Show Length Errors
 			if (invalidDescRows.length > 0) {
-				let alertText = '<p>' + Strings.REASON_CODE_DESC_VALIDATION_ERR;
-				alertText += ' at rows ' + invalidDescRows.join(', ');
-				alertText += '</p>';
-
+				let alertText = '<p>' + Strings.REASON_CODE_DESC_VALIDATION_ERR + ' at rows ' + invalidDescRows.join(', ') + '</p>';
+				s_info(Strings.VALIDATION_ERROR_TITLE, alertText, dlgOptions);
+				return false;
+			}
+			if (invalidRcRows.length > 0) {
+				let alertText = '<p>' + Strings.READING_REASON_VALIDATION_ERR + ' at rows ' + invalidRcRows.join(', ') + '</p>';
 				s_info(Strings.VALIDATION_ERROR_TITLE, alertText, dlgOptions);
 				return false;
 			}
 
-			if (invalidRcRows.length > 0) {
-				let alertText = '<p>' + Strings.OUTPUT_SIGNAL_VALIDATION_ERR;
-				alertText += ' at rows ' + invalidRcRows.join(', ');
-				alertText += '</p>';
-
+			// Show Alphanumeric Errors
+			if (notAlphaNumRcRows.length > 0) {
+				let alertText = '<p>' + (Strings.ALPHANUMERIC_ERROR_RC || "Only alphanumeric characters allowed") + ' Reason Code at rows ' + notAlphaNumRcRows.join(', ') + '</p>';
+				s_info(Strings.VALIDATION_ERROR_TITLE, alertText, dlgOptions);
+				return false;
+			}
+			if (notAlphaNumDescRows.length > 0) {
+				let alertText = '<p>' + (Strings.ALPHANUMERIC_ERROR || "Only alphanumeric characters allowed") + ' Description at rows ' + notAlphaNumDescRows.join(', ') + '</p>';
 				s_info(Strings.VALIDATION_ERROR_TITLE, alertText, dlgOptions);
 				return false;
 			}
@@ -169,7 +187,6 @@ var ReadingReasonCodeInterface = {
 		return dataObj;
 	},
 
-
 	onSheetChanged: function(instance, cell, col, row, value) {
 		//Custom code here
 		if(ReadingReasonCodeInterface.loaded ){
@@ -179,31 +196,46 @@ var ReadingReasonCodeInterface = {
 			const targetDescriptionCell = instance.jspreadsheet.getCell(`C${String(cellId)}`);
 
 			//validation
-			if(value && value.length > 30 && (col === 1 || col === "1")){
-				//s_info( Strings.VALIDATION_ERROR_TITLE,  Strings.READING_REASON_VALIDATION_ERR, dlgOptions );
-				ReadingReasonCodeInterface._addErrColor(cell);
-				cell.setAttribute("title", Strings.READING_REASON_VALIDATION_ERR);
-				return false;
+			var alphanumericRegex = /^[a-zA-Z0-9 ]+$/;
+			if(value && (col === 1 || col === "1")){
+				if(value.length > 30) {
+					ReadingReasonCodeInterface._addErrColor(cell);
+					cell.setAttribute("title", Strings.READING_REASON_VALIDATION_ERR);
+					return false;
+				} else if (!alphanumericRegex.test(value)) {
+					ReadingReasonCodeInterface._addErrColor(cell);
+					cell.setAttribute("title", Strings.ALPHANUMERIC_ERROR || "Only alphanumeric characters are allowed");
+					return false;
+				}
 			}
 
-			if(value && value.length > 100 && (col === 2 || col === "2")){
-				//s_info( Strings.VALIDATION_ERROR_TITLE,  Strings.REASON_CODE_DESC_VALIDATION_ERR, dlgOptions );
-				ReadingReasonCodeInterface._addErrColor(cell);
-				cell.setAttribute("title", Strings.REASON_CODE_DESC_VALIDATION_ERR);
-				return false;
+			if(value && (col === 2 || col === "2")){
+				if(value.length > 100) {
+					ReadingReasonCodeInterface._addErrColor(cell);
+					cell.setAttribute("title", Strings.REASON_CODE_DESC_VALIDATION_ERR);
+					return false;
+				} else if (!alphanumericRegex.test(value)) {
+					ReadingReasonCodeInterface._addErrColor(cell);
+					cell.setAttribute("title", Strings.ALPHANUMERIC_ERROR || "Only alphanumeric characters are allowed");
+					return false;
+				}
 			}
 
 			if (targetDescriptionCell) {
-
 				const rcValue = sheetData[row][1];
 				const descValue = sheetData[row][2] || "";
 
 				const descTooLong = descValue.length > 100;
+				const descNotAlpha = descValue && !alphanumericRegex.test(descValue);
 				const descWithoutRc = descValue && (!rcValue || rcValue.trim() === "");
 
 				if (descTooLong) {
 					ReadingReasonCodeInterface._addErrColor(targetDescriptionCell);
 					targetDescriptionCell.setAttribute("title",Strings.REASON_CODE_DESC_VALIDATION_ERR);
+				}
+				else if (descNotAlpha) {
+					ReadingReasonCodeInterface._addErrColor(targetDescriptionCell);
+					targetDescriptionCell.setAttribute("title", Strings.ALPHANUMERIC_ERROR || "Only alphanumeric characters are allowed");
 				}
 				else if (descWithoutRc) {
 					ReadingReasonCodeInterface._addErrColor(targetDescriptionCell);
@@ -227,7 +259,7 @@ var ReadingReasonCodeInterface = {
 					const rcCell = instance.jspreadsheet.getCell(`B${idx}`);
 
 					if (rcCell) {
-						if (!rcValue || rcValue.length <= 30) {
+						if (!rcValue || (rcValue.length <= 30 && alphanumericRegex.test(rcValue))) {
 							ReadingReasonCodeInterface._removeErrColor(rcCell);
 							rcCell.removeAttribute("title");
 						}
@@ -254,6 +286,7 @@ var ReadingReasonCodeInterface = {
 			return TenantReadingReasonCodeInterface.onSheetChanged(instance, cell, col, row, value);
 		return true;
 	},
+
 	_addErrColor: function(cell){
 		cell.classList.add("error_value");
 	},

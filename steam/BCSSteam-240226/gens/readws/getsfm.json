@@ -1,7 +1,0 @@
-{
-	"appName": "BCSSteam",
-	"objName": "sfm",
-	"serviceName": "getSfm",
-	"tableName": "BCSSteam_sfm",
-	"url": "sfm/get"
-}

@@ -3,6 +3,9 @@
 	"name": "workingPrinciple",
 	"label": "Working Principle",
 	"url": "workingprinciple.html",
+	"include_library":
+	{},
+	"custom_library": [],
 	"column": [
 	{
 		"name": "id",

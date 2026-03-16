@@ -1,0 +1,10 @@
+{
+	"appName": "BCSSteam",
+	"objName": "sfmConnectOption",
+	"serviceName": "getAllSfmConnectOptionWithoutLimit",
+	"url": "connectivityoption/getall",
+	"params": [],
+	"setJson": false,
+	"setMethod": "POST",
+	"contentType": ""
+}

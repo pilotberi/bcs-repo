@@ -1,0 +1,7 @@
+{
+	"appName": "BCSSteam",
+	"objName": "sfmLink",
+	"serviceName": "deleteSfmLink",
+	"tableName": "BCSSteam_sfm_link",
+	"url": "sfmlink/delete"
+}

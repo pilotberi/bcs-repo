@@ -33,7 +33,7 @@ module.exports = {
 		return rObj;
 	},
 
-beforeData: function(params) {
+	beforeData: function(params) {
 		var rObj = {
 			"override": false,
 			"params": params,
@@ -79,20 +79,38 @@ beforeData: function(params) {
 				}
 			}
 
+			//var temp =[];
+
 			if (deletedObjectsArr.length > 0) {
 				var deletedIdsOnly = [];
 				//deleted and added same name adding id to new data
 				for(var paramIdx = 0; paramIdx < paramArr.length; paramIdx++){
 					for(var dataIdx = 0; dataIdx < deletedObjectsArr.length; dataIdx++){
 						if(paramArr[paramIdx].id == null && normalize( paramArr[paramIdx].input_power) == normalize(deletedObjectsArr[dataIdx].input_power)){
+							//temp.push(paramArr[paramIdx].id);
 							paramArr[paramIdx].id = deletedObjectsArr[dataIdx].id
 							deletedObjectsArr.splice(dataIdx, 1); 
+
 							deletedDup = true;
 							break;
 						}
 					}
 				}
-								for (var delIdx = 0; delIdx < deletedObjectsArr.length; delIdx++) {
+
+
+				/*rObj.override = true;
+				rObj.resp = {
+					"code": 400,
+					"msg": Strings.FOREGIN_REFERENCE_FOUND,
+					"err_code": 422,
+					"deletedWithRefArr":deletedWithRefArr,
+					"refFlag":refFlag,
+					"deletedDup":deletedDup,
+					"deletedObjectsArr":temp
+				};
+				return rObj;*/
+
+				for (var delIdx = 0; delIdx < deletedObjectsArr.length; delIdx++) {
 					deletedIdsOnly.push(deletedObjectsArr[delIdx].id);
 				}
 
@@ -121,6 +139,7 @@ beforeData: function(params) {
 						}
 					}
 				}
+
 
 				// If references found, block the deletion
 				if (deletedWithRefArr.length > 0 || deletedDup === true) {

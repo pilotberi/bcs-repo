@@ -100,3 +100,24 @@ a.open-full-view-link {
 a.open-full-view-link:hover {
 	color: #0a58ca;
 }
+
+
+
+
+
+/*extened view add tbn*/
+
+#addUtilityBtnFullView{
+    min-width: 28px;
+    min-height: 28px;
+    max-width: 28px;
+    max-height: 28px;
+    vertical-align: middle;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+#addUtilityBtnFullView:hover {
+    transform: scale(1.15);
+}

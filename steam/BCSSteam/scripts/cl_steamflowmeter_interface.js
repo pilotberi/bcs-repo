@@ -8,6 +8,8 @@
 	Use customDtOpns object to maniuplate data table.
 */
 
+var alphanumericRegex = /^[a-zA-Z0-9 ]+$/;
+
 if (typeof TenantSteamFlowMeterInterface === 'undefined')
 	TenantSteamFlowMeterInterface = {};
 
@@ -71,7 +73,7 @@ var SteamFlowMeterInterface = {
 
 			if(!vendor.business_partner_short_name && partners){
 
-			var partnerObj = partners.find(p => p._sid === vendor.business_partner_id);
+				var partnerObj = partners.find(p => p._sid === vendor.business_partner_id);
 
 				if (partnerObj) {
 					vendor.business_partner_short_name = partnerObj.name;
@@ -167,6 +169,11 @@ var SteamFlowMeterInterface = {
 				s_info(Strings.STEAMFLOWMETER_ERROR_TITLE,Strings.INVALID_SFM_CODE_LENGTH,dlgOptions);
 				return false;
 			}
+
+			if (!alphanumericRegex.test(value)) {
+				s_info(Strings.ERROR, Strings.INVALID_SFM_CODE_FORMAT, dlgOptions);
+				return false;
+			}
 		}
 
 		if (dataObj && dataObj.sfm_description) {
@@ -174,6 +181,11 @@ var SteamFlowMeterInterface = {
 
 			if (desc.length > 50) {
 				s_info(Strings.STEAMFLOWMETER_ERROR_TITLE, Strings.INVALID_SFM_DESCRIPTION_LENGTH, dlgOptions);
+				return false;
+			}
+
+			if (!alphanumericRegex.test(desc)) {
+				s_info(Strings.ERROR, Strings.INVALID_SFM_DEC_FORMAT, dlgOptions);
 				return false;
 			}
 		}
@@ -194,6 +206,11 @@ var SteamFlowMeterInterface = {
 				s_info(Strings.STEAMFLOWMETER_ERROR_TITLE, Strings.INVALID_MODEL_NO_LENGTH, dlgOptions);
 				return false;
 			}
+
+			if (!alphanumericRegex.test(model)) {
+				s_info(Strings.ERROR, Strings.INVALID_SFM_MODEL_NO_FORMAT, dlgOptions);
+				return false;
+			}
 		}
 
 		if (dataObj && dataObj.serial_no) {
@@ -201,6 +218,11 @@ var SteamFlowMeterInterface = {
 
 			if (serial.length > 20) {
 				s_info(Strings.STEAMFLOWMETER_ERROR_TITLE, Strings.INVALID_SERIAL_NO_LENGTH, dlgOptions);
+				return false;
+			}
+
+			if (!alphanumericRegex.test(serial)) {
+				s_info(Strings.ERROR, Strings.INVALID_SFM_SERIAL_NO_FORMAT, dlgOptions);
 				return false;
 			}
 		}
@@ -235,7 +257,7 @@ var SteamFlowMeterInterface = {
 			}
 		}
 
-		if (dataObj && dataObj.connected_tnpcb === true) {
+		/*if (dataObj && dataObj.connected_tnpcb === true) {
 			if(!dataObj.tnpcb_ref || dataObj.tnpcb_ref == ""){
 				s_info(Strings.STEAMFLOWMETER_ERROR_TITLE, Strings.TNPCB_REF_REQUIRED, dlgOptions);
 				return false;
@@ -265,13 +287,18 @@ var SteamFlowMeterInterface = {
 				s_info(Strings.STEAMFLOWMETER_ERROR_TITLE, Strings.INVALID_CPCB_REF_LENGTH, dlgOptions);
 				return false;
 			}
-		}
+		}*/
 
 		if (dataObj && dataObj.remarks) {
 			var value = dataObj.remarks;
 
 			if (value.length > 100) {
 				s_info(Strings.STEAMFLOWMETER_ERROR_TITLE, Strings.INVALID_REMARKS_LENGTH, dlgOptions);
+				return false;
+			}
+
+			if (!alphanumericRegex.test(value)) {
+				s_info(Strings.ERROR, Strings.INVALID_SFM_REMARKS_FORMAT, dlgOptions);
 				return false;
 			}
 		}
@@ -311,6 +338,11 @@ var SteamFlowMeterInterface = {
 				s_info(Strings.STEAMFLOWMETER_ERROR_TITLE,Strings.INVALID_SFM_CODE_LENGTH,dlgOptions);
 				return false;
 			}
+
+			if (!alphanumericRegex.test(value)) {
+				s_info(Strings.ERROR, Strings.INVALID_SFM_CODE_FORMAT, dlgOptions);
+				return false;
+			}
 		}
 
 		if (dataObj && dataObj.sfm_description) {
@@ -318,6 +350,11 @@ var SteamFlowMeterInterface = {
 
 			if (desc.length > 50) {
 				s_info(Strings.STEAMFLOWMETER_ERROR_TITLE, Strings.INVALID_SFM_DESCRIPTION_LENGTH, dlgOptions);
+				return false;
+			}
+
+			if (!alphanumericRegex.test(desc)) {
+				s_info(Strings.ERROR, Strings.INVALID_SFM_DEC_FORMAT, dlgOptions);
 				return false;
 			}
 		}
@@ -338,6 +375,11 @@ var SteamFlowMeterInterface = {
 				s_info(Strings.STEAMFLOWMETER_ERROR_TITLE, Strings.INVALID_MODEL_NO_LENGTH, dlgOptions);
 				return false;
 			}
+
+			if (!alphanumericRegex.test(model)) {
+				s_info(Strings.ERROR, Strings.INVALID_SFM_MODEL_NO_FORMAT, dlgOptions);
+				return false;
+			}
 		}
 
 		if (dataObj && dataObj.serial_no) {
@@ -345,6 +387,11 @@ var SteamFlowMeterInterface = {
 
 			if (serial.length > 20) {
 				s_info(Strings.STEAMFLOWMETER_ERROR_TITLE, Strings.INVALID_SERIAL_NO_LENGTH, dlgOptions);
+				return false;
+			}
+
+			if (!alphanumericRegex.test(serial)) {
+				s_info(Strings.ERROR, Strings.INVALID_SFM_SERIAL_NO_FORMAT, dlgOptions);
 				return false;
 			}
 		}
@@ -358,7 +405,27 @@ var SteamFlowMeterInterface = {
 			}
 		}
 
-		if (dataObj && dataObj.connected_tnpcb === true) {
+		if (dataObj && dataObj.flow_rate_min) {
+			const value = dataObj.flow_rate_min.toString();
+			const flowRateRegex = /^\d{1,4}(\.\d{1,3})?$/;
+
+			if (!flowRateRegex.test(value)) {
+				s_info(Strings.STEAMFLOWMETER_ERROR_TITLE,Strings.INVALID_FLOW_RATE_MIN,dlgOptions);
+				return false;
+			}
+		}
+
+		if (dataObj && dataObj.flow_rate_max) {
+			const value = dataObj.flow_rate_max.toString();
+			const flowRateRegex = /^\d{1,4}(\.\d{1,3})?$/;
+
+			if (!flowRateRegex.test(value)) {
+				s_info(Strings.STEAMFLOWMETER_ERROR_TITLE,Strings.INVALID_FLOW_RATE_MAX,dlgOptions);
+				return false;
+			}
+		}
+
+		/*if (dataObj && dataObj.connected_tnpcb === true) {
 			if(!dataObj.tnpcb_ref || dataObj.tnpcb_ref == ""){
 				s_info(Strings.STEAMFLOWMETER_ERROR_TITLE, Strings.TNPCB_REF_REQUIRED, dlgOptions);
 				return false;
@@ -388,13 +455,18 @@ var SteamFlowMeterInterface = {
 				s_info(Strings.STEAMFLOWMETER_ERROR_TITLE, Strings.INVALID_CPCB_REF_LENGTH, dlgOptions);
 				return false;
 			}
-		}
+		}*/
 
 		if (dataObj && dataObj.remarks) {
 			var value = dataObj.remarks;
 
 			if (value.length > 100) {
 				s_info(Strings.STEAMFLOWMETER_ERROR_TITLE, Strings.INVALID_REMARKS_LENGTH, dlgOptions);
+				return false;
+			}
+
+			if (!alphanumericRegex.test(value)) {
+				s_info(Strings.ERROR, Strings.INVALID_SFM_REMARKS_FORMAT, dlgOptions);
 				return false;
 			}
 		}
@@ -435,9 +507,45 @@ var SteamFlowMeterInterface = {
 
 	onAfterDelete: function(isSuccessful, resultObj, dataSources) {
 		//Custom code here
-		if(resultObj.data && resultObj.data.err_code === 422){
+		/*if(resultObj.data && resultObj.data.err_code === 422){
 			clCommon.hideLoader("removeProgress");
 			s_info(Strings.STEAMFLOWMETER_ERROR_TITLE, Strings.FOREIGN_REFERENCE_EXIST_ON_UTILITY, dlgOptions);
+
+			return false;
+		}*/
+
+		if(resultObj && resultObj.data && resultObj.data.err_code){
+			resultObj = resultObj.data;
+		}
+
+		if (resultObj.err_code && resultObj.err_code === 422) {
+
+			if (resultObj.refFlag === true) {
+
+				let alertText = '<p>' + Strings.SFM_FOREIGN_REFERENCE_EXIST;
+				let refLabels = [];
+
+				if (resultObj.conflictSources) {
+
+					if (resultObj.conflictSources.sfm_link)
+						refLabels.push(Strings.SFMP_REF_SFM_LINK);
+
+					if (resultObj.conflictSources.sfm_status)
+						refLabels.push(Strings.SFMP_REF_SFM_STATUS);
+
+				}
+
+				if (refLabels.length) {
+					alertText += ' ' + refLabels.join(', ');
+				}
+
+				alertText += '</p>';
+				alertText += '<ol class="sfm_prompt_error">';
+				alertText += '</ol>';
+
+				s_info(Strings.VALIDATION_ERROR_TITLE, alertText, dlgOptions);
+				clCommon.hideLoader("removeProgress");
+			}
 
 			return false;
 		}
@@ -472,7 +580,7 @@ var SteamFlowMeterInterface = {
 			clCommon.hide(filterActionsSteamFlowMeterBtn);
 		} 
 
-		if (rowData.connected_tnpcb === false) {
+		/*	if (rowData.connected_tnpcb === false) {
 			steamFlowMeterTnpcb_ref.value = '';
 			clCommon.hide(document.getElementById("steamFlowMeterTnpcb_refForTour"));
 		}else{
@@ -484,7 +592,7 @@ var SteamFlowMeterInterface = {
 			clCommon.hide(document.getElementById("steamFlowMeterCpcb_refForTour"));
 		}else{
 			clCommon.show(document.getElementById("steamFlowMeterCpcb_refForTour"));
-		}
+		}*/
 
 
 		if (TenantSteamFlowMeterInterface && TenantSteamFlowMeterInterface.onRowItemClick)
@@ -510,7 +618,7 @@ var SteamFlowMeterInterface = {
 		//Custom code here
 		defaultObj.isactive = true;
 
-		if (defaultObj.connected_tnpcb === false) {
+		/*if (defaultObj.connected_tnpcb === false) {
 			steamFlowMeterTnpcb_ref.value = '';
 			clCommon.hide(document.getElementById("steamFlowMeterTnpcb_refForTour"));
 		}else{
@@ -522,7 +630,7 @@ var SteamFlowMeterInterface = {
 			clCommon.hide(document.getElementById("steamFlowMeterCpcb_refForTour"));
 		}else{
 			clCommon.show(document.getElementById("steamFlowMeterCpcb_refForTour"));
-		}
+		}*/
 
 
 		if (TenantSteamFlowMeterInterface && TenantSteamFlowMeterInterface.onClearForm)
@@ -561,7 +669,7 @@ var SteamFlowMeterInterface = {
 			}
 		}
 
-		if (changedField.id === "steamFlowMeterConnected_tnpcb") {
+		/*if (changedField.id === "steamFlowMeterConnected_tnpcb") {
 			if(steamFlowMeterConnected_tnpcb.checked == false){
 				steamFlowMeterTnpcb_ref.value = '';
 				clCommon.hide(document.getElementById("steamFlowMeterTnpcb_refForTour"));
@@ -577,7 +685,7 @@ var SteamFlowMeterInterface = {
 			}else{
 				clCommon.show(document.getElementById("steamFlowMeterCpcb_refForTour"));
 			}
-		}
+		}*/
 
 
 
@@ -644,11 +752,12 @@ var SteamFlowMeterInterface = {
 								checked = "checked";
 							}
 
-							vendorArr.push({
-								"vendor_idName": '<label for="' + vendor._sid + '">' + vendor.name + '</label>',
-								"radio": '<input type="radio" name="vendor_idName" vendor_idId="' + vendor._sid + '" vendor_idName="' + JSON.stringify(vendor).replaceAll('"', '$' + 'DQUOTE' + '$') + '" ' + checked + '>'
-							});
-
+							if(rowData || (!rowData && !vendor.name.endsWith(" - Inactive") )){
+								vendorArr.push({
+									"vendor_idName": '<label for="' + vendor._sid + '">' + vendor.name + '</label>',
+									"radio": '<input type="radio" name="vendor_idName" vendor_idId="' + vendor._sid + '" vendor_idName="' + JSON.stringify(vendor).replaceAll('"', '$' + 'DQUOTE' + '$') + '" ' + checked + '>'
+								});
+							}
 
 
 						}

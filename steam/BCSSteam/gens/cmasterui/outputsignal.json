@@ -3,6 +3,9 @@
 	"name": "outputSignal",
 	"label": "Output Signal",
 	"url": "scripts/cl_outputsignal",
+		"include_library":
+	{},
+	"custom_library": [],
 	"services":
 	{
 		"get": "getOutputSignal",

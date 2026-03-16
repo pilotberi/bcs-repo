@@ -38,51 +38,57 @@ module.exports = {
 			"params": params,
 		};
 
-		if (params && params.id){
-			try{
+		if (params && params.id) {
+			try {
 				params.id = JSON.parse(params.id);
-			}catch(e){
+			} catch(e) {
 				params.id = params.id;
 			}
 
-			//if(params.data._sid){
-				var getByUtilityBySfm = {};
-				getByUtilityBySfm.cols = [
-					"sfm_code_id",
-					"value",
-					"reason",
-					"record_date",
-					"remarks",
-					"created_by",
-					"created_on",
-					"modified_by",
-					"modified_on"
-				];
+			var refFlag = false;
 
-				getByUtilityBySfm.filter = [];
-				getByUtilityBySfm.filter.push({
-					"col": "sfm_code_id",
-					"op": "=",
-					"val": params.id
-				});
+			var conflictSources = {
+				sfm_link: false,
+				sfm_status: false
+			};
 
+			var checkRefQuery = {
+				"cols": [
+					"sfm_code_id"
+				],
+				"filter":[
+					{
+						"col": "sfm_code_id",
+						"op": "=",
+						"val": params.id
+					}]
+			};
 
-				var utilityRespObj = dsclientUtil.execute(getByUtilityBySfm, "BCSSteam", "BCSSteam_utility", "query");
-				var utilityObjArr = utilityRespObj.data;
+			// 1. Check SFMP - SFM Link Table
+			var sfmLinkResp = dsclientUtil.execute(checkRefQuery, "BCSSteam", "BCSSteam_sfm_link", "query");
+			if (sfmLinkResp && sfmLinkResp.code === 200 && sfmLinkResp.data && sfmLinkResp.data.length > 0) {
+				refFlag = true;
+				conflictSources.sfm_link = true;
+			}
 
-				if(utilityRespObj.code == 200 && utilityObjArr && utilityObjArr.length > 0){
+			// 2. Check SFM Status Table
+			var sfmStatusResp = dsclientUtil.execute(checkRefQuery, "BCSSteam", "BCSSteam_sfm_status", "query");
+			if (sfmStatusResp && sfmStatusResp.code === 200 && sfmStatusResp.data && sfmStatusResp.data.length > 0) {
+				refFlag = true;
+				conflictSources.sfm_status = true;
+			}
 
-					rObj.override = true;
-					rObj.resp = {
-						"code" : 400,
-						"msg" : Strings.FOREGIN_REFERENCE_FOUND,
-						"err_code" : 422 		//422 -foreign key constraint fails
-					};
-
-				}
-			//}
+			if (refFlag) {
+				rObj.override = true;
+				rObj.resp = {
+					"code" : 400,
+					"msg" : Strings.FOREGIN_REFERENCE_FOUND || "Cannot delete SFM. It is currently referenced.",
+					"err_code" : 422,
+					"refFlag": refFlag,
+					"conflictSources": conflictSources
+				};
+			}
 		}
-
 
 		if (TenantDeleteSfmInterface && TenantDeleteSfmInterface.beforeData) {
 			rObj = TenantDeleteSfmInterface.beforeData(params);

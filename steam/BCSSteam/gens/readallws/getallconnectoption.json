@@ -1,0 +1,7 @@
+{
+	"appName": "BCSSteam",
+	"objName": "connectivityOption",
+	"serviceName": "getAllConnectOption",
+	"tableName": "BCSSteam_connectivity_option",
+	"url": "connectivityoption/getall"
+}

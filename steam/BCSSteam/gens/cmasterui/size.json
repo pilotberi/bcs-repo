@@ -3,6 +3,9 @@
 	"name": "size",
 	"label": "Size (inch)",
 	"url": "scripts/cl_size",
+		"include_library":
+	{},
+	"custom_library": [],
 	"services":
 	{
 		"get": "getSize",

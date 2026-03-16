@@ -1,0 +1,7 @@
+{
+	"appName": "BCSSteam",
+	"objName": "sfmStatus",
+	"serviceName": "deleteSfmStatus",
+	"tableName": "BCSSteam_sfm_status",
+	"url": "sfmstatus/delete"
+}

@@ -1,0 +1,10 @@
+{
+	"appName": "BCSSteam",
+	"objName": "sfmp",
+	"serviceName": "getAllSfmpWithoutLimit",
+	"url": "sfmp/getall",
+	"params": [],
+	"setJson": false,
+	"setMethod": "POST",
+	"contentType": ""
+}

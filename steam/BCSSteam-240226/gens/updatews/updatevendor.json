@@ -1,7 +1,0 @@
-{
-	"appName": "BCSSteam",
-	"objName": "vendor",
-	"serviceName": "updateVendor",
-	"tableName": "BCSSteam_vendor",
-	"url": "vendor/update"
-}

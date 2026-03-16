@@ -19,10 +19,6 @@
 			"flow_rate_max",
 			"input_power_id",
 			"output_signal_id",
-			"connected_tnpcb",
-			"tnpcb_ref",
-			"connected_cpcb",
-			"cpcb_ref",
 			"remarks",
 			"created_by",
 			"created_on",
@@ -30,21 +26,20 @@
 			"modified_on"
 		],
 		"filters": [
-			{
-				"col": "created_on",
-				"op": ">=",
-				"condition": "params.start_date",
-				"value": "parseInt(params.start_date)",
-				"paramName": "start_date"
-			},
-			{
-				"col": "created_on",
-				"op": "<=",
-				"condition": "params.end_date",
-				"value": "parseInt(params.end_date)",
-				"paramName": "end_date"
-			}
-		],
+		{
+			"col": "created_on",
+			"op": ">=",
+			"condition": "params.start_date",
+			"value": "parseInt(params.start_date)",
+			"paramName": "start_date"
+		},
+		{
+			"col": "created_on",
+			"op": "<=",
+			"condition": "params.end_date",
+			"value": "parseInt(params.end_date)",
+			"paramName": "end_date"
+		}],
 		"limit": null,
 		"groupBy": [],
 		"orderBy": [],

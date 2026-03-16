@@ -134,17 +134,17 @@ var common_util = {
 		}
 	},
 
-	"setSfmCodeCookie": function() {
-		var cookieVal = clCommon.getCookie("sfmCode");
+	"setSfmpCodeCookie": function() {
+		var cookieVal = clCommon.getCookie("sfmpCode");
 
 		if (!cookieVal) return;
 
 		try {
 			var cObj = JSON.parse(cookieVal);
-			var sfmCodeValue = cObj.sfmCode;
+			var sfmpCodeValue = cObj.sfmpCode;
 
 
-			sfmCodeFilter.value = sfmCodeValue;
+			sfmpCodeFilter.value = sfmpCodeValue;
 
 
 		} catch (e) {

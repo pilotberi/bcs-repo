@@ -1,0 +1,199 @@
+{
+	"appName": "BCSSteam",
+	"name": "sfmStatus",
+	"label": "Steam Flow Meter Status",
+	"url": "scripts/cl_sfmstatus",
+	"tableHeaders": ["Steam Flow Meter", "Status Code", "SFMS Start Date", "SFMS End Date"],
+	"tableDispHeaders": [
+	{
+		"name": "sfm_code_id",
+		"isSort": true
+	},
+	{
+		"name": "sfm_status_code_id",
+		"isSort": true
+	},
+	{
+		"name": "sfms_start_date",
+		"isSort": true
+	},
+	{
+		"name": "sfms_end_date",
+		"isSort": true
+	}],
+	"sort": [],
+	"isDuplicateMandatory":
+	{
+		"setDuplicate": false,
+		"setAttr": ""
+	},
+	"deleteConfirmBy":
+	{
+		"setAttr": "sfm_code_name"
+	},
+	"isImportMandatory": false,
+	"importUrl": null,
+	"isFilterMandatory": false,
+	"services":
+	{
+		"create": "createSfmStatus",
+		"read": "getAllSfmStatus",
+		"update": "updateSfmStatus",
+		"delete": "deleteSfmStatus"
+	},
+	"loadDataByFilter":
+	{
+		"isFilter": true,
+		"dateFilter":
+		{
+			"set": false,
+			"options": []
+		},
+		"params": ["offset", "limit"],
+		"filters": []
+	},
+	"buttons": [],
+	"formLayout": [
+	{
+		"type": "default",
+		"content": [
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-4 col-md-4",
+			"field": "sfm_code_id"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-12 col-md-4",
+			"field": "sfm_description"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-4 col-md-4",
+			"field": "sfm_status_code_id"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-4 col-md-4",
+			"field": "sfms_start_date"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-4 col-md-4",
+			"field": "sfms_end_date"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-12 col-md-4",
+			"field": "remarks"
+		}]
+	}],
+	"attrs": [
+	{
+		"name": "sfm_code_id",
+		"label": "Steam Flow Meter",
+		"type": "lookup-embedded",
+		"options": [],
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": true
+		}],
+		"dataSrc":
+		{
+			"name": "getAllSfmWithoutLimit",
+			"objName": "sfm",
+			"valueAttr": "_sid",
+			"isMaster": false,
+			"options":
+			{
+				"setFilter": false,
+				"elementId": ""
+			},
+			"displayAttr": "sfm_code",
+			"service": "get",
+			"decrypt": "sfm_code",
+			"allowCreate": false
+		}
+	},
+	{
+		"name": "sfm_description",
+		"label": "SFM Description",
+		"type": "textarea",
+		"options": [],
+		"validate": false,
+		"validateBy": [
+		{
+			"mandatory": false
+		}]
+	},
+	{
+		"name": "sfm_status_code_id",
+		"label": "Steam Flow Meter Status Code",
+		"type": "lookup-embedded",
+		"options": [],
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": true
+		}],
+		"dataSrc":
+		{
+			"name": "getStatusCode",
+			"objName": "sfmStatusCode",
+			"valueAttr": "id",
+			"isMaster": true,
+			"options":
+			{
+				"setFilter": false,
+				"elementId": ""
+			},
+			"displayAttr": "status_code",
+			"service": "get",
+			"decrypt": "status_code",
+			"allowCreate": false
+		}
+	},
+	{
+		"name": "sfms_start_date",
+		"label": "SFMS Start Date",
+		"type": "date",
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": true
+		}],
+		"options": []
+	},
+	{
+		"name": "sfms_end_date",
+		"label": "SFMS End Date",
+		"type": "date",
+		"validate": false,
+		"validateBy": [
+		{
+			"mandatory": false
+		}],
+		"options": []
+	},
+	{
+		"name": "remarks",
+		"label": "Remarks",
+		"type": "textarea",
+		"validate": false,
+		"validateBy": [
+		{
+			"mandatory": false
+		}],
+		"options": []
+	}],
+	"encrypt": [],
+	"decrypt": [],
+	"confirmBy": "sfm_code_name"
+}

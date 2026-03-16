@@ -3,6 +3,9 @@
 	"name": "inputPower",
 	"label": "Input Power",
 	"url": "inputpower.html",
+	"include_library":
+	{},
+	"custom_library": [],
 	"column": [
 	{
 		"name": "id",

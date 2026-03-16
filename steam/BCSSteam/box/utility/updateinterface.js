@@ -49,7 +49,7 @@ module.exports = {
 
 			if(getAllUtilityRespObj.code == 200 && getAllUtilityRespObj.data){
 				for(var idx = 0; idx < getAllUtilityRespObj.data.length; idx++){
-					if(params.data.sfm_code_id == getAllUtilityRespObj.data[idx].sfm_code_id  &&
+					if(params.data.sfmp_code_id == getAllUtilityRespObj.data[idx].sfmp_code_id  &&
 					   (params.data._sid != getAllUtilityRespObj.data[idx]._sid) &&
 					   this._isSameMonth(params.data.record_date, getAllUtilityRespObj.data[idx].record_date)){
 

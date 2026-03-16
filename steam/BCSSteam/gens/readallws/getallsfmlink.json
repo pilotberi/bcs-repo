@@ -1,0 +1,7 @@
+{
+	"appName": "BCSSteam",
+	"objName": "sfmLink",
+	"serviceName": "getAllSfmLink",
+	"tableName": "BCSSteam_sfm_link",
+	"url": "sfmlink/getall"
+}

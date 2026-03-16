@@ -1,0 +1,7 @@
+{
+	"appName": "BCSSteam",
+	"objName": "sfmp",
+	"serviceName": "getAllSfmp",
+	"tableName": "BCSSteam_sfmp",
+	"url": "sfmp/getall"
+}

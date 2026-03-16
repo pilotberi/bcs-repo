@@ -3,6 +3,9 @@
 	"name": "workingPrinciple",
 	"label": "Working Principle",
 	"url": "scripts/cl_workingprinciple",
+		"include_library":
+	{},
+	"custom_library": [],
 	"services":
 	{
 		"get": "getWorkingPrinciple",

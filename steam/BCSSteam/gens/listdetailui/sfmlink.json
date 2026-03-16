@@ -1,0 +1,199 @@
+{
+	"appName": "BCSSteam",
+	"name": "sfmLink",
+	"label": "SFMP – SFM Link",
+	"url": "scripts/cl_sfmlink",
+	"tableHeaders": ["SFMP Code", "SF Meter", "SFMC Start Date", "SFMC End Date"],
+	"tableDispHeaders": [
+	{
+		"name": "sfmp_code_id",
+		"isSort": true
+	},
+	{
+		"name": "sfm_code_id",
+		"isSort": true
+	},
+	{
+		"name": "sfmc_start_date",
+		"isSort": true
+	},
+	{
+		"name": "sfmc_end_date",
+		"isSort": true
+	}],
+	"sort": [],
+	"isDuplicateMandatory":
+	{
+		"setDuplicate": false,
+		"setAttr": ""
+	},
+	"deleteConfirmBy":
+	{
+		"setAttr": "sfmp_code_name"
+	},
+	"isImportMandatory": false,
+	"importUrl": null,
+	"isFilterMandatory": false,
+	"services":
+	{
+		"create": "createSfmLink",
+		"read": "getAllSfmLink",
+		"update": "updateSfmLink",
+		"delete": "deleteSfmLink"
+	},
+	"loadDataByFilter":
+	{
+		"isFilter": true,
+		"dateFilter":
+		{
+			"set": false,
+			"options": []
+		},
+		"params": ["offset", "limit"],
+		"filters": []
+	},
+	"buttons": [],
+	"formLayout": [
+	{
+		"type": "default",
+		"content": [
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-4 col-md-4",
+			"field": "sfmp_code_id"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-12 col-md-4",
+			"field": "sfmp_description"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-4 col-md-4",
+			"field": "sfm_code_id"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-4 col-md-4",
+			"field": "sfmc_start_date"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-4 col-md-4",
+			"field": "sfmc_end_date"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-12 col-md-4",
+			"field": "remarks"
+		}]
+	}],
+	"attrs": [
+	{
+		"name": "sfmp_code_id",
+		"label": "SFMP Code",
+		"type": "lookup-embedded",
+		"options": [],
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": true
+		}],
+		"dataSrc":
+		{
+			"name": "getAllSfmpWithoutLimit",
+			"objName": "sfmp",
+			"valueAttr": "_sid",
+			"isMaster": false,
+			"options":
+			{
+				"setFilter": false,
+				"elementId": ""
+			},
+			"displayAttr": "sfmp_code",
+			"service": "get",
+			"decrypt": "sfmp_code",
+			"allowCreate": false
+		}
+	},
+	{
+		"name": "sfmp_description",
+		"label": "SFMP Description",
+		"type": "textarea",
+		"options": [],
+		"validate": false,
+		"validateBy": [
+		{
+			"mandatory": false
+		}]
+	},
+	{
+		"name": "sfm_code_id",
+		"label": "SF Meter",
+		"type": "lookup-embedded",
+		"options": [],
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": true
+		}],
+		"dataSrc":
+		{
+			"name": "getAllSfmWithoutLimit",
+			"objName": "sfm",
+			"valueAttr": "_sid",
+			"isMaster": false,
+			"options":
+			{
+				"setFilter": false,
+				"elementId": ""
+			},
+			"displayAttr": "sfm_code",
+			"service": "get",
+			"decrypt": "sfm_code",
+			"allowCreate": false
+		}
+	},
+	{
+		"name": "sfmc_start_date",
+		"label": "SFMC Start Date",
+		"type": "date",
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": true
+		}],
+		"options": []
+	},
+	{
+		"name": "sfmc_end_date",
+		"label": "SFMC End Date",
+		"type": "date",
+		"validate": false,
+		"validateBy": [
+		{
+			"mandatory": false
+		}],
+		"options": []
+	},
+	{
+		"name": "remarks",
+		"label": "Remarks",
+		"type": "textarea",
+		"validate": false,
+		"validateBy": [
+		{
+			"mandatory": false
+		}],
+		"options": []
+	}],
+	"encrypt": [],
+	"decrypt": [],
+	"confirmBy": "sfmp_code_name"
+}

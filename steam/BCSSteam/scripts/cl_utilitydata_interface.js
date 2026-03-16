@@ -8,9 +8,14 @@
 	Use customDtOpns object to maniuplate data table.
 */
 
+
+var alphanumericRegex = /^[a-zA-Z0-9 ]+$/;
+var isCurrentlyFull = clCommon.getCookie("bcssteam_full_view");
+var addUtilityBtnFullView;
+
 var mSelect,ySelect;
 var filterMSelect, filterYSelect;
-var sfmLdCount = 0;
+var sfmpLdCount = 0;
 
 if (typeof TenantUtilityInterface === 'undefined')
 	TenantUtilityInterface = {};
@@ -22,14 +27,14 @@ var UtilityInterface = {
 		document.querySelector("span").innerHTML = "BCS Steam";
 
 		clCommon.hide(document.getElementById("nav-action-tab"));
-		document.querySelector("#sfmCodeFilter option[value='all']").innerHTML = "All Sfm Code";
+		document.querySelector("#sfmpCodeFilter option[value='all']").innerHTML = "All SFMP Code";
 
 		convertDateToMonthYearPicker();
 		mSelect = document.getElementById('utilityRecord_monthSelect');
 		ySelect = document.getElementById('utilityRecord_yearSelect');
 
 		createFilterMonthYearPicker();
-
+		//createAddBtn();
 
 		if (TenantUtilityInterface && TenantUtilityInterface.onLoad)
 			return TenantUtilityInterface.onLoad();
@@ -39,13 +44,11 @@ var UtilityInterface = {
 
 	onBeforeLoad: function(dataSources) {
 
-		common_util.setSfmCodeCookie();
+		common_util.setSfmpCodeCookie();
 
 		var dates = getCustomFilterDates();
 		dataSources.startDate = dates.startDate;
 		dataSources.endDate = dates.endDate;
-
-
 
 		if (TenantUtilityInterface && TenantUtilityInterface.onBeforeLoad)
 			return TenantUtilityInterface.onBeforeLoad();
@@ -55,19 +58,28 @@ var UtilityInterface = {
 
 	onAfterLoad: function(dataSources) {
 
-		clCommon.hide(sfm_code_idAddBtn);
-		clCommon.hide(reasonAddBtn);	
+		clCommon.hide(sfmp_code_idAddBtn);
+		clCommon.hide(reasonAddBtn);
+
+		clCommon.disable(utilityRecord_monthSelect);
+		clCommon.disable(utilityRecord_yearSelect);
+
+		/*if(sfmpCodeFilter.value !=="all"){
+			clCommon.hide(utilitySfmp_code_idZoom);
+			clCommon.disable(utilityRecord_monthSelect);
+			clCommon.disable(utilityRecord_yearSelect);
+		}*/
 
 		if (clCommon.isMobile()) {
 			clCommon.hide(filterActionsUtilityBtn);
 		}
 
-		if(dataSources.getAllSfmWithoutLimit && sfmLdCount == 0){
-			sfmLdCount++;
-			for(var sfmIdx = 0; sfmIdx < dataSources.getAllSfmWithoutLimit.length; sfmIdx++){
-				var sfmObj = dataSources.getAllSfmWithoutLimit[sfmIdx];
-				if (sfmObj.isactive === false || sfmObj.isactive == null) {
-					dataSources.getAllSfmWithoutLimit[sfmIdx].sfm_code = dataSources.getAllSfmWithoutLimit[sfmIdx].sfm_code + ' - Inactive';
+		if(dataSources.getAllSfmpWithoutLimit && sfmpLdCount == 0){
+			sfmpLdCount++;
+			for(var sfmpIdx = 0; sfmpIdx < dataSources.getAllSfmpWithoutLimit.length; sfmpIdx++){
+				var sfmObj = dataSources.getAllSfmpWithoutLimit[sfmpIdx];
+				if (sfmObj.sfmp_active === false || sfmObj.sfmp_active == null) {
+					dataSources.getAllSfmpWithoutLimit[sfmpIdx].sfmp_code = dataSources.getAllSfmpWithoutLimit[sfmpIdx].sfmp_code + ' - Inactive';
 				}
 			}
 		}
@@ -141,7 +153,7 @@ var UtilityInterface = {
 				break;
 
 			case 1 :
-				rVal = this._getSfmId(value);
+				rVal = this._getSfmpId(value);
 				break;
 
 			case 2:
@@ -172,10 +184,10 @@ var UtilityInterface = {
 		//custom code here
 
 		//dataObj.record_date = utilityRecord_date.valueAsNumber;
-		if (dataObj && dataObj.sfm_code_id) {
-			for(var idx = 0; idx < dataSources.getAllSfmWithoutLimit.length; idx++){
-				if(dataObj.sfm_code_id == dataSources.getAllSfmWithoutLimit[idx]._sid && (dataSources.getAllSfmWithoutLimit[idx].isactive == false || dataSources.getAllSfmWithoutLimit[idx].isactive == null)){
-					s_info(Strings.STEAMFLOWMETER_ERROR_TITLE, Strings.INACTIVE_SFM, dlgOptions);
+		if (dataObj && dataObj.sfmp_code_id) {
+			for(var idx = 0; idx < dataSources.getAllSfmpWithoutLimit.length; idx++){
+				if(dataObj.sfmp_code_id == dataSources.getAllSfmpWithoutLimit[idx]._sid && (dataSources.getAllSfmpWithoutLimit[idx].sfmp_active == false || dataSources.getAllSfmpWithoutLimit[idx].sfmp_active == null)){
+					s_info(Strings.STEAMFLOWMETER_ERROR_TITLE, Strings.INACTIVE_SFMP, dlgOptions);
 					return false;
 				}
 			}
@@ -194,6 +206,11 @@ var UtilityInterface = {
 
 			if (value.length > 100) {
 				s_info(Strings.STEAMFLOWMETER_ERROR_TITLE, Strings.INVALID_REMARKS_LENGTH, dlgOptions);
+				return false;
+			}
+
+			if (!alphanumericRegex.test(value)) {
+				s_info(Strings.ERROR, Strings.INVALID_SFMP_DESC_FORMAT, dlgOptions);
 				return false;
 			}
 		}
@@ -225,10 +242,10 @@ var UtilityInterface = {
 	onBeforeUpdate: function(dataObj, dataSources) {
 		//custom code here
 		//dataObj.record_date = utilityRecord_date.valueAsNumber;
-		if (dataObj && dataObj.sfm_code_id) {
-			for(var idx = 0; idx < dataSources.getAllSfmWithoutLimit.length; idx++){
-				if(dataObj.sfm_code_id == dataSources.getAllSfmWithoutLimit[idx]._sid && (dataSources.getAllSfmWithoutLimit[idx].isactive == false || dataSources.getAllSfmWithoutLimit[idx].isactive == null)){
-					s_info(Strings.STEAMFLOWMETER_ERROR_TITLE, Strings.INACTIVE_SFM, dlgOptions);
+		if (dataObj && dataObj.sfmp_code_id) {
+			for(var idx = 0; idx < dataSources.getAllSfmpWithoutLimit.length; idx++){
+				if(dataObj.sfmp_code_id == dataSources.getAllSfmpWithoutLimit[idx]._sid && (dataSources.getAllSfmpWithoutLimit[idx].sfmp_active == false || dataSources.getAllSfmpWithoutLimit[idx].sfmp_active == null)){
+					s_info(Strings.STEAMFLOWMETER_ERROR_TITLE, Strings.INACTIVE_SFMP, dlgOptions);
 					return false;
 				}
 			}
@@ -247,6 +264,11 @@ var UtilityInterface = {
 
 			if (value.length > 100) {
 				s_info(Strings.STEAMFLOWMETER_ERROR_TITLE, Strings.INVALID_REMARKS_LENGTH, dlgOptions);
+				return false;
+			}
+
+			if (!alphanumericRegex.test(value)) {
+				s_info(Strings.ERROR, Strings.INVALID_SFMP_DESC_FORMAT, dlgOptions);
 				return false;
 			}
 		}
@@ -312,12 +334,25 @@ var UtilityInterface = {
 			}
 		}
 
-		if(el.id === 'sfmCodeFilter'){
-			if(sfmCodeFilter){
-				var saveObj = {
-					sfmCode : sfmCodeFilter.value
+		if(el.id === 'sfmpCodeFilter'){
+
+			/*if(sfmpCodeFilter.value !=="all"){
+				clCommon.hide(utilitySfmp_code_idZoom);
+				clCommon.disable(utilityRecord_monthSelect);
+				clCommon.disable(utilityRecord_yearSelect);
+			}
+
+			if(sfmpCodeFilter.value == "all"){
+				clCommon.show(utilitySfmp_code_idZoom);
+				clCommon.enable(utilityRecord_monthSelect);
+				clCommon.enable(utilityRecord_yearSelect);
+			}*/
+
+			if(sfmpCodeFilter){
+				var sfmpCodeObj = {
+					sfmpCode : sfmpCodeFilter.value
 				};
-				clCommon.setCookie("sfmCode", JSON.stringify(saveObj), 10);
+				clCommon.setCookie("sfmpCode", JSON.stringify(sfmpCodeObj), 10);
 			}
 		}
 
@@ -339,10 +374,10 @@ var UtilityInterface = {
 
 	onRowItemClick: function(rowData) {
 		//Custom code here
-		if(rowData.sfm_code_id){
-			for(var idx = 0; idx < dataSources.getAllSfmWithoutLimit.length; idx++){
-				if(rowData.sfm_code_id == dataSources.getAllSfmWithoutLimit[idx]._sid){
-					rowData.sfm_code_name = dataSources.getAllSfmWithoutLimit[idx].sfm_code;
+		if(rowData.sfmp_code_id){
+			for(var idx = 0; idx < dataSources.getAllSfmpWithoutLimit.length; idx++){
+				if(rowData.sfmp_code_id == dataSources.getAllSfmpWithoutLimit[idx]._sid){
+					rowData.sfmp_code_name = dataSources.getAllSfmpWithoutLimit[idx].sfmp_code;
 				}
 			}
 		}
@@ -377,6 +412,38 @@ var UtilityInterface = {
 			}
 		}///
 
+		/*if(sfmpCodeFilter.value !=="all"){
+			clCommon.hide(utilitySfmp_code_idZoom);
+			clCommon.disable(utilityRecord_monthSelect);
+			clCommon.disable(utilityRecord_yearSelect);
+		} else {
+			clCommon.show(utilitySfmp_code_idZoom);
+			clCommon.enable(utilityRecord_monthSelect);
+			clCommon.enable(utilityRecord_yearSelect);
+		}*/
+
+		if (!rowData || !rowData._sid) {
+			if(sfmpCodeFilter.value !=="all"){
+				if(dataSources.getAllSfmpWithoutLimit){
+					for(var idx = 0; idx < dataSources.getAllSfmpWithoutLimit.length; idx++){
+						if(sfmpCodeFilter.value == dataSources.getAllSfmpWithoutLimit[idx]._sid){
+							utilitySfmp_code_id.value = dataSources.getAllSfmpWithoutLimit[idx].sfmp_code;
+							utilitySfmp_code_id.setAttribute("Sfmp_code_id", dataSources.getAllSfmpWithoutLimit[idx]._sid);
+							break;
+						}
+					}
+				}
+
+				if(filter_monthSelect && filter_monthSelect.value){
+					utilityRecord_monthSelect.value = filter_monthSelect.value;
+				}
+
+				if(filter_yearSelect && filter_yearSelect.value){
+					utilityRecord_yearSelect.value = filter_yearSelect.value;
+				}
+			}
+		}
+
 
 
 		if (TenantUtilityInterface && TenantUtilityInterface.onDisplayForm)
@@ -388,11 +455,26 @@ var UtilityInterface = {
 	onClearForm: function(defaultObj, dataSources) {
 		//Custom code here
 
-		// Set them to current Month and Year title
 		if (mSelect && ySelect) {
-			var now = new Date();
-			mSelect.value = now.getMonth();   
-			ySelect.value = now.getFullYear();
+			var monthVal = new Date().getMonth();
+			var yearVal = new Date().getFullYear();
+
+			if (filterMSelect && filterYSelect) {
+				monthVal = filterMSelect.value;
+				yearVal = filterYSelect.value;
+			} else {
+				var cookieVal = clCommon.getCookie("utility_filter_date");
+				if(cookieVal) {
+					try {
+						var cObj = JSON.parse(cookieVal);
+						monthVal = parseInt(cObj.month);
+						yearVal = parseInt(cObj.year);
+					} catch(e) { console.error(e); }
+				}
+			}
+
+			mSelect.value = monthVal;
+			ySelect.value = yearVal;
 
 			if (mSelect.options[mSelect.selectedIndex]) {
 				mSelect.setAttribute("title", mSelect.options[mSelect.selectedIndex].text);
@@ -440,6 +522,50 @@ var UtilityInterface = {
 
 	onLookUpData: function(attribute, dataSources) {
 
+		switch (attribute) {
+			case "sfmp_code_id":
+				var optionArr = [];
+				var optionFlg = false;
+				var pushState = (typeof e !== 'undefined' && e !== false);
+
+				var objective = {
+					"_sid": utilitySfmp_code_id.getAttribute("Sfm_code_id")
+				};
+
+				var items = dataSources.getAllSfmpWithoutLimit;
+
+				for (var i = 0; i < items.length; i++) {
+					var item = items[i];
+
+					var checked = "";
+
+					if (objective._sid && objective._sid == item._sid) {
+						checked = "checked";
+						optionFlg = true;
+					}else if (rowData && rowData.sfmp_code_id == item._sid && !optionFlg) {
+						checked = "checked";
+					}
+
+					if (rowData || (!rowData && !item.sfmp_code.endsWith(" - Inactive"))) {
+
+						optionArr.push({
+							"sfmp_code_idName": '<label for="' + item._sid + '">' + item.sfmp_code + '</label>',
+							"radio": '<input type="radio" name="sfmp_code_idName" sfmp_code_idId="' + item._sid + '" sfmp_code_idName="' + JSON.stringify(item).replaceAll('"', '$' + 'DQUOTE' + '$') + '" ' + checked + '>'
+						});
+					}
+				}
+
+				sfmp_code_idTable.clear().draw();
+				sfmp_code_idTable.rows.add(optionArr).draw();
+
+				if (clCommon.isMobile() && pushState) {
+					window.history.pushState('sfmp_code_idForm', null, '#sfmp_code_idsForm');
+					clCommon.hide(contentView);
+				}
+
+				return false;
+		}
+
 		if (TenantUtilityInterface && TenantUtilityInterface.onLookUpData)
 			return TenantUtilityInterface.onLookUpData(attribute, dataSources);
 
@@ -466,11 +592,12 @@ var UtilityInterface = {
 	},
 
 
-	_getSfmId: function(value){
-		for(var sfmIdx = 0; sfmIdx < dataSources.getAllSfmWithoutLimit.length; sfmIdx++){
-			var sfmObj = dataSources.getAllSfmWithoutLimit[sfmIdx];
-			if(value == sfmObj._sid){
-				rVal = sfmObj.sfm_code;
+	_getSfmpId: function(value){
+		var rVal;
+		for(var sfmIdx = 0; sfmIdx < dataSources.getAllSfmpWithoutLimit.length; sfmIdx++){
+			var sfmpObj = dataSources.getAllSfmpWithoutLimit[sfmIdx];
+			if(value == sfmpObj._sid){
+				rVal = sfmpObj.sfmp_code;
 				break;
 			}else{
 				rVal = Strings.NA_STRING;
@@ -497,15 +624,40 @@ var UtilityInterface = {
 
 };
 
+function createAddBtn(){
+
+	if(isCurrentlyFull){
+		var formTitle = document.getElementById('formTitleHeader');
+		if (!formTitle) return;
+
+		addUtilityBtnFullView = document.createElement('img');
+
+		addUtilityBtnFullView.id = 'addUtilityBtnFullView';
+		addUtilityBtnFullView.src = '/common/images/icons/add-icon.svg';
+		addUtilityBtnFullView.className = 'tool-icon';
+		addUtilityBtnFullView.title = 'Add';
+
+		addUtilityBtnFullView.setAttribute('data-string-type', 'attr');
+		addUtilityBtnFullView.setAttribute('data-string-key', 'LD_ADD_BUTTON');
+		addUtilityBtnFullView.setAttribute('data-string-attr', 'title');
+
+		formTitle.appendChild(addUtilityBtnFullView);
+
+		addUtilityBtnFullView = document.getElementById('addUtilityBtnFullView');
+		addUtilityBtnFullView.addEventListener('click', onAddUtilityBtnClick);
+	}
+}
+
 function convertDateToMonthYearPicker() {
 
 	if (document.getElementById('utilityRecord_monthSelect')) {
 		return;
 	}
-	var sfmContainer = document.querySelector('div[field="sfm_code_id"]');
+	var sfmpContainer = document.querySelector('div[field="sfmp_code_id"]');
+
 	var formGroupContainer; 
 
-	if (sfmContainer) {
+	if (sfmpContainer) {
 		var newCol = document.createElement('div');
 		newCol.className = 'col-sm-12';
 		newCol.setAttribute('field', 'record_date');
@@ -528,7 +680,17 @@ function convertDateToMonthYearPicker() {
 
 		// Append Group to Column
 		newCol.appendChild(formGroupContainer);
-		sfmContainer.parentNode.insertBefore(newCol, sfmContainer.nextSibling);
+
+		//sfmpContainer.parentNode.insertBefore(newCol, sfmpContainer.nextSibling);    //insert after sfmp field
+		sfmpContainer.parentNode.insertBefore(newCol, sfmpContainer);
+
+		if (isCurrentlyFull) {
+			var fullCol = document.createElement('div');
+			fullCol.className = 'col-lg-9';
+			fullCol.id = 'fullColDiv';
+
+			newCol.parentNode.insertBefore(fullCol, newCol.nextSibling);
+		}
 	}
 
 	var wrapper = document.createElement('div');
@@ -624,23 +786,23 @@ function createFilterMonthYearPicker() {
 	var container = document.getElementById('dateFilterContainer');
 
 	if (!container) {
-		var sfmFilter = document.getElementById('sfmCodeFilter');
+		var sfmpFilter = document.getElementById('sfmpCodeFilter');
 
-		if(sfmFilter) {
-			var sfmContainer = sfmFilter.closest('.form-group') || sfmFilter.parentNode;
+		if(sfmpFilter) {
+			var sfmpContainer = sfmpFilter.closest('.form-group') || sfmpFilter.parentNode;
 
 			// Create a new container for the Date Picker
 			container = document.createElement('div');
 			container.id = 'dateFilterContainer';
 			container.className = 'form-group mb-3'; 
 
-			// Insert BEFORE the SFM Container 
-			if(sfmContainer && sfmContainer.parentNode) {
-				sfmContainer.parentNode.insertBefore(container, sfmContainer);
+			// Insert BEFORE the SFMP Container 
+			if(sfmpContainer && sfmpContainer.parentNode) {
+				sfmpContainer.parentNode.insertBefore(container, sfmpContainer);
 			}
 		} 
 		else {
-			// Fallback: Append to the main filter row if SFM filter is missing
+			// Fallback: Append to the main filter row if SFMP filter is missing
 			var filterRow = document.getElementById('selectFilters');
 			if(filterRow) {
 				container = document.createElement('div');

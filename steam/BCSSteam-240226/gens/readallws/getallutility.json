@@ -1,7 +1,0 @@
-{
-	"appName": "BCSSteam",
-	"objName": "utility",
-	"serviceName": "getAllUtility",
-	"tableName": "BCSSteam_utility",
-	"url": "utility/getall"
-}

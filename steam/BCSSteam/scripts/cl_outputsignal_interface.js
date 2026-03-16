@@ -131,7 +131,7 @@ var OutputSignalInterface = {
 
 	onAfterSave: function(isSuccessful, dataObj) {
 		//Custom code here
-		if(dataObj.err_code === 422){
+		if(dataObj && dataObj.err_code && dataObj.err_code === 422){
 			if(dataObj.refFlag === true){
 				let alertText = '<p>' + Strings.FOREIGN_REFERENCE_EXIST_ON_OS + '</p>';
 				alertText += '<ol class="os_prompt_error">';

@@ -7,7 +7,7 @@
 	"query":
 	{
 		"cols": [
-			"sfm_code_id",
+			"sfmp_code_id",
 			"value",
 			"reason",
 			"record_date",
@@ -20,10 +20,10 @@
 
 		"filters": [
 		{
-			"col": "sfm_code_id",
+			"col": "sfmp_code_id",
 			"op": "=",
-			"condition": "params.sfm_code_id && params.sfm_code_id != 'all'",
-			"value": "params.sfm_code_id"
+			"condition": "params.sfmp_code_id && params.sfmp_code_id != 'all'",
+			"value": "params.sfmp_code_id"
 		},
 		{
 			"col": "record_date",
