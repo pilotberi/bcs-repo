@@ -3,9 +3,10 @@
 	"name": "statusCode",
 	"label": "Status Code",
 	"url": "scripts/cl_statuscode",
-		"include_library":
+	"include_library":
 	{},
 	"custom_library": [],
+	"isGlobal": false,
 	"services":
 	{
 		"get": "getStatusCode",
@@ -17,34 +18,34 @@
 	},
 	"confirmBy": "status_code",
 	"column": [
-	{
-		"name": "id",
-		"validate": false
-	},
-	{
-		"name": "status_code",
-		"label": "Status Code",
-		"validate": true,
-		"validateBy": [
 		{
-			"mandatory": true
-		}]
-	}],
+			"name": "id",
+			"validate": false
+		},
+		{
+			"name": "status_code",
+			"label": "Status Code",
+			"validate": true,
+			"validateBy": [
+				{
+					"mandatory": true
+				}]
+		}],
 	"columnDefs": [
-	{
-		"type": "text",
-		"title": "Id",
-		"width": 1,
-		"align": "left",
-		"wordWrap": false,
-		"readOnly": true
-	},
-	{
-		"type": "text",
-		"title": "Status Code",
-		"width": 300,
-		"align": "left",
-		"wordWrap": true,
-		"readOnly": false
-	}]
+		{
+			"type": "text",
+			"title": "Id",
+			"width": 1,
+			"align": "left",
+			"wordWrap": false,
+			"readOnly": true
+		},
+		{
+			"type": "text",
+			"title": "Status Code",
+			"width": 300,
+			"align": "left",
+			"wordWrap": true,
+			"readOnly": false
+		}]
 }

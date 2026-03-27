@@ -1,7 +1,0 @@
-{
-	"appName": "BCSFuel",
-	"objName": "utilizationPoint",
-	"serviceName": "getAllUtilizationPoint",
-	"tableName": "bcsfuel_utilization_point",
-	"url": "utilizationpoint/getall"
-}

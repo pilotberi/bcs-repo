@@ -3,20 +3,21 @@
 	"name": "steamFlowMeterPoint",
 	"label": "Steam Flow Monitoring Point",
 	"url": "scripts/cl_steamflowmeterpoint",
+	"isGlobal": false,
 	"tableHeaders": ["SFMP Code", "SFMP Description", "SFMP Active"],
 	"tableDispHeaders": [
-	{
-		"name": "sfmp_code",
-		"isSort": true
-	},
-	{
-		"name": "sfmp_description",
-		"isSort": true
-	},
-	{
-		"name": "sfmp_active",
-		"isSort": true
-	}],
+		{
+			"name": "sfmp_code",
+			"isSort": true
+		},
+		{
+			"name": "sfmp_description",
+			"isSort": true
+		},
+		{
+			"name": "sfmp_active",
+			"isSort": true
+		}],
 	"sort": [],
 	"isDuplicateMandatory":
 	{
@@ -50,61 +51,61 @@
 	},
 	"buttons": [],
 	"formLayout": [
-	{
-		"type": "default",
-		"content": [
 		{
-			"name": "",
-			"normal": "col-sm-12",
-			"expanded": "col-lg-4 col-md-4",
-			"field": "sfmp_code"
-		},
-		{
-			"name": "",
-			"normal": "col-sm-12",
-			"expanded": "col-lg-12 col-md-4",
-			"field": "sfmp_description"
-		},
-		{
-			"name": "",
-			"normal": "col-sm-12",
-			"expanded": "col-lg-9 col-md-4",
-			"field": "sfmp_active"
-		}]
-	}],
+			"type": "default",
+			"content": [
+				{
+					"name": "",
+					"normal": "col-sm-12",
+					"expanded": "col-lg-4 col-md-4",
+					"field": "sfmp_code"
+				},
+				{
+					"name": "",
+					"normal": "col-sm-12",
+					"expanded": "col-lg-12 col-md-4",
+					"field": "sfmp_description"
+				},
+				{
+					"name": "",
+					"normal": "col-sm-12",
+					"expanded": "col-lg-9 col-md-4",
+					"field": "sfmp_active"
+				}]
+		}],
 	"attrs": [
-	{
-		"name": "sfmp_code",
-		"label": "SFMP Code",
-		"type": "text",
-		"validate": true,
-		"validateBy": [
 		{
-			"mandatory": true
+			"name": "sfmp_code",
+			"label": "SFMP Code",
+			"type": "text",
+			"validate": true,
+			"validateBy": [
+				{
+					"mandatory": true
+				}],
+			"options": []
+		},
+		{
+			"name": "sfmp_description",
+			"label": "SFMP Description",
+			"type": "textarea",
+			"validate": true,
+			"validateBy": [
+				{
+					"mandatory": true
+				}],
+			"options": []
+		},
+		{
+			"name": "sfmp_active",
+			"label": "SFMP Active",
+			"type": "switch",
+			"validate": false,
+			"options": [
+				{
+					"label": "Active"
+				}]
 		}],
-		"options": []
-	},
-	{
-		"name": "sfmp_description",
-		"label": "SFMP Description",
-		"type": "textarea",
-		"validate": true,
-		"validateBy": [
-		{
-			"mandatory": true
-		}],
-		"options": []
-	},
-	{
-		"name": "sfmp_active",
-		"label": "SFMP Active",
-		"type": "switch",
-		"validate": false,
-		"options": [
-		{
-			"label": "Active"
-		}]
-	}],
 	"encrypt": [],
 	"decrypt": [],
 	"confirmBy": "sfmp_code"

@@ -6,6 +6,7 @@
 	"include_library":
 	{},
 	"custom_library": [],
+	"isGlobal": false,
 	"services":
 	{
 		"get": "getInputPower",

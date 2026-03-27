@@ -1,9 +1,0 @@
-{
-	"appName": "BCSFuel",
-	"objName": "unit",
-	"serviceName": "getUnit",
-	"url": "master/getunit",
-	"tableName": "bcsfuel_combined_master",
-	"masterTableName": "unit",
-	"defaultData": []
-}

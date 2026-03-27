@@ -1,9 +1,0 @@
-{
-  "appName": "BCSFuel",
-  "objName": "yard",
-  "serviceName": "getYard",
-  "url": "master/getyard",
-  "tableName": "bcsfuel_combined_master",
-  "masterTableName": "yard",
-  "defaultData": []
-}

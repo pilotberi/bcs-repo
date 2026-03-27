@@ -3,24 +3,25 @@
 	"name": "utility",
 	"label": "Utility Data",
 	"url": "scripts/cl_utilitydata",
+	"isGlobal": false,
 	"tableHeaders": ["Month / Year", "SFMP Code", "Value (Tons)", "Reason Code"],
 	"tableDispHeaders": [
-	{
-		"name": "record_date",
-		"isSort": false
-	},
-	{
-		"name": "sfmp_code_id",
-		"isSort": false
-	},
-	{
-		"name": "value",
-		"isSort": false
-	},
-	{
-		"name": "reason",
-		"isSort": false
-	}],
+		{
+			"name": "record_date",
+			"isSort": false
+		},
+		{
+			"name": "sfmp_code_id",
+			"isSort": false
+		},
+		{
+			"name": "value",
+			"isSort": false
+		},
+		{
+			"name": "reason",
+			"isSort": false
+		}],
 	"sort": [],
 	"isDuplicateMandatory":
 	{
@@ -51,116 +52,116 @@
 		},
 		"params": ["sfmpCodeFilter.value", "dataSources.startDate", "dataSources.endDate", "offset", "limit"],
 		"filters": [
-		{
-			"elementId": "sfmpCodeFilter",
-			"objName": "sfmpCode"
-		}]
+			{
+				"elementId": "sfmpCodeFilter",
+				"objName": "sfmpCode"
+			}]
 	},
 	"buttons": [],
 	"formLayout": [
-	{
-		"type": "default",
-		"content": [
 		{
-			"name": "",
-			"normal": "col-sm-12",
-			"expanded": "col-lg-3 col-md-4",
-			"field": "sfmp_code_id"
-		},
-		{
-			"name": "",
-			"normal": "col-sm-12",
-			"expanded": "col-lg-3 col-md-4",
-			"field": "value"
-		},
-		{
-			"name": "",
-			"normal": "col-sm-12",
-			"expanded": "col-lg-3 col-md-4",
-			"field": "reason"
-		},
-		{
-			"name": "",
-			"normal": "col-sm-12",
-			"expanded": "col-lg-12 col-md-4",
-			"field": "remarks"
-		}]
-	}],
+			"type": "default",
+			"content": [
+				{
+					"name": "",
+					"normal": "col-sm-12",
+					"expanded": "col-lg-3 col-md-4",
+					"field": "sfmp_code_id"
+				},
+				{
+					"name": "",
+					"normal": "col-sm-12",
+					"expanded": "col-lg-3 col-md-4",
+					"field": "value"
+				},
+				{
+					"name": "",
+					"normal": "col-sm-12",
+					"expanded": "col-lg-3 col-md-4",
+					"field": "reason"
+				},
+				{
+					"name": "",
+					"normal": "col-sm-12",
+					"expanded": "col-lg-12 col-md-4",
+					"field": "remarks"
+				}]
+		}],
 	"attrs": [
-	{
-		"name": "sfmp_code_id",
-		"label": "SFMP code",
-		"type": "lookup-embedded",
-		"options": [],
-		"validate": true,
-		"validateBy": [
 		{
-			"mandatory": true
-		}],
-		"dataSrc":
-		{
-			"name": "getAllSfmpWithoutLimit",
-			"objName": "sfmp",
-			"valueAttr": "_sid",
-			"isMaster": false,
-			"options":
+			"name": "sfmp_code_id",
+			"label": "SFMP code",
+			"type": "lookup-embedded",
+			"options": [],
+			"validate": true,
+			"validateBy": [
+				{
+					"mandatory": true
+				}],
+			"dataSrc":
 			{
-				"setFilter": true,
-				"elementId": "sfmpCodeFilter"
-			},
-			"displayAttr": "sfmp_code",
-			"service": "get",
-			"decrypt": "sfmp_code",
-			"allowCreate": false
-		}
-	},
-	{
-		"name": "value",
-		"label": "Value (Tons)",
-		"type": "number",
-		"decimal": 3,
-		"options": [],
-		"validate": true,
-		"validateBy": [
+				"name": "getAllSfmpWithoutLimit",
+				"objName": "sfmp",
+				"valueAttr": "_sid",
+				"isMaster": false,
+				"options":
+				{
+					"setFilter": true,
+					"elementId": "sfmpCodeFilter"
+				},
+				"displayAttr": "sfmp_code",
+				"service": "get",
+				"decrypt": "sfmp_code",
+				"allowCreate": false
+			}
+		},
 		{
-			"mandatory": true
-		}]
-	},
-	{
-		"name": "reason",
-		"label": "Reason Code",
-		"type": "lookup-embedded",
-		"options": [],
-		"validate": false,
-		"validateBy": [
+			"name": "value",
+			"label": "Value (Tons)",
+			"type": "number",
+			"decimal": 3,
+			"options": [],
+			"validate": true,
+			"validateBy": [
+				{
+					"mandatory": true
+				}]
+		},
 		{
-			"mandatory": false
-		}],
-		"dataSrc":
-		{
-			"name": "getSfmReadingReasonCode",
-			"objName": "reasonCode",
-			"valueAttr": "id",
-			"isMaster": true,
+			"name": "reason",
+			"label": "Reason Code",
+			"type": "lookup-embedded",
+			"options": [],
+			"validate": false,
+			"validateBy": [
+				{
+					"mandatory": false
+				}],
+			"dataSrc":
+			{
+				"name": "getSfmReadingReasonCode",
+				"objName": "reasonCode",
+				"valueAttr": "id",
+				"isMaster": true,
 
-			"options":
-			{
-				"setFilter": false,
-				"elementId": ""
-			},
-			"displayAttr": "reading_reason_code",
-			"service": "get",
-			"decrypt": "reading_reason_code",
-			"allowCreate": false
-		}
-	},
-	{
-		"name": "remarks",
-		"label": "Remarks",
-		"type": "textarea",
-		"options": [],
-		"validate": false
-	}],
+				"options":
+				{
+					"setFilter": false,
+					"elementId": ""
+				},
+				"displayAttr": "reading_reason_code",
+				"service": "get",
+				"decrypt": "reading_reason_code",
+				"allowCreate": false
+			}
+		},
+		{
+			"name": "remarks",
+			"label": "Remarks",
+			"type": "textarea",
+			"options": [],
+			"validate": false
+		}],
 	"encrypt": [],
 	"decrypt": [],
 	"confirmBy": "sfmp_code_name"

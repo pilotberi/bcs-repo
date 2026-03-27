@@ -3,43 +3,44 @@
 	"name": "size",
 	"label": "Size (inch)",
 	"url": "scripts/cl_size",
-		"include_library":
+	"include_library":
 	{},
 	"custom_library": [],
+	"isGlobal": false,
 	"services":
 	{
 		"get": "getSize",
 		"save": "saveSize"
 	},
 	"column": [
-	{
-		"name": "id",
-		"validate": false
-	},
-	{
-		"name": "size",
-		"label": "Size",
-		"validate": true,
-		"validateBy": [
 		{
-			"mandatory": true
-		}]
-	}],
+			"name": "id",
+			"validate": false
+		},
+		{
+			"name": "size",
+			"label": "Size",
+			"validate": true,
+			"validateBy": [
+				{
+					"mandatory": true
+				}]
+		}],
 	"columnDefs": [
-	{
-		"type": "text",
-		"title": "Id",
-		"width": 1,
-		"align": "left",
-		"wordWrap": false,
-		"readOnly": true
-	},
-	{
-		"type": "number",
-		"title": "Size",
-		"width": 300,
-		"align": "right",
-		"wordWrap": true,
-		"readOnly": false
-	}]
+		{
+			"type": "text",
+			"title": "Id",
+			"width": 1,
+			"align": "left",
+			"wordWrap": false,
+			"readOnly": true
+		},
+		{
+			"type": "number",
+			"title": "Size",
+			"width": 300,
+			"align": "right",
+			"wordWrap": true,
+			"readOnly": false
+		}]
 }

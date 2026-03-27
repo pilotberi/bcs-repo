@@ -420,7 +420,7 @@ var RemoteService = {
 		}
 		else
 		{
-			url = "../hq/Company/businnespartner/getall";
+			url = "/steps/hq/Company/businnespartner/getall";
 		}
 
 		fireXHR("POST", url, true, body, function(resultObj)

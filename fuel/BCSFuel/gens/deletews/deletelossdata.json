@@ -1,7 +1,0 @@
-{
-  "appName": "BCSFuel",
-  "objName": "loss",
-  "serviceName": "deleteLossData",
-  "tableName": "bcsfuel_loss",
-  "url": "loss/delete"
-}

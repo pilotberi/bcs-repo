@@ -469,7 +469,9 @@ var UtilityInterface = {
 						var cObj = JSON.parse(cookieVal);
 						monthVal = parseInt(cObj.month);
 						yearVal = parseInt(cObj.year);
-					} catch(e) { console.error(e); }
+					} catch(e) {
+						console.error(e); 
+					}
 				}
 			}
 
@@ -763,7 +765,9 @@ function getCustomFilterDates() {
 				var cObj = JSON.parse(cookieVal);
 				month = parseInt(cObj.month);
 				year = parseInt(cObj.year);
-			} catch(e) { console.log(e); }
+			} catch(e) { 
+				console.log(e); 
+			}
 		}
 	}
 
@@ -839,7 +843,9 @@ function createFilterMonthYearPicker() {
 			var cObj = JSON.parse(cookieVal);
 			storedMonth = parseInt(cObj.month);
 			storedYear = parseInt(cObj.year);
-		} catch(e) { console.error(e); }
+		} catch(e) { 
+			console.error(e);
+		}
 	}
 
 	// Populate Month

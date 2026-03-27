@@ -7,6 +7,7 @@
 	Custom code can be writter here.
 	Use customDtOpns object to maniuplate data table.
 */
+
 var alphanumericRegex = /^[a-zA-Z0-9 ]+$/;
 
 if (typeof TenantSteamFlowMeterPointInterface === 'undefined')
@@ -20,7 +21,7 @@ var SteamFlowMeterPointInterface = {
 
 		document.querySelector("span[data-string-key='CREATE_STEAMFLOWMETERPOINT']").innerHTML = "Create SFMP";
 		document.querySelector("span[data-string-key='UPDATE_STEAMFLOWMETERPOINT']").innerHTML = "Update SFMP";
-		
+
 		document.querySelector("label[data-string-key='LABEL_SFMP_DESCRIPTION']").innerHTML = "SFMP Description*";
 
 		if (TenantSteamFlowMeterPointInterface && TenantSteamFlowMeterPointInterface.onLoad)

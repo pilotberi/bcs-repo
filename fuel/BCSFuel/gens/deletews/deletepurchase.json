@@ -1,7 +1,0 @@
-{
-  "appName": "BCSFuel",
-  "objName": "purchase",
-  "serviceName": "deletePurchaseData",
-  "tableName": "bcsfuel_purchase",
-  "url": "purchase/delete"
-}

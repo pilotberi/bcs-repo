@@ -3,6 +3,7 @@
 	"name": "steamFlowMeter",
 	"label": "Steam Flow Meter",
 	"url": "scripts/cl_steamflowmeter",
+	"isGlobal": false,
 	"tableHeaders": ["SFM Code", "Vendor", "Active"],
 	"tableDispHeaders": [
 		{

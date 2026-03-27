@@ -3,6 +3,7 @@
 	"name": "sfmpConnectivityStatus",
 	"label": "SFMP Connectivity Status",
 	"url": "scripts/cl_sfmpConnectivityStatus",
+	"isGlobal": false,
 	"tableHeaders": ["SFMP Code", "SFMC Ref ID", "SFMC Start Date", "SFMC End Date", "SFMC Active"],
 	"tableDispHeaders": [
 		{
