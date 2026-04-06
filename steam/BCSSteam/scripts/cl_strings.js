@@ -703,7 +703,7 @@ var Strings = {
 	"INVALID_SFM_CODE_LENGTH": "SFM Code must not exceed 20 characters.",
 	"INVALID_SFM_DESCRIPTION_LENGTH": "SFM description exceeds the maximum character limit of 50.",
 	"INVALID_SFM_DEC_FORMAT": "SFM description must contain only alphanumeric characters.",
-	"INVALID_SFM_CODE_FORMAT": "SFM Code must contain only alphanumeric characters.",
+	"INVALID_SFM_CODE_FORMAT": "SFM Code must contain only alphanumeric characters and hyphens.",
 	"INVALID_SFM_MODEL_NO_FORMAT": "SFM model number must contain only alphanumeric characters.",
 	"INVALID_SFM_SERIAL_NO_FORMAT": "SFM serial number must contain only alphanumeric characters.",
 	"INVALID_SFM_REMARKS_FORMAT": "SFM remarks must contain only alphanumeric characters.",
@@ -733,7 +733,7 @@ var Strings = {
 
 	//sfmp
 	"INVALID_SFMP_CODE_LENGTH": "SFMP code must not exceed 20 characters.",
-	"INVALID_SFMP_CODE_FORMAT": "SFMP code must contain only alphanumeric characters.",
+	"INVALID_SFMP_CODE_FORMAT": "SFMP code can only contain alphanumeric characters and hyphens.",
 	"INVALID_SFMP_DESC_LENGTH": "SFMP description must not exceed 50 characters.",
 	"INVALID_SFMP_DESC_FORMAT": "SFMP description must contain only alphanumeric characters.",
 	"DUPLICATE_SFMP": "A SFMP code with this name already exists.",

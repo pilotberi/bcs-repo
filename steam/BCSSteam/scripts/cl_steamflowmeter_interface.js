@@ -9,6 +9,7 @@
 */
 
 var alphanumericRegex = /^[a-zA-Z0-9 ]+$/;
+var dashRegex = /^[a-zA-Z0-9 -]+$/;
 
 if (typeof TenantSteamFlowMeterInterface === 'undefined')
 	TenantSteamFlowMeterInterface = {};
@@ -170,7 +171,7 @@ var SteamFlowMeterInterface = {
 				return false;
 			}
 
-			if (!alphanumericRegex.test(value)) {
+			if (!dashRegex.test(value)) {
 				s_info(Strings.ERROR, Strings.INVALID_SFM_CODE_FORMAT, dlgOptions);
 				return false;
 			}
@@ -339,7 +340,7 @@ var SteamFlowMeterInterface = {
 				return false;
 			}
 
-			if (!alphanumericRegex.test(value)) {
+			if (!dashRegex.test(value)) {
 				s_info(Strings.ERROR, Strings.INVALID_SFM_CODE_FORMAT, dlgOptions);
 				return false;
 			}
