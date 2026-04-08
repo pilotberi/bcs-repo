@@ -691,7 +691,7 @@ var Strings = {
 	"INPUT_POWER_DESC_VALIDATION_ERR": "Input power description exceeds the maximum character limit of 50.",
 	"OUTPUT_SIGNAL_VALIDATION_ERR": "Output Signal exceeds 20 characters.",
 	"READING_REASON_VALIDATION_ERR": "Reason Code exceeds 30 characters.",
-	"ALPHANUMERIC_ERROR": "Only alphanumeric characters are allowed",
+	"ALPHANUMERIC_ERROR": "Only alphanumeric characters and hyphens are allowed",
 
 	"STATUS_CODE_VALIDATION_ERR": "Status Code exceeds maximum length of 20 characters",
 
@@ -702,11 +702,11 @@ var Strings = {
 	"INVALID_FLOW_RATE_MAX": "Enter a valid maximum flow rate (up to 4 digits and 3 decimal places).",
 	"INVALID_SFM_CODE_LENGTH": "SFM Code must not exceed 20 characters.",
 	"INVALID_SFM_DESCRIPTION_LENGTH": "SFM description exceeds the maximum character limit of 50.",
-	"INVALID_SFM_DEC_FORMAT": "SFM description must contain only alphanumeric characters.",
+	"INVALID_SFM_DEC_FORMAT": "SFM description must contain only alphanumeric characters and hyphens.",
 	"INVALID_SFM_CODE_FORMAT": "SFM Code must contain only alphanumeric characters and hyphens.",
 	"INVALID_SFM_MODEL_NO_FORMAT": "SFM model number must contain only alphanumeric characters.",
 	"INVALID_SFM_SERIAL_NO_FORMAT": "SFM serial number must contain only alphanumeric characters.",
-	"INVALID_SFM_REMARKS_FORMAT": "SFM remarks must contain only alphanumeric characters.",
+	"INVALID_SFM_REMARKS_FORMAT": "SFM remarks must contain only alphanumeric characters and hyphens.",
 
 	"INVALID_MODEL_NO_LENGTH": "Model No must not exceed 20 characters.",
 	"INVALID_SERIAL_NO_LENGTH": "Serial No must not exceed 20 characters.",
@@ -735,23 +735,24 @@ var Strings = {
 	"INVALID_SFMP_CODE_LENGTH": "SFMP code must not exceed 20 characters.",
 	"INVALID_SFMP_CODE_FORMAT": "SFMP code can only contain alphanumeric characters and hyphens.",
 	"INVALID_SFMP_DESC_LENGTH": "SFMP description must not exceed 50 characters.",
-	"INVALID_SFMP_DESC_FORMAT": "SFMP description must contain only alphanumeric characters.",
+	"INVALID_SFMP_DESC_FORMAT": "SFMP description must contain only alphanumeric characters and hyphens.",
 	"DUPLICATE_SFMP": "A SFMP code with this name already exists.",
 
 
 	//sfm connectivity option
 	"INVALID_SFM_CONNECT_OPTION_LENGTH": "SFM connectivity option must not exceed 15 characters.",
-	"INVALID_SFM_CONNECT_OPTION_FORMAT": "SFM connectivity option must contain only alphanumeric characters.",
+	"INVALID_SFM_CONNECT_OPTION_FORMAT": "SFM connectivity option must contain only alphanumeric characters and hyphens.",
 	"INVALID_SFM_CONNECT_OPTION_DESC_LENGTH": "SFM connectivity option description must not exceed 30 characters.",
-	"INVALID_SFM_CONNECT_OPTION_DESC_FORMAT": "SFM connectivity option description must contain only alphanumeric characters.",
+	"INVALID_SFM_CONNECT_OPTION_DESC_FORMAT": "SFM connectivity option description must contain only alphanumeric characters and hyphens.",
 	"DUPLICATE_SFM_CONNECT_OPTION": "A SFMP connectivity option code with this name already exists.",
 
 
 	//stmp connectivity option
 	"INVALID_SFMP_CONNECT_STATUS_REF_ID_LENGTH": "SFMC Ref ID must not exceed 10 characters.",
-	"INVALID_SFMP_CONNECT_STATUS_REF_ID_FORMAT": "SFMC Ref ID must contain only alphanumeric characters.",
+	"INVALID_SFMP_CONNECT_STATUS_REF_ID_FORMAT": "SFMC Ref ID must contain only alphanumeric characters and hyphens.",
 	"INVALID_SFMP_CONNECT_STATUS_DESC_LENGTH": "Remark must not exceed 100 characters.",
-	"INVALID_SFMP_CONNECT_STATUS_DESC_FORMAT": "Remark must contain only alphanumeric characters.",
+	"INVALID_SFMP_CONNECT_STATUS_DESC_FORMAT": "Remark must contain only alphanumeric characters and hyphens.",
+	"INVALID_UTILITY_DESC_FORMAT":"Remark must contain only alphanumeric characters and hyphens.",
 	"INVALID_SFMC_END_DATE_REQUIRED": "End Date must be provided when SFMC Active is set to No.",
 	"INACTIVE_CONNECTIVITY_OPTION": "The selected Connectivity Option is currently inactive. Please try active one.",
 

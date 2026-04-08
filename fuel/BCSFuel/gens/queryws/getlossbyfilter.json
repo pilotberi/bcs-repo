@@ -1,0 +1,53 @@
+{
+	"appName": "BCSFuel",
+	"objName": "loss",
+	"serviceName": "getLossByFilter",
+	"tableName": "bcsfuel_loss",
+	"url": "loss/getbyfilter",
+	"query":
+	{
+		"cols": [
+			"record_date",
+			"fuel_code_id",
+			"fuel_unit_id",
+			"fuel_yard_id",
+			"fuel_loss_qty",
+			"fuel_loss_percentage",
+			"fuel_loss_value",
+			"fuel_loss_gst_value",
+			"fuel_loss_total_value",
+			"unit_price",
+			"remarks",
+			"created_by",
+			"created_on",
+			"modified_by",
+			"modified_on"
+		],
+		"filters": [
+			{
+				"col": "record_date",
+				"op": ">=",
+				"condition": "params.start_date",
+				"value": "parseInt(params.start_date)",
+				"paramName": "start_date"
+			},
+			{
+				"col": "record_date",
+				"op": "<=",
+				"condition": "params.end_date",
+				"value": "parseInt(params.end_date)",
+				"paramName": "end_date"
+			},
+			{
+				"col": "fuel_code_id",
+				"op": "=",
+				"condition": "params.fuel_code_id && params.fuel_code_id != 'all'",
+				"value": "params.fuel_code_id"
+			}],
+		"limit": null,
+		"groupBy": [],
+		"orderBy": [],
+		"sort": "asc",
+		"offset": 0
+	}
+}

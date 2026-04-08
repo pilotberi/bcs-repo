@@ -7,7 +7,9 @@
 	Custom code can be writter here.
 	Use customDtOpns object to maniuplate data table.
 */
-var alphanumericRegex = /^[a-zA-Z0-9 ]+$/;
+
+var alphanumericRegex = /^[a-zA-Z0-9_-]+$/;
+var alphanumericWithSpaceRegex = /^[a-zA-Z0-9 _-]+$/; //as per customer requirement added(-, _)
 
 if (typeof TenantSfmConnectivityOptionInterface === 'undefined')
 	TenantSfmConnectivityOptionInterface = {};
@@ -127,7 +129,7 @@ var SfmConnectivityOptionInterface = {
 				return false;
 			}
 
-			if (!alphanumericRegex.test(value)) {
+			if (!alphanumericWithSpaceRegex.test(value)) {
 				s_info(Strings.ERROR, Strings.INVALID_SFM_CONNECT_OPTION_DESC_FORMAT, dlgOptions);
 				return false;
 			}
@@ -182,7 +184,7 @@ var SfmConnectivityOptionInterface = {
 				return false;
 			}
 
-			if (!alphanumericRegex.test(value)) {
+			if (!alphanumericWithSpaceRegex.test(value)) {
 				s_info(Strings.ERROR, Strings.INVALID_SFM_CONNECT_OPTION_DESC_FORMAT, dlgOptions);
 				return false;
 			}

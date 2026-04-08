@@ -1,0 +1,10 @@
+{
+	"appName": "Company",
+	"objName": "resources",
+	"serviceName": "getAllResource",
+	"url": "../Company/resource/getall",
+	"params": [],
+	"setJson": true,
+	"setMethod": "POST",
+	"contentType": "application/json"
+}

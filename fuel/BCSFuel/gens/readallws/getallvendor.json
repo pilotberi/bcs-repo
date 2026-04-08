@@ -1,0 +1,7 @@
+{
+	"appName": "BCSFuel",
+	"objName": "vendor",
+	"serviceName": "getAllVendor",
+	"tableName": "bcsfuel_vendor",
+	"url": "vendor/getall"
+}

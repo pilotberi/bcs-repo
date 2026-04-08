@@ -8,8 +8,8 @@
 	Use customDtOpns object to maniuplate data table.
 */
 
-var alphanumericRegex = /^[a-zA-Z0-9 ]+$/;
-var dashRegex = /^[a-zA-Z0-9 -]+$/;
+var alphanumericRegex = /^[a-zA-Z0-9_-]+$/;
+var alphanumericWithSpaceRegex = /^[a-zA-Z0-9 _-]+$/; //as per customer requirement added(-, _)
 
 if (typeof TenantSteamFlowMeterInterface === 'undefined')
 	TenantSteamFlowMeterInterface = {};
@@ -171,7 +171,7 @@ var SteamFlowMeterInterface = {
 				return false;
 			}
 
-			if (!dashRegex.test(value)) {
+			if (!alphanumericRegex.test(value)) {
 				s_info(Strings.ERROR, Strings.INVALID_SFM_CODE_FORMAT, dlgOptions);
 				return false;
 			}
@@ -185,7 +185,7 @@ var SteamFlowMeterInterface = {
 				return false;
 			}
 
-			if (!alphanumericRegex.test(desc)) {
+			if (!alphanumericWithSpaceRegex.test(desc)) {
 				s_info(Strings.ERROR, Strings.INVALID_SFM_DEC_FORMAT, dlgOptions);
 				return false;
 			}
@@ -258,38 +258,6 @@ var SteamFlowMeterInterface = {
 			}
 		}
 
-		/*if (dataObj && dataObj.connected_tnpcb === true) {
-			if(!dataObj.tnpcb_ref || dataObj.tnpcb_ref == ""){
-				s_info(Strings.STEAMFLOWMETER_ERROR_TITLE, Strings.TNPCB_REF_REQUIRED, dlgOptions);
-				return false;
-			}
-		}
-
-		if (dataObj && dataObj.connected_cpcb === true) {
-			if(!dataObj.cpcb_ref || dataObj.cpcb_ref == ""){
-				s_info(Strings.STEAMFLOWMETER_ERROR_TITLE, Strings.CPCB_REF_REQUIRED, dlgOptions);
-				return false;
-			}
-		}
-
-		if (dataObj && dataObj.tnpcb_ref) {
-			var value = dataObj.tnpcb_ref;
-
-			if (value.length > 10) {
-				s_info(Strings.STEAMFLOWMETER_ERROR_TITLE, Strings.INVALID_TNPCB_REF_LENGTH, dlgOptions);
-				return false;
-			}
-		}
-
-		if (dataObj && dataObj.cpcb_ref) {
-			var value = dataObj.cpcb_ref;
-
-			if (value.length > 10) {
-				s_info(Strings.STEAMFLOWMETER_ERROR_TITLE, Strings.INVALID_CPCB_REF_LENGTH, dlgOptions);
-				return false;
-			}
-		}*/
-
 		if (dataObj && dataObj.remarks) {
 			var value = dataObj.remarks;
 
@@ -298,7 +266,7 @@ var SteamFlowMeterInterface = {
 				return false;
 			}
 
-			if (!alphanumericRegex.test(value)) {
+			if (!alphanumericWithSpaceRegex.test(value)) {
 				s_info(Strings.ERROR, Strings.INVALID_SFM_REMARKS_FORMAT, dlgOptions);
 				return false;
 			}
@@ -340,7 +308,7 @@ var SteamFlowMeterInterface = {
 				return false;
 			}
 
-			if (!dashRegex.test(value)) {
+			if (!alphanumericRegex.test(value)) {
 				s_info(Strings.ERROR, Strings.INVALID_SFM_CODE_FORMAT, dlgOptions);
 				return false;
 			}
@@ -354,7 +322,7 @@ var SteamFlowMeterInterface = {
 				return false;
 			}
 
-			if (!alphanumericRegex.test(desc)) {
+			if (!alphanumericWithSpaceRegex.test(desc)) {
 				s_info(Strings.ERROR, Strings.INVALID_SFM_DEC_FORMAT, dlgOptions);
 				return false;
 			}
@@ -426,38 +394,6 @@ var SteamFlowMeterInterface = {
 			}
 		}
 
-		/*if (dataObj && dataObj.connected_tnpcb === true) {
-			if(!dataObj.tnpcb_ref || dataObj.tnpcb_ref == ""){
-				s_info(Strings.STEAMFLOWMETER_ERROR_TITLE, Strings.TNPCB_REF_REQUIRED, dlgOptions);
-				return false;
-			}
-		}
-
-		if (dataObj && dataObj.connected_cpcb === true) {
-			if(!dataObj.cpcb_ref || dataObj.cpcb_ref == ""){
-				s_info(Strings.STEAMFLOWMETER_ERROR_TITLE, Strings.CPCB_REF_REQUIRED, dlgOptions);
-				return false;
-			}
-		}
-
-		if (dataObj && dataObj.tnpcb_ref) {
-			var value = dataObj.tnpcb_ref;
-
-			if (value.length > 10) {
-				s_info(Strings.STEAMFLOWMETER_ERROR_TITLE, Strings.INVALID_TNPCB_REF_LENGTH, dlgOptions);
-				return false;
-			}
-		}
-
-		if (dataObj && dataObj.cpcb_ref) {
-			var value = dataObj.cpcb_ref;
-
-			if (value.length > 10) {
-				s_info(Strings.STEAMFLOWMETER_ERROR_TITLE, Strings.INVALID_CPCB_REF_LENGTH, dlgOptions);
-				return false;
-			}
-		}*/
-
 		if (dataObj && dataObj.remarks) {
 			var value = dataObj.remarks;
 
@@ -466,7 +402,7 @@ var SteamFlowMeterInterface = {
 				return false;
 			}
 
-			if (!alphanumericRegex.test(value)) {
+			if (!alphanumericWithSpaceRegex.test(value)) {
 				s_info(Strings.ERROR, Strings.INVALID_SFM_REMARKS_FORMAT, dlgOptions);
 				return false;
 			}

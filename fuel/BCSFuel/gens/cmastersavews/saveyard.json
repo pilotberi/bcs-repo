@@ -1,0 +1,8 @@
+{
+  "appName": "BCSFuel",
+  "objName": "yard",
+  "serviceName": "saveYard",
+  "tableName": "bcsfuel_combined_master",
+  "masterTableName": "yard",
+  "url": "master/saveyard"
+}

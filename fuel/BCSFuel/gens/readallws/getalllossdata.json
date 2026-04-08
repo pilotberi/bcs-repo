@@ -1,0 +1,7 @@
+{
+  "appName": "BCSFuel",
+  "objName": "loss",
+  "serviceName": "getAllLossData",
+  "tableName": "bcsfuel_loss",
+  "url": "loss/getAll"
+}

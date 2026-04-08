@@ -1,0 +1,65 @@
+{
+	"appName": "BCSFuel",
+	"url": "bcssupervisor.role",
+	"role":
+	{
+		"name": "bcssupervisor",
+		"description": "Supervisor with full administrative access to all BCS modules and data",
+		"default": false,
+		"menu":
+		{
+			"id": "bcssupervisormenu",
+			"sequence": 3,
+			"tools": [
+			{
+				"id": "bcsfuel_unit",
+				"title": "Manage Units",
+				"icon": "images/unit-menu.svg",
+				"href": "unit.html",
+				"target": "default"
+			},
+			{
+				"id": "bcsfuel_code",
+				"title": "Manage Codes",
+				"icon": "images/code-menu.svg",
+				"href": "code.html",
+				"target": "default"
+			},
+			{
+				"id": "bcsfuel_vendorMap",
+				"title": "Manage Vendors",
+				"icon": "images/vendor-menu.svg",
+				"href": "vendor.html",
+				"target": "default"
+			},
+			{
+				"id": "bcsfuel_Vendor",
+				"title": "Manage Vendors By Fuel Code",
+				"icon": "images/vendorbycode-menu.svg",
+				"href": "vendorsbyfuelcode.html",
+				"target": "default"
+			},
+			{
+				"id": "bcsfuel_utilizationPointMap",
+				"title": "Manage Utilization Points",
+				"icon": "images/utilizationpoint-menu.svg",
+				"href": "utilizationpoint.html",
+				"target": "default"
+			},
+			{
+				"id": "bcsfuel_utilizationPoint",
+				"title": "Manage Utilization Points By Fuel Code",
+				"icon": "images/utilizationpointbycode-menu.svg",
+				"href": "utilizationpointbyfuelcode.html",
+				"target": "default"
+			},
+			{
+				"id": "bcsfuel_yard",
+				"title": "Manage Yards",
+				"icon": "images/yard-menu.svg",
+				"href": "yard.html",
+				"target": "default"
+			}]
+		}
+	}
+}

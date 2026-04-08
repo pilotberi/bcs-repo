@@ -1,0 +1,138 @@
+{
+	"appName": "BCSFuel",
+	"name": "utilizationPointMap",
+	"label": "Fuel Utilization Point",
+	"url": "utilizationpoint.html",
+	"tableHeaders": ["Utilization Point", "Short Name", "Active"],
+	"tableDispHeaders": [
+	{
+		"name": "resources_id",
+		"isSort": true
+	},
+	{
+		"name": "resources_short_name",
+		"isSort": true
+	},
+	{
+		"name": "isactive",
+		"isSort": true
+	}],
+	"sort": [],
+	"isDuplicateMandatory":
+	{
+		"setDuplicate": false,
+		"setAttr": ""
+	},
+	"deleteConfirmBy":
+	{
+		"setAttr": "resources_name"
+	},
+	"isImportMandatory": false,
+	"importUrl": null,
+	"isFilterMandatory": false,
+	"services":
+	{
+		"create": "createUtilizationPoint",
+		"read": "getAllUtilizationPoint",
+		"update": "updateUtilizationPoint",
+		"delete": "deleteUtilizationPoint"
+	},
+	"loadDataByFilter":
+	{
+		"isFilter": true,
+		"dateFilter":
+		{
+			"set": false,
+			"options": []
+		},
+		"params": ["offset", "limit"],
+		"filters": []
+	},
+	"buttons": [],
+	"formLayout": [
+	{
+		"type": "default",
+		"content": [
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-4 col-md-4",
+			"field": "resources_id"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-4 col-md-4",
+			"field": "resources_short_name"
+		},
+		{
+			"name": "",
+			"normal": "col-sm-12",
+			"expanded": "col-lg-9 col-md-4",
+			"field": "isactive"
+		}]
+	}],
+	"attrs": [
+	{
+		"name": "resources_id",
+		"label": "Utilization Point",
+		"type": "lookup-embedded",
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": true
+		}],
+		"options": [],
+		"dataSrc":
+		{
+			"name": "getAllResource",
+			"objName": "resources",
+			"valueAttr": "_sid",
+			"displayAttr": "name",
+			"service": "get",
+			"options":
+			{
+				"setFilter": false,
+				"isMaster": false,
+				"elementId": ""
+			},
+			"decrypt": "name",
+			"allowCreate": false,
+			"objDetails":
+			{
+				"displayFields": [
+				{
+					"name": "",
+					"label": "",
+					"type": "text",
+					"validate": true,
+					"options": []
+				}]
+			}
+		}
+	},
+	{
+		"name": "resources_short_name",
+		"label": "Short Name",
+		"type": "text",
+		"options": [],
+		"validate": true,
+		"validateBy": [
+		{
+			"mandatory": true
+		}]
+	},
+	{
+		"name": "isactive",
+		"label": "Status",
+		"type": "switch",
+		"validate": false,
+		"options": [
+		{
+			"label": "Active"
+		}]
+	}],
+	"encrypt": [],
+	"decrypt": [],
+	"confirmBy": "resources_name"
+}

@@ -1,0 +1,37 @@
+{
+	"appName": "BCSFuel",
+	"url": "bcsuser.role",
+	"role":
+	{
+		"name": "bcsuser",
+		"description": "User with access to Fuel Purchase, Consumption, and Loss data",
+		"default": true,
+		"menu":
+		{
+			"id": "bcsusermenu",
+			"sequence": 1,
+			"tools": [
+			{
+				"id": "bcsfuel_purchase",
+				"title": "Track Purchase",
+				"icon": "images/purchase-menu.svg",
+				"href": "purchasedata.html",
+				"target": "default"
+			},
+			{
+				"id": "bcsfuel_fuelConsumption",
+				"title": "Track Consumption",
+				"icon": "images/consumption-menu.svg",
+				"href": "consumptiondata.html",
+				"target": "default"
+			},
+			{
+				"id": "bcsfuel_loss",
+				"title": "Track Loss",
+				"icon": "images/loss-menu.svg",
+				"href": "lossdata.html",
+				"target": "default"
+			}]
+		}
+	}
+}

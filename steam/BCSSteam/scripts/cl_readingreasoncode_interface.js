@@ -6,6 +6,10 @@
 	WARNING : DO NOT MODIFY THE GENERATED INTERFACE METHOD NAME OR ARGUMENTS
 */
 
+
+var alphanumericRegex = /^[a-zA-Z0-9_-]+$/;
+var alphanumericWithSpaceRegex = /^[a-zA-Z0-9 _-]+$/; //as per customer requirement added(-, _)
+
 if (typeof TenantReadingReasonCodeInterface === 'undefined')
 	TenantReadingReasonCodeInterface = {};
 
@@ -69,7 +73,6 @@ var ReadingReasonCodeInterface = {
 			// Arrays to track Alphanumeric errors
 			let notAlphaNumRcRows = [];
 			let notAlphaNumDescRows =[];
-			var alphanumericRegex = /^[a-zA-Z0-9 ]+$/;
 
 			for (let row = 0; row < sheetData.length; row++) {
 
@@ -88,7 +91,7 @@ var ReadingReasonCodeInterface = {
 				if (description) {
 					if (description.length > 100) {
 						invalidDescRows.push(row + 1); 
-					} else if (!alphanumericRegex.test(description)) {
+					} else if (!alphanumericWithSpaceRegex.test(description)) {
 						notAlphaNumDescRows.push(row + 1);
 					}
 				}
@@ -131,12 +134,12 @@ var ReadingReasonCodeInterface = {
 
 			// Show Alphanumeric Errors
 			if (notAlphaNumRcRows.length > 0) {
-				let alertText = '<p>' + (Strings.ALPHANUMERIC_ERROR_RC || "Only alphanumeric characters allowed") + ' Reason Code at rows ' + notAlphaNumRcRows.join(', ') + '</p>';
+				let alertText = '<p>' + (Strings.ALPHANUMERIC_ERROR_RC || "Only alphanumeric characters and hyphens allowed") + ' Reason Code at rows ' + notAlphaNumRcRows.join(', ') + '</p>';
 				s_info(Strings.VALIDATION_ERROR_TITLE, alertText, dlgOptions);
 				return false;
 			}
 			if (notAlphaNumDescRows.length > 0) {
-				let alertText = '<p>' + (Strings.ALPHANUMERIC_ERROR || "Only alphanumeric characters allowed") + ' Description at rows ' + notAlphaNumDescRows.join(', ') + '</p>';
+				let alertText = '<p>' + (Strings.ALPHANUMERIC_ERROR || "Only alphanumeric characters and hyphens allowed") + ' Description at rows ' + notAlphaNumDescRows.join(', ') + '</p>';
 				s_info(Strings.VALIDATION_ERROR_TITLE, alertText, dlgOptions);
 				return false;
 			}
@@ -196,7 +199,6 @@ var ReadingReasonCodeInterface = {
 			const targetDescriptionCell = instance.jspreadsheet.getCell(`C${String(cellId)}`);
 
 			//validation
-			var alphanumericRegex = /^[a-zA-Z0-9 ]+$/;
 			if(value && (col === 1 || col === "1")){
 				if(value.length > 30) {
 					ReadingReasonCodeInterface._addErrColor(cell);
@@ -204,7 +206,7 @@ var ReadingReasonCodeInterface = {
 					return false;
 				} else if (!alphanumericRegex.test(value)) {
 					ReadingReasonCodeInterface._addErrColor(cell);
-					cell.setAttribute("title", Strings.ALPHANUMERIC_ERROR || "Only alphanumeric characters are allowed");
+					cell.setAttribute("title", Strings.ALPHANUMERIC_ERROR || "Only alphanumeric characters and hyphens are allowed");
 					return false;
 				}
 			}
@@ -214,9 +216,9 @@ var ReadingReasonCodeInterface = {
 					ReadingReasonCodeInterface._addErrColor(cell);
 					cell.setAttribute("title", Strings.REASON_CODE_DESC_VALIDATION_ERR);
 					return false;
-				} else if (!alphanumericRegex.test(value)) {
+				} else if (!alphanumericWithSpaceRegex.test(value)) {
 					ReadingReasonCodeInterface._addErrColor(cell);
-					cell.setAttribute("title", Strings.ALPHANUMERIC_ERROR || "Only alphanumeric characters are allowed");
+					cell.setAttribute("title", Strings.ALPHANUMERIC_ERROR || "Only alphanumeric characters and hyphens are allowed");
 					return false;
 				}
 			}
@@ -226,7 +228,7 @@ var ReadingReasonCodeInterface = {
 				const descValue = sheetData[row][2] || "";
 
 				const descTooLong = descValue.length > 100;
-				const descNotAlpha = descValue && !alphanumericRegex.test(descValue);
+				const descNotAlpha = descValue && !alphanumericWithSpaceRegex.test(descValue);
 				const descWithoutRc = descValue && (!rcValue || rcValue.trim() === "");
 
 				if (descTooLong) {
@@ -235,7 +237,7 @@ var ReadingReasonCodeInterface = {
 				}
 				else if (descNotAlpha) {
 					ReadingReasonCodeInterface._addErrColor(targetDescriptionCell);
-					targetDescriptionCell.setAttribute("title", Strings.ALPHANUMERIC_ERROR || "Only alphanumeric characters are allowed");
+					targetDescriptionCell.setAttribute("title", Strings.ALPHANUMERIC_ERROR || "Only alphanumeric characters and hyphens are allowed");
 				}
 				else if (descWithoutRc) {
 					ReadingReasonCodeInterface._addErrColor(targetDescriptionCell);

@@ -1,0 +1,7 @@
+{
+  "appName": "BCSFuel",
+  "objName": "consumption",
+  "serviceName": "deleteConsumptionData",
+  "tableName": "bcsfuel_consumption",
+  "url": "consumption/delete"
+}

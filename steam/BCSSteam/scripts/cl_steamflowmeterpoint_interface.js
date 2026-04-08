@@ -8,8 +8,8 @@
 	Use customDtOpns object to maniuplate data table.
 */
 
-var alphanumericRegex = /^[a-zA-Z0-9 ]+$/;
-var dashRegex = /^[a-zA-Z0-9 -]+$/;
+var alphanumericRegex = /^[a-zA-Z0-9_-]+$/;
+var alphanumericWithSpaceRegex = /^[a-zA-Z0-9 _-]+$/; //as per customer requirement added(-, _)
 
 if (typeof TenantSteamFlowMeterPointInterface === 'undefined')
 	TenantSteamFlowMeterPointInterface = {};
@@ -118,7 +118,7 @@ var SteamFlowMeterPointInterface = {
 				return false;
 			}
 
-			if (!dashRegex.test(value)) {
+			if (!alphanumericRegex.test(value)) {
 				s_info(Strings.ERROR, Strings.INVALID_SFMP_CODE_FORMAT, dlgOptions);
 				return false;
 			}
@@ -132,7 +132,7 @@ var SteamFlowMeterPointInterface = {
 				return false;
 			}
 
-			if (!alphanumericRegex.test(value)) {
+			if (!alphanumericWithSpaceRegex.test(value)) {
 				s_info(Strings.ERROR, Strings.INVALID_SFMP_DESC_FORMAT, dlgOptions);
 				return false;
 			}
@@ -172,7 +172,7 @@ var SteamFlowMeterPointInterface = {
 				return false;
 			}
 
-			if (!dashRegex.test(value)) {
+			if (!alphanumericRegex.test(value)) {
 				s_info(Strings.ERROR, Strings.INVALID_SFMP_CODE_FORMAT, dlgOptions);
 				return false;
 			}
@@ -186,7 +186,7 @@ var SteamFlowMeterPointInterface = {
 				return false;
 			}
 
-			if (!alphanumericRegex.test(value)) {
+			if (!alphanumericWithSpaceRegex.test(value)) {
 				s_info(Strings.ERROR, Strings.INVALID_SFMP_DESC_FORMAT, dlgOptions);
 				return false;
 			}

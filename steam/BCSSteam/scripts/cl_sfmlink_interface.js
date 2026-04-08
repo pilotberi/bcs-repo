@@ -8,8 +8,8 @@
 	Use customDtOpns object to maniuplate data table.
 */
 
-
-var alphanumericRegex = /^[a-zA-Z0-9 ]+$/;
+var alphanumericRegex = /^[a-zA-Z0-9_-]+$/;
+var alphanumericWithSpaceRegex = /^[a-zA-Z0-9 _-]+$/; //as per customer requirement added(-, _)
 
 if (typeof TenantSfmLinkInterface === 'undefined')
 	TenantSfmLinkInterface = {};
@@ -134,7 +134,7 @@ var SfmLinkInterface = {
 				return false;
 			}
 
-			if (!alphanumericRegex.test(value)) {
+			if (!alphanumericWithSpaceRegex.test(value)) {
 				s_info(Strings.ERROR, Strings.INVALID_SFMP_CONNECT_STATUS_DESC_FORMAT, dlgOptions);
 				return false;
 			}
@@ -203,7 +203,7 @@ var SfmLinkInterface = {
 				return false;
 			}
 
-			if (!alphanumericRegex.test(value)) {
+			if (!alphanumericWithSpaceRegex.test(value)) {
 				s_info(Strings.ERROR, Strings.INVALID_SFMP_CONNECT_STATUS_DESC_FORMAT, dlgOptions);
 				return false;
 			}

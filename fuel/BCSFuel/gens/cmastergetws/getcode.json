@@ -1,0 +1,9 @@
+{
+  "appName": "BCSFuel",
+  "objName": "code",
+  "serviceName": "getCode",
+  "url": "master/getcode",
+  "tableName": "bcsfuel_combined_master",
+  "masterTableName": "code",
+  "defaultData": []
+}

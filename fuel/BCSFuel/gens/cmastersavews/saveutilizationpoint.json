@@ -1,0 +1,8 @@
+{
+  "appName": "BCSFuel",
+  "objName": "utilizationpoint",
+  "serviceName": "saveUtilizationPoint",
+  "tableName": "bcsfuel_combined_master",
+  "masterTableName": "utilizationPoint",
+  "url": "master/saveutilizationpoint"
+}

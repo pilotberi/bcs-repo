@@ -1,0 +1,10 @@
+{
+	"appName": "BCSFuel",
+	"objName": "utilizationPoint",
+	"serviceName": "getAllUtilizationWithoutLimit",
+	"url": "utilizationpoint/getall",
+	"params": [],
+	"setJson": false,
+	"setMethod": "POST",
+	"contentType": ""
+}

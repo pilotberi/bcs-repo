@@ -1,0 +1,7 @@
+{
+	"appName": "BCSFuel",
+	"objName": "utilizationPoint",
+	"serviceName": "updateUtilizationPoint",
+	"tableName": "bcsfuel_utilization_point",
+	"url": "utilizationpoint/update"
+}

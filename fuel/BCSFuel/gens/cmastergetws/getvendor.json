@@ -1,0 +1,9 @@
+{
+  "appName": "BCSFuel",
+  "objName": "vendor",
+  "serviceName": "getVendor",
+  "url": "master/getvendor",
+  "tableName": "bcsfuel_combined_master",
+  "masterTableName": "vendor",
+  "defaultData": []
+}

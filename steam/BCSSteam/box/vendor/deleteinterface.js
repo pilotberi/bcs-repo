@@ -48,27 +48,7 @@ module.exports = {
 
 			var getBySfmByVendors = {};
 			getBySfmByVendors.cols = [
-				"sfm_code",
-				"sfm_description",
-				"vendor_id",
-				"model_no",
-				"serial_no",
-				"year_of_manufacturing",
-				"working_principle_id",
-				"size_id",
-				"flow_rate_min",
-				"flow_rate_max",
-				"input_power_id",
-				"output_signal_id",
-				"connected_tnpcb",
-				"tnpcb_ref",
-				"connected_cpcb",
-				"cpcb_ref",
-				"remarks",
-				"created_by",
-				"created_on",
-				"modified_by",
-				"modified_on"
+				"vendor_id"
 			]
 
 			getBySfmByVendors.filter = [];

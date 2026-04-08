@@ -8,7 +8,8 @@
 	Use customDtOpns object to maniuplate data table.
 */
 
-var alphanumericRegex = /^[a-zA-Z0-9 ]+$/;
+var alphanumericRegex = /^[a-zA-Z0-9_-]+$/;
+var alphanumericWithSpaceRegex = /^[a-zA-Z0-9 _-]+$/; //as per customer requirement added(-, _)
 
 if (typeof TenantSfmStatusInterface === 'undefined')
 	TenantSfmStatusInterface = {};
@@ -82,8 +83,9 @@ var SfmStatusInterface = {
 		return dataArr;
 	},
 
-	renderData: function(value, type, dtObj, meta) {
+	renderData: function(dataDisplay, data, type, dtObj, meta) {// dataDisplay, data, type, dtObj, meta
 		//custom code goes here
+        var value = data;
 
 		var rVal;
 
@@ -130,7 +132,7 @@ var SfmStatusInterface = {
 				return false;
 			}
 
-			if (!alphanumericRegex.test(value)) {
+			if (!alphanumericWithSpaceRegex.test(value)) {
 				s_info(Strings.ERROR, Strings.INVALID_SFMP_CONNECT_STATUS_DESC_FORMAT, dlgOptions);
 				return false;
 			}
@@ -199,7 +201,7 @@ var SfmStatusInterface = {
 				return false;
 			}
 
-			if (!alphanumericRegex.test(value)) {
+			if (!alphanumericWithSpaceRegex.test(value)) {
 				s_info(Strings.ERROR, Strings.INVALID_SFMP_CONNECT_STATUS_DESC_FORMAT, dlgOptions);
 				return false;
 			}

@@ -1,0 +1,275 @@
+{
+	"appName": "BCSFuel",
+	"om":
+	{
+		"bcsfuel_combined_master":
+		{
+			"master_name":
+			{
+				"type": "string"
+			},
+			"master_data":
+			{
+				"type": "text"
+			},
+			"edited_by":
+			{
+				"type": "string"
+			},
+			"edited_on":
+			{
+				"type": "bigint"
+			}
+		},
+
+		"bcsfuel_purchase":
+		{
+			"purchase_date":
+			{
+				"type": "bigint"
+			},
+			"fuel_code_id":
+			{
+				"type": "string"
+			},
+			"fuel_unit_id":
+			{
+				"type": "string"
+			},
+			"fuel_vendor_id":
+			{
+				"type": "string"
+			},
+			"fuel_qty":
+			{
+				"type": "double"
+			},
+			"fuel_value":
+			{
+				"type": "double"
+			},
+			"fuel_gst_value":
+			{
+				"type": "double"
+			},
+			"total_fuel_value":
+			{
+				"type": "double"
+			},
+			"unit_price":
+			{
+				"type": "double"
+			},
+			"remarks":
+			{
+				"type": "string"
+			},
+			"created_by":
+			{
+				"type": "string"
+			},
+			"created_on":
+			{
+				"type": "bigint"
+			},
+			"modified_by":
+			{
+				"type": "string"
+			},
+			"modified_on":
+			{
+				"type": "bigint"
+			}
+		},
+
+		"bcsfuel_consumption":
+		{
+			"record_date":
+			{
+				"type": "bigint"
+			},
+			"fuel_utilization_point_id":
+			{
+				"type": "string"
+			},
+			"fuel_code_id":
+			{
+				"type": "string"
+			},
+			"consumed_qty":
+			{
+				"type": "double"
+			},
+			"fuel_unit_id":
+			{
+				"type": "string"
+			},
+			"avg_consumption_per_day":
+			{
+				"type": "double"
+			},
+			"consumed_value":
+			{
+				"type": "double"
+			},
+			"consumed_gst_value":
+			{
+				"type": "double"
+			},
+			"consumed_total_value":
+			{
+				"type": "double"
+			},
+			"unit_price":
+			{
+				"type": "double"
+			},
+			"remarks":
+			{
+				"type": "string"
+			},
+			"created_by":
+			{
+				"type": "string"
+			},
+			"created_on":
+			{
+				"type": "bigint"
+			},
+			"modified_by":
+			{
+				"type": "string"
+			},
+			"modified_on":
+			{
+				"type": "bigint"
+			}
+		},
+
+		"bcsfuel_loss":
+		{
+			"record_date":
+			{
+				"type": "bigint"
+			},
+			"fuel_code_id":
+			{
+				"type": "string"
+			},
+			"fuel_unit_id":
+			{
+				"type": "string"
+			},
+			"fuel_yard_id":
+			{
+				"type": "string"
+			},
+			"fuel_loss_qty":
+			{
+				"type": "double"
+			},
+			"fuel_loss_percentage":
+			{
+				"type": "double"
+			},
+			"fuel_loss_value":
+			{
+				"type": "double"
+			},
+			"fuel_loss_gst_value":
+			{
+				"type": "double"
+			},
+			"fuel_loss_total_value":
+			{
+				"type": "double"
+			},
+			"unit_price":
+			{
+				"type": "double"
+			},
+			"remarks":
+			{
+				"type": "string"
+			},
+			"created_by":
+			{
+				"type": "string"
+			},
+			"created_on":
+			{
+				"type": "bigint"
+			},
+			"modified_by":
+			{
+				"type": "string"
+			},
+			"modified_on":
+			{
+				"type": "bigint"
+			}
+		},
+		"bcsfuel_vendor":
+		{
+			"business_partner_id":
+			{
+				"type": "string"
+			},
+			"business_partner_short_name":
+			{
+				"type": "string"
+			},
+			"isactive":
+			{
+				"type": "bool"
+			},
+			"created_by":
+			{
+				"type": "string"
+			},
+			"created_on":
+			{
+				"type": "bigint"
+			},
+			"modified_by":
+			{
+				"type": "string"
+			},
+			"modified_on":
+			{
+				"type": "bigint"
+			}
+		},
+		"bcsfuel_utilization_point":
+		{
+			"resources_id":
+			{
+				"type": "string"
+			},
+			"resources_short_name":
+			{
+				"type": "string"
+			},
+			"isactive":
+			{
+				"type": "bool"
+			},
+			"created_by":
+			{
+				"type": "string"
+			},
+			"created_on":
+			{
+				"type": "bigint"
+			},
+			"modified_by":
+			{
+				"type": "string"
+			},
+			"modified_on":
+			{
+				"type": "bigint"
+			}
+		}
+	}
+}

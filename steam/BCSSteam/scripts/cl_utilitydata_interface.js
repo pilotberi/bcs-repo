@@ -8,8 +8,10 @@
 	Use customDtOpns object to maniuplate data table.
 */
 
+var alphanumericRegex = /^[a-zA-Z0-9_-]+$/;
+var alphanumericWithSpaceRegex = /^[a-zA-Z0-9 _-]+$/; //as per customer requirement added(-, _)
 
-var alphanumericRegex = /^[a-zA-Z0-9 ]+$/;
+
 var isCurrentlyFull = clCommon.getCookie("bcssteam_full_view");
 var addUtilityBtnFullView;
 
@@ -209,8 +211,8 @@ var UtilityInterface = {
 				return false;
 			}
 
-			if (!alphanumericRegex.test(value)) {
-				s_info(Strings.ERROR, Strings.INVALID_SFMP_DESC_FORMAT, dlgOptions);
+			if (!alphanumericWithSpaceRegex.test(value)) {
+				s_info(Strings.ERROR, Strings.INVALID_UTILITY_DESC_FORMAT, dlgOptions);
 				return false;
 			}
 		}
@@ -267,8 +269,8 @@ var UtilityInterface = {
 				return false;
 			}
 
-			if (!alphanumericRegex.test(value)) {
-				s_info(Strings.ERROR, Strings.INVALID_SFMP_DESC_FORMAT, dlgOptions);
+			if (!alphanumericWithSpaceRegex.test(value)) {
+				s_info(Strings.ERROR, Strings.INVALID_UTILITY_DESC_FORMAT, dlgOptions);
 				return false;
 			}
 		}
