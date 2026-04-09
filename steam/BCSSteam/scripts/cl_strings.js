@@ -752,7 +752,7 @@ var Strings = {
 	"INVALID_SFMP_CONNECT_STATUS_REF_ID_FORMAT": "SFMC Ref ID must contain only alphanumeric characters and hyphens.",
 	"INVALID_SFMP_CONNECT_STATUS_DESC_LENGTH": "Remark must not exceed 100 characters.",
 	"INVALID_SFMP_CONNECT_STATUS_DESC_FORMAT": "Remark must contain only alphanumeric characters and hyphens.",
-	"INVALID_UTILITY_DESC_FORMAT":"Remark must contain only alphanumeric characters and hyphens.",
+	"INVALID_UTILITY_DESC_FORMAT": "Remark must contain only alphanumeric characters and hyphens.",
 	"INVALID_SFMC_END_DATE_REQUIRED": "End Date must be provided when SFMC Active is set to No.",
 	"INACTIVE_CONNECTIVITY_OPTION": "The selected Connectivity Option is currently inactive. Please try active one.",
 

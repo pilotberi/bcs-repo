@@ -142,8 +142,11 @@ var UtilityInterface = {
 		return dataArr;
 	},
 
-	renderData: function(value, type, dtObj, meta) {
+	renderData: function(dataDisplay, data, type, row, meta) {
 		//custom code goes here
+		var value = data;
+		var dtObj = row;
+
 		var rVal;
 		switch(meta.col){
 			case 0 :
